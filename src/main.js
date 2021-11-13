@@ -1,5 +1,17 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './style/index.css'
+import {registerComponents} from './plugin/registerGlobally'
+import router from './router';
 
-createApp(App).mount('#app')
+import './assets/style/index.css'
+
+const init = async ()=>{
+
+    const app = createApp(App)
+await registerComponents(app)
+app.use(router).mount('#app')
+}
+
+init()
+
+
