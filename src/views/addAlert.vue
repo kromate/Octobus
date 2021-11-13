@@ -3,15 +3,15 @@
       <span class="text-xl text-primary mb-4">
         No Alerts available
       </span>
-      <router-link to="/add" class="btn">
+      <button class="btn">
         Add Bus Alert
-      </router-link>
+      </button>
   </div>
 </template>
 
 <script>
 export default {
- name:'AlertPage',
+ name:'addAlertPage',
 
 }
 </script>

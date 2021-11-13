@@ -19,6 +19,14 @@ const routes = [
 	meta:{
 		layout:'landing'
 	}
+  },
+  {
+    path: '/add',
+    name: 'Add',
+    component: ()=> import('../views/addAlert.vue'),
+	meta:{
+		layout:'add'
+	}
   }
 ]
 

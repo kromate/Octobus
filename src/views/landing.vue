@@ -12,7 +12,6 @@ import { useGeolocation } from '../composables/useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-console.log(GOOGLE_MAPS_API_KEY);
 
 export default {
   name: 'App',
