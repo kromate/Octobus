@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapDiv" class="map fixed top-12 bottom-12" />
+  <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
 </template>
 
 

@@ -1,5 +1,5 @@
 <template>
-  <nav class="z-50 fixed bottom-0 inset-x-0 bg-lightGray h-12 flex justify-between w-full text-gray duration-300 transition-all">
+  <nav class="z-50 fixed bottom-0 inset-x-0 bg-lightGray h-[7vh] flex justify-between w-full text-gray duration-300 transition-all">
 
   <router-link to="/"  class="w-full block py-5 px-3 text-center  duration-200 transition-all ease-in">
   <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
