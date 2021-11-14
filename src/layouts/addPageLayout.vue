@@ -14,15 +14,13 @@
   
   </topbar>
   <slot/>
-  <bottom-nav/>
 </template>
 
 <script>
-import BottomNav from '../components/BottomNav.vue'
 import Topbar from '../components/Topbar.vue'
 import {useRouter} from 'vue-router'
 export default {
-  components: { Topbar, BottomNav },
+  components: { Topbar },
     setup(){
     const router = useRouter()
     return{
