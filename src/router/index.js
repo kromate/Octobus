@@ -27,7 +27,33 @@ const routes = [
 	meta:{
 		layout:'add'
 	}
-  }
+  },
+  {
+    path: '/findbuses',
+    name: 'findBuses',
+    component: ()=> import('../views/findBuses.vue'),
+    meta:{
+      layout:'find'
+    }
+  },
+
+  {
+    path: '/signup',
+    name: 'SignUp',
+    component: ()=> import('../views/signUp.vue'),
+    meta:{
+      layout:'auth'
+    }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: ()=> import('../views/login.vue'),
+    meta:{
+      layout:'auth'
+    }
+  },
+  
 ]
 
 const router = createRouter({

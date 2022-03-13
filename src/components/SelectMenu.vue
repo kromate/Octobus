@@ -11,7 +11,7 @@ class="relative w-full bg-lightGray  focus:ring-1 ring-primary active:border rou
           <span class="ml-3 block truncate text-gray">{{ selected.name }}</span>
         </span>
         <span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-          <img src="../assets/icons/selector.svg"/>
+          <i class="fa-solid fa-angle-down"></i>
         </span>
       </ListboxButton>
 
