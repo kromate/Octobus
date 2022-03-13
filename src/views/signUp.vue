@@ -42,7 +42,7 @@ export default {
             error.value = 'Password does not match'
         }
         else if(password1.value.length < 8){
-            error.value = 'A mininmum of 8 characters is required'
+            error.value = 'A mininmum of 8 characters is required for verification'
         }
         else{
         await store.dispatch('signup', {
