@@ -7,13 +7,17 @@
 <script lang="ts">
 import landingLayout from './landingPage.vue'
 import addLayout from './addPageLayout.vue'
+import authLayout from './authPageLayout.vue'
+import findLayout from './findPageLayout.vue'
 import { shallowRef, watch } from 'vue'
 // @ts-ignore
 import { useRoute } from 'vue-router'
 
 const components = {
 	landingLayout,
-	addLayout
+	addLayout,
+	authLayout,
+	findLayout
 }
 
 export default {

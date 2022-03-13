@@ -4,7 +4,7 @@
 
 <select-menu placeholder='route'>
   <template #icon>
-    <img src="../assets/icons/place.svg"/>
+    <i class="fa-light fa-location-dot text-primary text-base"></i>
   </template>
 </select-menu>
 <select-menu>
@@ -24,7 +24,7 @@
 </select-menu>
 <select-menu>
   <template #icon>
-    <img src="../assets/icons/add_bell.svg"/>
+    <i class="fa-solid fa-bell text-primary text-base "></i>
   </template>
 </select-menu>
 
