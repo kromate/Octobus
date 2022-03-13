@@ -2,7 +2,7 @@
   <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
 
     <!-- This library gave cors error -->
-   <!-- <GoogleMap api-key = 'AIzaSyCGrDvnlEC_PO9HrXii0S24g-CrwohRJuE'
+   <!-- <GoogleMap api-key = ''
     class='map fixed top-12 bottom-12 86vh' :center="currPos" :zoom= "4">
      <Marker :options="{ position: currPos }" />
   </GoogleMap> -->
