@@ -1,5 +1,8 @@
 <template>
+<keep-alive>
   <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+</keep-alive>
+
 
     <!-- This library gave cors error -->
    <!-- <GoogleMap api-key = ''
@@ -42,16 +45,16 @@ export default {
       await loader.load()
       map.value = new google.maps.Map(mapDiv.value, {
         center: currPos.value,
-        zoom: 4
+        zoom: 17
       })
-      // setMarker()
+      setMarker()
     })
-  //   const setMarker = () =>{
-  //    const marker =  new google.maps.Marker({
-  //        position: currPos.value,
-  //        map: map,
-  // });
-  //  }
+    const setMarker = () =>{
+     const marker =  new google.maps.Marker({
+         position: currPos.value,
+         map: map.value,
+  });
+   }
  
 
 
