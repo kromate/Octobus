@@ -8,7 +8,7 @@ module.exports = {
       128: '32rem',
      },
     colors:{
-     primary:'#4A545D',
+     primary:'#000000',
      lightGray:'#F6F6F6',
      gray:'#A4A8BA',
      }
