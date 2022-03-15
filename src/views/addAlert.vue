@@ -4,7 +4,7 @@
 
 <select-menu placeholder='route'>
   <template #icon>
-    <i class="fa-light fa-location-dot text-primary text-base"></i>
+    <i class="fa-solid fa-location-dot text-primary text-base"></i>
   </template>
 </select-menu>
 <select-menu>
