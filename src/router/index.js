@@ -28,15 +28,7 @@ const routes = [
 		layout:'add'
 	}
   },
-  {
-    path: '/findbuses',
-    name: 'findBuses',
-    component: ()=> import('../views/findBuses.vue'),
-    meta:{
-      layout:'find'
-    }
-  },
-
+  
   {
     path: '/signup',
     name: 'SignUp',
