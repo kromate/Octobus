@@ -2,16 +2,7 @@
 <keep-alive>
   <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
 </keep-alive>
-<div class=" px-4 z-50 fixed bottom-16 inset-x-0 bg-white justify-between w-full text-gray ">
-  <div class="inputContainer">
-   <i class="fa-solid fa-location-crosshairs text-primary text-left text-2xl px-4 pt-6 w-20"></i>
-   <input class="w-full rounded-xl p-3 bg-lightGray text-center  text-gray mt-4 mb-2" placeholder="Your Location" type="text"  v-model="userLocation" >
-</div>
-<div class="inputContainer">
-    <i class="fa-solid fa-location-dot text-primary text-left text-2xl p-4 w-20"></i>
-    <input class="w-full rounded-xl p-3 bg-lightGray text-center text-gray mb-4 mt-2" placeholder="Where are you going?" type="text"  v-model="userDestination" >
-</div>
-</div>
+<bottom-modal/>
 </template>
 
 
@@ -20,13 +11,15 @@
 /* eslint-disable no-undef */
 
 import { computed, ref,onMounted} from 'vue'
-import { useGeolocation } from '../composables/useGeolocation'
+// import { useGeolocation } from '../composables/useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 import { faBus } from "@fortawesome/free-solid-svg-icons";
+import BottomModal from '../components/BottomModal.vue';
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 export default {
   name: 'App',
+  components: { BottomModal },
   setup() {
     // const { coords } = useGeolocation()
     const userLocation = ref('')
