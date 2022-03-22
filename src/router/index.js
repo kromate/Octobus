@@ -17,7 +17,7 @@ const routes = [
     name: 'landing',
     component: ()=> import('../views/landing.vue'),
 	meta:{
-		layout:'landing'
+		layout:'default'
 	}
   },
   {
