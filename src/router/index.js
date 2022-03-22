@@ -1,13 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Landing from '../views/landing.vue'
+import home from '../views/home.vue'
 import Alert from '../views/alert.vue'
 
 const routes = [
 
   {
     path: '/',
+    name: 'home',
+    component: home,
+	meta:{
+		layout:'landing'
+	}
+  },
+  {
+    path: '/landing',
     name: 'landing',
-    component: Landing,
+    component: ()=> import('../views/landing.vue'),
 	meta:{
 		layout:'landing'
 	}
@@ -34,7 +42,7 @@ const routes = [
     name: 'SignUp',
     component: ()=> import('../views/signUp.vue'),
     meta:{
-      layout:'auth'
+      layout:'default'
     }
   },
   {
@@ -42,7 +50,7 @@ const routes = [
     name: 'Login',
     component: ()=> import('../views/login.vue'),
     meta:{
-      layout:'auth'
+      layout:'default'
     }
   },
   
