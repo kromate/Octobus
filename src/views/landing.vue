@@ -1,5 +1,5 @@
 <template>
-  <div class="nav flex mx-auto container justify-between h-[80px] p-4"> 
+  <div class="nav flex mx-auto container justify-between items-center h-[80px] p-4"> 
     <h2 class="logo text-secondary text-2xl font-extrabold">
       Octobus
     </h2>
@@ -9,10 +9,10 @@
       <button class="btn-outline h-12"> Log In</button>
     </div>
   </div>
-  <div class="w-screen h-[40rem] bg-gray grid place-content-center place-items-center text-white"> 
+  <div class="bg w-screen h-[40rem] grid place-content-center place-items-center text-white "> 
       <p class="text-2xl">Near East University’s</p>
       <h2 class="text-6xl">Bus Navigation System</h2>
-          <button class="btn h-12 !bg-white !text-black">Get started</button>
+          <button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
   </div>
 </template>
 
@@ -22,6 +22,9 @@ name:"LandingPage"
 }
 </script>
 
-<style>
-
+<style scoped>
+.bg{
+background:  rgba(0, 0, 0, 0.5) url('../assets/buses.png');
+background-blend-mode: darken;
+}
 </style>

@@ -11,11 +11,11 @@
 }
 
 .btn{
-    @apply   rounded-xl px-10 py-3 text-lg text-white bg-secondary flex justify-center items-center
+    @apply   rounded-lg px-10 py-3 text-lg text-white bg-secondary flex justify-center items-center
 }
 .btn-outline{
-    @apply border  rounded-xl px-10 py-3 text-lg text-secondary border-secondary flex justify-center items-center
+    @apply border  rounded-lg px-10 py-3 text-lg text-secondary border-secondary flex justify-center items-center
 }
 .tab{
-    @apply border border-primary rounded-xl px-10 py-3 text-lg text-white bg-primary 
+    @apply border border-primary rounded-lg px-10 py-3 text-lg text-white bg-primary 
 }
