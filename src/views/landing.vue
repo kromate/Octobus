@@ -40,6 +40,11 @@ v-for="n in [
       </div>
     </div>
   </div>
+
+    <div class="gray flex flex-col justify-center items-center bg-secondary text-white h-[15rem]">
+<h2 class="text-4xl">Navigating university has never been easier</h2>
+ <button class="btn h-12 !bg-white !text-secondary mt-8">Get started</button>
+  </div>
 </template>
 
 <script>
