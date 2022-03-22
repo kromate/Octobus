@@ -34,7 +34,7 @@ v-for="n in [
       :key="n.img" 
       class="bg-blue rounded-[2rem] w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
       >
-        <img :src="getImageUrl(n.img)" class="h-12 w-12 text-secondary"/>
+        <img :src="n.img" class="h-12 w-12 text-secondary"/>
         <h5 class="font-bold text-2xl">{{n.name}}</h5>
         <p class="text-lg">{{n.details}}   </p>
       </div>
