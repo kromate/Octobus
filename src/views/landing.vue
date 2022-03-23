@@ -1,94 +1,69 @@
 <template>
-  <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+  <div class="nav flex mx-auto container justify-between items-center h-[80px] p-4"> 
+    <h2 class="logo text-secondary text-2xl font-extrabold">
+      Octobus
+    </h2>
+
+    <div class="flex gap-5">
+      <button class="btn h-12">Sign Up</button>
+      <button class="btn-outline h-12"> Log In</button>
+    </div>
+  </div>
+  <div class="bg w-screen h-[40rem] grid place-content-center place-items-center text-white "> 
+      <p class="text-2xl">Near East University’s</p>
+      <h2 class="text-6xl">Bus Navigation System</h2>
+          <button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
+  </div>
+
+  <div class="gray flex flex-col justify-center items-center bg-blue h-[15rem]">
+<h2 class="text-4xl">Never miss a class with Octobus.</h2>
+<p class="text-lg mt-4">Stay up to date on all available buses and routes.</p>
+  </div>
+
+  <div class="flex flex-col w-full justify-center items-center py-32">
+    <h2 class="text-center text-5xl mb-16">How it works</h2>
+
+    <div class="flex gap-8">
+      <div
+v-for="n in [
+      {img:'../assets/icons/route.svg', name:'Find bus routes', details:'Find out the routes closest to your location and destination, so that you can always catch a bus to your destinaion.'},
+      {img:'../assets/icons/date.svg', name:'Check bus schedules', details:'Check the date, time, route, start point and depature time of all available buses so you know when to board the right bus.'},
+      {img:'../assets/icons/add_bell.svg', name:'Set bus alerts', details:'Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.'},
+      
+      ]"
+      :key="n.img" 
+      class="bg-blue rounded-[2rem] w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img :src="n.img" class="h-12 w-12 text-secondary"/>
+        <h5 class="font-bold text-2xl">{{n.name}}</h5>
+        <p class="text-lg">{{n.details}}   </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="gray flex flex-col justify-center items-center bg-secondary text-white h-[15rem]">
+<h2 class="text-4xl">Navigating university has never been easier</h2>
+ <button class="btn h-12 !bg-white !text-secondary mt-8">Get started</button>
+  </div>
 </template>
 
-
-
 <script>
-/* eslint-disable no-undef */
-// import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
-import { computed, ref, onMounted } from 'vue'
-import { useGeolocation } from '../composables/useGeolocation'
-import { Loader } from '@googlemaps/js-api-loader'
-
-const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-
 export default {
-  name: 'App',
-  setup() {
-    const { coords } = useGeolocation()
-    const currPos = computed(() => ({
-      lat: coords.value.latitude,
-      lng: coords.value.longitude
-    }))
-    const otherPos = ref(null)
-
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
-    const mapDiv = ref(null)
-    let map = ref(null)
-    // let clickListener = null
-    onMounted(async () => {
-      await loader.load()
-      map.value = new google.maps.Map(mapDiv.value, {
-        center: currPos.value,
-        zoom: 7
-      })
-
-    })
-    //   clickListener = map.value.addListener(
-    //     'click',
-    //     ({ latLng: { lat, lng } }) =>
-    //       (otherPos.value = { lat: lat(), lng: lng() })
-    //   )
-    // })
-    // onUnmounted(async () => {
-    //   if (clickListener) clickListener.remove()
-    // })
-
-    // let line = null
-    // watch([map, currPos, otherPos], () => {
-    //   if (line) line.setMap(null)
-    //   if (map.value && otherPos.value != null)
-    //     line = new google.maps.Polyline({
-    //       path: [currPos.value, otherPos.value],
-    //       map: map.value
-    //     })
-    // })
-
-    // const haversineDistance = (pos1, pos2) => {
-    //   const R = 3958.8 // Radius of the Earth in miles
-    //   const rlat1 = pos1.lat * (Math.PI / 180) // Convert degrees to radians
-    //   const rlat2 = pos2.lat * (Math.PI / 180) // Convert degrees to radians
-    //   const difflat = rlat2 - rlat1 // Radian difference (latitudes)
-    //   const difflon = (pos2.lng - pos1.lng) * (Math.PI / 180) // Radian difference (longitudes)
-
-    //   const d =
-    //     2 *
-    //     R *
-    //     Math.asin(
-    //       Math.sqrt(
-    //         Math.sin(difflat / 2) * Math.sin(difflat / 2) +
-    //           Math.cos(rlat1) *
-    //             Math.cos(rlat2) *
-    //             Math.sin(difflon / 2) *
-    //             Math.sin(difflon / 2)
-    //       )
-    //     )
-    //   return d
-    // }
-    // const distance = computed(() =>
-    //   otherPos.value === null
-    //     ? 0
-    //     : haversineDistance(currPos.value, otherPos.value)
-    // )
-    return { currPos, otherPos,  mapDiv }
+name:"LandingPage",
+setup(){
+const getImageUrl = (name) => {
+        return new URL(name, import.meta.url).href
+    }
+  return{
+getImageUrl
   }
+}
 }
 </script>
 
-
-<style>
-.map{
-  height: calc(100vh - 96px);
+<style scoped>
+.bg{
+background:  rgba(0, 0, 0, 0.5) url('../assets/buses.png');
+background-blend-mode: darken;
 }
 </style>

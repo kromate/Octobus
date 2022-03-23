@@ -11,9 +11,11 @@
 }
 @layer components{
 .btn{
-    @apply border border-primary rounded-xl px-10 py-3 text-lg text-primary hover:text-white hover:bg-primary
+    @apply   rounded-lg px-10 py-3 text-lg text-white bg-secondary flex justify-center items-center
+}
+.btn-outline{
+    @apply border  rounded-lg px-10 py-3 text-lg text-secondary border-secondary flex justify-center items-center
 }
 .tab{
-    @apply border border-primary rounded-xl px-10 py-3 text-lg text-white bg-primary 
-}
+    @apply border border-primary rounded-lg px-10 py-3 text-lg text-white bg-primary 
 }

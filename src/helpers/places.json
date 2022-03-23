@@ -1,0 +1,27 @@
+[
+    {
+        "time":"15:00",
+        "to": "Oyo",
+        "From": "Ibadan"
+    },
+    {
+        "time":"16:00",
+        "to": "Oyo",
+        "From": "Ibadan"
+    },
+    {
+        "time":"17:00",
+        "to": "Oyo",
+        "From": "Ibadan"
+    },
+    {
+        "time":"18:00",
+        "to": "Oyo",
+        "From": "Ibadan"
+    },
+    {
+        "time":"19:00",
+        "to": "Oyo",
+        "From": "Ibadan"
+    }
+]

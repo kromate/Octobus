@@ -1,30 +1,29 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\ANTONY\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @heroicons/vue/solid
+  /usr/local/bin/node /usr/local/bin/yarn
 
 PATH: 
-  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Program Files (x86)\Intel\TXE Components\TCS\;C:\Program Files\Intel\TXE Components\TCS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Acer\Remote Files\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\php;C:\ProgramData\ComposerSetup\bin;;C:\Users\ANTONY\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ANTONY\AppData\Roaming\npm;C:\Users\ANTONY\AppData\Roaming\Composer\vendor\bin
+  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kromate/Library/Android/Sdk/emulator:/Users/kromate/Library/Android/Sdk/tools:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
 
 Yarn version: 
-  1.22.11
+  1.22.17
 
 Node version: 
-  14.17.6
+  16.14.0
 
 Platform: 
-  win32 x64
+  darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@heroicons%2fvue/solid: Request "https://registry.yarnpkg.com/@heroicons%2fvue/solid" returned a 405
-      at Request.params.callback [as _callback] (C:\Users\ANTONY\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67001:18)
-      at Request.self.callback (C:\Users\ANTONY\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140763:22)
-      at Request.emit (events.js:400:28)
-      at Request.<anonymous> (C:\Users\ANTONY\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141735:10)
-      at Request.emit (events.js:400:28)
-      at IncomingMessage.<anonymous> (C:\Users\ANTONY\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141657:12)
-      at Object.onceWrapper (events.js:519:28)
-      at IncomingMessage.emit (events.js:412:35)
-      at endReadableNT (internal/streams/readable.js:1317:12)
-      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+  Error: https://registry.yarnpkg.com/firebase: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141510:19)
+      at Object.onceWrapper (node:events:639:28)
+      at ClientRequest.emit (node:events:520:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:758:9)
+      at Object.onceWrapper (node:events:639:28)
+      at TLSSocket.emit (node:events:532:35)
+      at TLSSocket.Socket._onTimeout (node:net:501:8)
+      at listOnTimeout (node:internal/timers:559:17)
+      at processTimers (node:internal/timers:502:7)
 
 npm manifest: 
   {
@@ -37,12 +36,16 @@ npm manifest:
       "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
     },
     "dependencies": {
+      "@fortawesome/fontawesome-free": "^6.0.0",
       "@googlemaps/js-api-loader": "^1.11.1",
       "@headlessui/vue": "^1.4.2",
+      "firebase": "^9.6.8",
       "mdi-vue": "1.4.5",
       "tailwind": "^4.0.0",
       "vue": "^3.2.16",
-      "vue-router": "^4.0.11"
+      "vue-router": "^4.0.11",
+      "vue3-google-map": "^0.8.3",
+      "vuex": "^4.0.2"
     },
     "devDependencies": {
       "@vitejs/plugin-vue": "^1.9.3",
@@ -183,6 +186,20 @@ Lockfile:
     version "1.9.4"
     resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.9.4.tgz#4f48485432cbb986a9fb9d254dc33ce30ddccbfa"
     integrity sha512-0CZqaCoChriPTTtGkERy1LGPcYjGFpi2uYRhBPIkqJqUGV5JnJFhQAgh6oH9j5XZHfrRaisX8W0xSpO4T7S78A==
+  
+  "@vue-hero-icons/outline@^1.7.2":
+    version "1.7.2"
+    resolved "https://registry.yarnpkg.com/@vue-hero-icons/outline/-/outline-1.7.2.tgz#ec723ee45e142d2249948c58be65f5d35e3c4ed3"
+    integrity sha512-mgMpncarjZHXY1K2tyjbYHf53yQG9amroDR9t2iH/umpsN8+f8RNcTy1m131EZ8WBCm8MpF97XpXPV129rvtVg==
+    dependencies:
+      babel-helper-vue-jsx-merge-props "^2.0.3"
+  
+  "@vue-hero-icons/solid@^1.7.2":
+    version "1.7.2"
+    resolved "https://registry.yarnpkg.com/@vue-hero-icons/solid/-/solid-1.7.2.tgz#40ce7dca69e216e84af5e3ed7635432b360ac024"
+    integrity sha512-ngjgdYgdjXp8BuHmx998Kl2tAmbatJXdYO8Cut+DXo9OVGZMuVmIzIjnar4H5Wf9wFVdCuag+HazLEu9F7T3cw==
+    dependencies:
+      babel-helper-vue-jsx-merge-props "^2.0.3"
   
   "@vue/compiler-core@3.2.20":
     version "3.2.20"
@@ -427,6 +444,11 @@ Lockfile:
       normalize-range "^0.1.2"
       picocolors "^1.0.0"
       postcss-value-parser "^4.1.0"
+  
+  babel-helper-vue-jsx-merge-props@^2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-2.0.3.tgz#22aebd3b33902328e513293a8e4992b384f9f1b6"
+    integrity sha512-gsLiKK7Qrb7zYJNgiXKpXblxbV5ffSwR0f5whkPAaBAR4fhi6bwRZxX9wBlIc5M/v8CCkXUbXZL4N/nSE97cqg==
   
   babel-runtime@6.26.0:
     version "6.26.0"
