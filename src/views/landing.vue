@@ -56,30 +56,36 @@
     <div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
     <h2 class="text-center md:text-5xl text-3xl mb-16">What students say</h2>
 
-    <div class="flex gap-8 md:flex-wrap md:flex-row flex-col justify-center items-center">
+      <div class="flex gap-8 md:flex-wrap md:flex-row flex-col justify-center items-center">
       <div
       class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
       >
-        <img src="../assets/icons/route.svg" class="h-12 w-12 text-secondary"/>
-        <h5 class="font-bold text-2xl">Find bus routes</h5>
-        <p class="text-lg">Find out the routes closest to your location and destination, so that you can always catch a bus to your destinaion.   </p>
+        <img src="../assets/people/1.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Christina Campbell</h5>
+        <p class="text-lg">I set an alert for morning buses. It is super helpful to be reminded when they are leaving before they leave.  </p>
       </div>
       <div
       class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
       >
-        <img src="../assets/icons/date.svg" class="h-12 w-12 text-secondary"/>
-        <h5 class="font-bold text-2xl">Check bus schedules</h5>
-        <p class="text-lg">Check the date, time, route, start point and depature time of all available buses so you know when to board the right bus.   </p>
+        <img src="../assets/people/2.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Lekan Peiter</h5>
+        <p class="text-lg">I have been able to catch the bus on the road so many times just by being on the same route. Always a great help.  </p>
       </div>
       <div
       class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
       >
-        <img src="../assets/icons/add_bell.svg" class="h-12 w-12 text-secondary"/>
-        <h5 class="font-bold text-2xl">Set bus alerts</h5>
-        <p class="text-lg">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
+        <img src="../assets/people/3.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Lenny Vilha</h5>
+        <p class="text-lg">I have been able to plan my daily schedule with the bus schedules. I get around campus easily now.  </p>
       </div>
     </div>
   </div>
+
+  <footer class="w-full bg-blue">
+<div class="w-8/12">
+
+</div>
+  </footer>
 </template>
 
 <script>
