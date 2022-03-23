@@ -10,7 +10,7 @@ const routes = [
     component: Landing,
 	meta:{
 		layout:'landing'
-	}
+	} 
   },
   {
     path: '/alert',
