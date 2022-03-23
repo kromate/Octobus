@@ -4,9 +4,9 @@
       Octobus
     </h2>
 
-    <div class="md:flex gap-5 hidden ">
-      <button class="btn h-12">Sign Up</button>
-      <button class="btn-outline h-12"> Log In</button>
+    <div class="flex gap-5 ">
+      <router-link to="/signup" class="btn h-12 hidden md:block">Sign Up</router-link >
+      <router-link to="/login" class="btn-outline h-12"> Log In</router-link >
     </div>
   </div>
   <div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
