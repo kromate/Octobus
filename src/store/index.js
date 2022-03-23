@@ -10,7 +10,17 @@ import {
 
 const store = createStore({
     state: {
-        user: null
+        user: null,
+        alerts:[
+            // An example
+            {
+                id: 1,
+                name: "Chelsea Shoes",
+                price: 200,
+                shortdesc: "Best Drip in the Market",
+                url: "images/chelsea-shoes.png"
+              },
+        ]
     },
     mutations: {
         setUser(state, payload) {
