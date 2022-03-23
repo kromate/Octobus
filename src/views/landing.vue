@@ -81,9 +81,32 @@
     </div>
   </div>
 
-  <footer class="w-full bg-blue">
-<div class="w-8/12">
-
+  <footer class="w-full bg-blue md:p-24 p-8 mt-12">
+<div class="w-full flex flex-wrap gap-10 justify-between items-start mx-auto">
+<div class="flex flex-col">
+     <h2 class="logo text-secondary text-2xl font-extrabold">
+      Octobus
+    </h2>
+    <p>Nicosia, Cyprus.</p>
+    <p>tel: +90 000 0CT 0BUS</p>
+    <p>email: octobus@gmail.com</p>
+</div>
+<div class="flex flex-col">
+     <h2 class="logo  text-lg font-extrabold">
+      Company
+    </h2>
+    <p>FAQs</p>
+    <p>Privacy Policy</p>
+    <p>Terms and Conditions</p>
+</div>
+<div class="flex flex-col">
+     <h2 class="logo  text-lg font-extrabold">
+      Partners
+    </h2>
+    <p>Near East University</p>
+    <p>Cyprus International University</p>
+    <p>University of Cyprus</p>
+</div>
 </div>
   </footer>
 </template>
