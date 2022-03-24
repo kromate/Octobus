@@ -1,120 +1,133 @@
 <template>
-<keep-alive>
-  <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
-</keep-alive>
-<bottom-modal/>
+  <div class="nav flex mx-auto container justify-between items-center h-[80px] p-4"> 
+    <h2 class="logo text-secondary text-2xl font-extrabold">
+      Octobus
+    </h2>
+
+    <div class="flex gap-5 ">
+      <router-link to="/signup" class="btn h-12 hidden md:block">Sign Up</router-link >
+      <router-link to="/login" class="btn-outline h-12"> Log In</router-link >
+    </div>
+  </div>
+  <div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
+      <p class="md:text-2xl text-4xl">Near East University’s</p>
+      <h2 class="md:text-6xl text-3xl">Bus Navigation System</h2>
+          <button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
+  </div>
+
+  <div class="gray flex flex-col justify-center items-center bg-blue md:h-[15rem] h-[10rem] text-center px-4">
+<h2 class="md:text-4xl text-2xl">Never miss a class with Octobus.</h2>
+<p class="md:text-lg mt-4">Stay up to date on all available buses and routes.</p>
+  </div>
+
+  <div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
+    <h2 class="text-center md:text-5xl text-3xl mb-16">How it works</h2>
+
+    <div class="flex gap-8 md:flex-wrap md:flex-row flex-col justify-center items-center">
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/icons/route.svg" class="h-12 w-12 text-secondary"/>
+        <h5 class="font-bold text-2xl">Find bus routes</h5>
+        <p class="text-lg">Find out the routes closest to your location and destination, so that you can always catch a bus to your destinaion.   </p>
+      </div>
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/icons/date.svg" class="h-12 w-12 text-secondary"/>
+        <h5 class="font-bold text-2xl">Check bus schedules</h5>
+        <p class="text-lg">Check the date, time, route, start point and depature time of all available buses so you know when to board the right bus.   </p>
+      </div>
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/icons/add_bell.svg" class="h-12 w-12 text-secondary"/>
+        <h5 class="font-bold text-2xl">Set bus alerts</h5>
+        <p class="text-lg">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="gray flex flex-col justify-center items-center bg-secondary text-white h-[15rem]  text-center px-4 py-10 mt-12">
+<h2 class="md:text-4xl text-2xl">Navigating university has never been easier</h2>
+ <button class="btn h-12 !bg-white !text-secondary mt-8">Get started</button>
+  </div>
+
+    <div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
+    <h2 class="text-center md:text-5xl text-3xl mb-16">What students say</h2>
+
+      <div class="flex gap-8 md:flex-wrap md:flex-row flex-col justify-center items-center">
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/people/1.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Christina Campbell</h5>
+        <p class="text-lg">I set an alert for morning buses. It is super helpful to be reminded when they are leaving before they leave.  </p>
+      </div>
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/people/2.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Lekan Peiter</h5>
+        <p class="text-lg">I have been able to catch the bus on the road so many times just by being on the same route. Always a great help.  </p>
+      </div>
+      <div
+      class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg w-[25.375rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-8 text-center"
+      >
+        <img src="../assets/people/3.png" class="h-16 w-16 rounded-full text-secondary"/>
+        <h5 class="font-bold text-2xl">Lenny Vilha</h5>
+        <p class="text-lg">I have been able to plan my daily schedule with the bus schedules. I get around campus easily now.  </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="w-full bg-blue md:p-24 p-8 mt-12">
+<div class="w-full flex flex-wrap gap-10 justify-between items-start mx-auto">
+<div class="flex flex-col">
+     <h2 class="logo text-secondary text-2xl font-extrabold">
+      Octobus
+    </h2>
+    <p>Nicosia, Cyprus.</p>
+    <p>tel: +90 000 0CT 0BUS</p>
+    <p>email: octobus@gmail.com</p>
+</div>
+<div class="flex flex-col">
+     <h2 class="logo  text-lg font-extrabold">
+      Company
+    </h2>
+    <p>FAQs</p>
+    <p>Privacy Policy</p>
+    <p>Terms and Conditions</p>
+</div>
+<div class="flex flex-col">
+     <h2 class="logo  text-lg font-extrabold">
+      Partners
+    </h2>
+    <p>Near East University</p>
+    <p>Cyprus International University</p>
+    <p>University of Cyprus</p>
+</div>
+</div>
+  </footer>
 </template>
 
-
-
 <script>
-/* eslint-disable no-undef */
-
-import { computed, ref,onMounted} from 'vue'
-// import { useGeolocation } from '../composables/useGeolocation'
-import { Loader } from '@googlemaps/js-api-loader'
-import { faBus } from "@fortawesome/free-solid-svg-icons";
-import BottomModal from '../components/BottomModal.vue';
-const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-
 export default {
-  name: 'App',
-  components: { BottomModal },
-  setup() {
-    // const { coords } = useGeolocation()
-    const userLocation = ref('')
-    const userDestination = ref('')
-    
-    // const currPos = computed(() => ({
-    //   lat: 	53.958332,
-    //   lng: -1.080278
-    // }))
-
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
-    const mapDiv = ref(null)
-    var map = ref(null)
-
-    // To remove the default pointers on the map
-    var myStyles =[
-    {
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [
-              { visibility: "off" }
-        ]}];
-
-    onMounted(async () => {
-      await loader.load()
-      map.value = new google.maps.Map(mapDiv.value, {
-        center: { lat: 34.84555, lng: -111.8035 },
-        zoom: 12,
-        disableDefaultUI: true,
-        // styles: myStyles
-      })
-      setMarker()
-    })
-
-
-
-  const busLocations = [
-    
-    [{ lat: 34.8559195, lng: -111.7988186 }, "Airport Mesa"],
-    [{ lat: 34.8791806,  lng: -111.8265049}, "Boynton Pass"],
-    [{ lat: 34.832149, lng: -111.7695277 }, "Chapel of the Holy Cross"],
-    [{ lat: 34.823736, lng: -111.8001857 }, "Red Rock Crossing"],
-    [{ lat: 34.800326, lng: -111.7665047 }, "Bell Rock"],
-  ];
-
-    const setMarker = () =>{
-       
-        const infoWindow = new google.maps.InfoWindow();
-            busLocations.forEach(([position, title], i) => {
-          const marker =  new google.maps.Marker({
-            position,
-            map:map.value,
-            title: `${i + 1}. ${title}`,
-            label: `${i + 1}`,
-            optimized: false,
-              icon: {
-                    path: faBus.icon[4],
-                    fillColor: "#4A545D",
-                    fillOpacity: 1,
-                    strokeWeight: 1,
-                    strokeColor: "#ffffff",
-                    scale: 0.075,},
-          });
-
-   
-    marker.addListener("click", () => {
-      infoWindow.close();
-      infoWindow.setContent(marker.getTitle());
-      infoWindow.open(marker.getMap(), marker);
-    });
-      });
+name:"LandingPage",
+setup(){
+const getImageUrl = (name) => {
+        return new URL(name, import.meta.url).href
+    }
+  return{
+getImageUrl
   }
-
-
-
-
-
-
-
- 
-
-
-    
-    return { mapDiv,userLocation,userDestination}
-  }
+}
 }
 </script>
 
-
-<style>
-.map{
-  height: calc(100vh - 96px);
-}
-
-.inputContainer i {
-   position: absolute;
+<style scoped>
+.bg{
+background:  rgba(0, 0, 0, 0.5) url('../assets/buses.png');
+background-blend-mode: darken;
 }
 </style>

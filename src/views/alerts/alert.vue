@@ -1,5 +1,5 @@
 <template>
- <div class="">
+ <div>
    
       <empty-state v-if="countAlert"/>
       <active-state v-else/>

@@ -24,8 +24,23 @@
         },
         {
             "name":"Reis Supermarket Stop (opposite to Reis Supermarket)",
-            "latitude":"",
-            "longitude":"73.990790"
+            "latitude":"42.317460",
+            "longitude":"-8.789430"
+        },
+        {
+            "name":"Kaymaklı Old Cemetery Stop",
+            "latitude":"-18.201660",
+            "longitude":"142.237120"
+        },
+        {
+            "name":"City Royal Hotel Terminal Stop",
+            "latitude":"30.731050",
+            "longitude":"76.654760"
+        },
+        {
+            "name":"NEU Faculty Of Law Stop",
+            "latitude":"47.490361",
+            "longitude":"19.058302"
         }
     ],
         "times": ["6:45","7:30","8:15","9:15","10:15","11:15","12:15","13:15","14:15",
