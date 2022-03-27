@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Listbox v-model="selected" as="div" class="mx-4 max-w-[100vw] mt-7">
+  <Listbox v-model="selected" as="div" class=" max-w-[100vw] mt-7">
   
     <div class="mt-1 relative">
       <ListboxButton

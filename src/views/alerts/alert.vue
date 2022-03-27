@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="py-4">
    
       <empty-state v-if="countAlert"/>
       <active-state v-else/>

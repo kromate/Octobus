@@ -2,31 +2,32 @@
 <template>
   <transition name="modal-fade">
     <div class="modal-backdrop fixed top-0 bottom-0 left-0 right-0 flex justify-center items-center">
-      <div class="bg-white shadow overflow-auto flex rounded-lg flex-col" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-        <header class="modal-header flex p-4 justify-between relative text-primary " id="modalTitle">
-            <button type="button"
-            class=" text-left text-gray"
-            @click="close"
+      <div class="bg-white shadow overflow-auto flex rounded-xl flex-col w-[90%] max-w-[31rem] p-4 md:p-4" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <header id="modalTitle" class="modal-header px-2 flex justify-between relative text-primary">
+            <button
+type="button"
+            class=" text-left text-gray text-sm"
             aria-label="Close modal"
+            @click="close"
           >
             Cancel
           </button>
-          <slot name="header">
-            Alert me
+          <slot name="header" >
+         <p class="text-lg font-bold">Alert me</p>
           </slot>
 
-        <button type="button"
-            class=" text-right text-gray"
+        <button
+type="button"
+            class=" text-right text-gray text-sm"
             aria-label="Close modal"
           >
             Save
-          </button>
-     
+          </button>  
         </header>
 
         <section
-          class="relative p-3" id="modalDescription">
-            <div class='border rounded'>
+          id="modalDescription" class="relative p-3">
+            <div class='border rounded-xl '>
                 <div class="alert-card px-6 ">
                 <li class='list-none flex my-2'>  <img src="../assets/icons/clock.svg" class='mr-2'/> 6:45 </li>
                 <li class='list-none flex my-2'> <img src="../assets/icons/route.svg" class='mr-2'/>  Regular Campuses </li>
@@ -40,7 +41,7 @@
              </select-menu>
               <select-menu>
                 <template #icon>
-                    <i class="fa-solid fa-bell text-primary text-base  "></i>
+                    <i class="fa-solid fa-bell text-primary text-base"></i>
                 </template>
              </select-menu>
 
@@ -56,7 +57,7 @@
 <script>
 import SelectMenu from '../components/SelectMenu.vue'
   export default {
-    name: 'Modal',
+    name: 'ModalComp',
     components:{
         SelectMenu
     },
