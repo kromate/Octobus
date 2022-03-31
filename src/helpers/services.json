@@ -3,6 +3,45 @@
         "name": " Nicosia Service-1 Information ",
         "routes":[
         {
+            "location":"NEU Campus Main Station (8th Dormitory)",
+            "stopover": true
+        },
+        {
+            "location":"Near East Bank Stop",
+            "stopover": true
+        },
+        {
+            "location":"Honda Stop",
+            "stopover": true
+        },
+        {
+            "location":"Çangar Stop",
+            "stopover": true
+        },
+        {
+            "location":"Reis Supermarket Stop (opposite to Reis Supermarket)",
+            "stopover": true
+        },
+        {
+            "location":"Kaymaklı Old Cemetery Stop",
+            "stopover": true
+        },
+        {
+            "location":"City Royal Hotel Terminal Stop",
+            "stopover": true
+        },
+        {
+            "location":"NEU Faculty Of Law Stop",
+            "stopover": true
+        }
+    ],
+        "times": ["6:45","7:30","8:15","9:15","10:15","11:15","12:15","13:15","14:15",
+        "15:15","16:15","17:15","18:15","19:15","20:15"]
+    },
+    {
+        "name": " Nicosia Service-1 Information ",
+        "routes":[
+        {
             "name":"NEU Campus Main Station (8th Dormitory)",
             "latitude":"13.038820",
             "longitude":"77.594260"
