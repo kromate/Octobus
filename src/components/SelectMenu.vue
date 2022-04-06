@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Listbox v-model="selected" as="div" class=" max-w-[100vw] mt-7">
+  <Listbox v-model="selected" as="div" class=" max-w-[100vw] mt-7" >
   
     <div class="mt-1 relative">
       <ListboxButton
@@ -8,7 +8,7 @@ class="relative w-full bg-lightGray  focus:ring-1 ring-primary active:border rou
        focus:outline-none  sm:text-sm">
         <span class="flex items-center">
           <slot name='icon'/>
-          <span class="ml-3 block truncate text-gray">{{ selected.name }}</span>
+          <!-- <span class="ml-3 block truncate text-gray">{{ selected.name }}</span> -->
         </span>
         <span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
           <i class="fa-solid fa-angle-down"></i>
@@ -17,7 +17,7 @@ class="relative w-full bg-lightGray  focus:ring-1 ring-primary active:border rou
 
       <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
         <ListboxOptions class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-          <ListboxOption v-for="person in people" :key="person.id" v-slot="{ active, selected }" as="template" :value="person">
+          <ListboxOption v-for="person in people" :key="person.id" v-slot="{ active, selected }" as="template" :value="person" @click="onChange">
             <li :class="[active ? 'text-white bg-indigo-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-3 pr-9']">
               <div class="flex items-center">
                 <div  class="flex-shrink-0 h-6 w-6 rounded-full" />
@@ -41,34 +41,6 @@ class="relative w-full bg-lightGray  focus:ring-1 ring-primary active:border rou
 import { ref } from 'vue'
 import { Listbox, ListboxButton,  ListboxOption, ListboxOptions } from '@headlessui/vue'
 
-const people = [
-  {
-    id: 1,
-    name: 'Test 1',
-    
-  },
-  {
-    id: 2,
-    name: 'Test 2',
-
-  },
-  {
-    id: 3,
-    name: 'Test 3',
- 
-  },
-  {
-    id: 4,
-    name: 'Test 4',
-
-  },
-  {
-    id: 5,
-    name: 'Test 5',
-
-  },
-
-]
 
 export default {
   components: {
@@ -78,12 +50,23 @@ export default {
     ListboxOptions,
   
   },
-  setup() {
-    const selected = ref(people[3])
+    props: {
+    people: {
+      type:Object,
+      required: true,
+    },
+  },
+  setup(props,context) {
+    const selected = ref(props.people[3])
+
+    const onChange = (event) => {
+          context.emit("onChange", event.target.value)
+      }
 
     return {
-      people,
+      // people,
       selected,
+      onChange
     }
   },
 }
