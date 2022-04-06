@@ -1,7 +1,52 @@
 <template>
-<keep-alive>
-  <div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
-</keep-alive>
+  <div v-if="selectedService == 'one'" class='w-full h-full absolute -top-24'>
+  <iframe  src="https://www.google.com/maps/d/embed?mid=11aQf6gpnCk1N1r_fmFLITInhgOR3J9on&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+  <div v-if="selectedService == 'two'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=14KMh9iVvKqLOFF-TS08nRV2ktF95duSR&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+  <div v-if="selectedService == 'three'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=13z0dYnpU6kwXh8e-OxZ1dgV6JexuI9vj&hl=tr&z=14" width="100%" height="100%"></iframe>
+  </div>
+
+ <div v-if="selectedService == 'four'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=1GmeU9X6tsioyF2gm9Qpjy38RffSq3CpQ&hl=tr&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+  <div v-if="selectedService == 'five'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=1hf1y1GnbmUzTV3MMmA_YdEUaNd0zHChe&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+  <div v-if="selectedService == 'six'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=1XRRhWCa2Ud4UR2V0jZtuMw8Z3PEZUO4h&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+   <div v-if="selectedService == 'seven'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=1Mzl8Y1mDwQXBYPg9QQG6qaOIpqjOfJas&hl=tr&z=13" width="100%" height="100%"></iframe>
+  </div>
+ 
+  
+  <div v-if='selectedService == "eight"' class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/embed?mid=15xtEiemsDX0Fj0fKWhPr1YKPaqcaSCWq&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+   <div v-if="selectedService  == 'nine'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1l8blTebI9b0sIK51egZ-X71JZhEBGC2S&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+    <div v-if="selectedService == 'ten'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1m04R9WbsFOWd6Pk7eZur7qJI6jqZgKHx&z=13" width="100%" height="100%"></iframe>
+  </div>
+
+   <div v-if="selectedService == 'eleven'" class='w-full h-full absolute -top-24'>
+   <iframe src="https://www.google.com/maps/d/u/1/embed?mid=11rq2kW3xdyGS9HtsZsgtwsw-oD8z4WMY&z=11" width="100%" height="100%"></iframe>
+  </div>
+
+
+
+
 <bottom-modal/>
 </template>
 
@@ -10,127 +55,47 @@
 <script>
 /* eslint-disable no-undef */
 
-import {  ref,onMounted} from 'vue'
+import { computed, ref} from 'vue'
 // import { useGeolocation } from '../composables/useGeolocation'
-import { Loader } from '@googlemaps/js-api-loader'
+// import { Loader } from '@googlemaps/js-api-loader'
 // import { faBus } from "@fortawesome/free-solid-svg-icons";
+// const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+
 import BottomModal from '../components/BottomModal.vue';
-const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 export default {
   name: 'App',
   components: { BottomModal },
   setup() {
-    const userLocation = ref('')
-    const userDestination = ref('')
-    const service1 = ref([])
 
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
+  //   const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
+  //   const mapDiv = ref(null)
+  //   var map = ref(null)
+  //   // To remove the default pointers on the map
+  //   var myStyles =[
+  //   {
+  //       featureType: "poi",
+  //       elementType: "labels",
+  //       stylers: [
+  //             { visibility: "off" }
+  //       ]}];
 
- 
-
-    const mapDiv = ref(null)
-    var map = ref(null)
-    // To remove the default pointers on the map
-    var myStyles =[
-    {
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [
-              { visibility: "off" }
-        ]}];
-
-    onMounted(async () => {
-      await loader.load()
-      map.value = new google.maps.Map(mapDiv.value, {
-        center: { lat: 35.13, lng: 33.19 },
-        zoom: 12,
-        disableDefaultUI: true,
-        styles: myStyles
-      })
-      // setMarker()
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-        directionsRenderer.setMap(map.value);
-
-      const response = await fetch("https://gist.githubusercontent.com/Abiola-Farounbi/40bad9f072180e595b9f2e6e99672527/raw/5f599664350128aa37f7a1d4ec10dac8fb01ce5d/services.json");
-      const data = await response.json();
-      service1.value  = data
-    
-
-
-  directionsService
-    .route({
-    origin: "1521 NW 54th St, Seattle, WA 98107 ",
-    destination: "San Diego, CA",
-    waypoints: [{
-      location: new google.maps.LatLng(42.496403, -124.413128),
-      stopover: true
-    }],
-      optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING,
-    })
-    .then((response) => {
-      directionsRenderer.setDirections(response);
-
-      const route = response.routes[0];
-      console.log(route)
-    })
-
-    })
-
-
-   
-
-
-  // const busLocations = [
-    
-  //   [{ lat: 34.8559195, lng: -111.7988186 }, "Airport Mesa"],
-  //   [{ lat: 34.8791806,  lng: -111.8265049}, "Boynton Pass"],
-  //   [{ lat: 34.832149, lng: -111.7695277 }, "Chapel of the Holy Cross"],
-  //   [{ lat: 34.823736, lng: -111.8001857 }, "Red Rock Crossing"],
-  //   [{ lat: 34.800326, lng: -111.7665047 }, "Bell Rock"],
-  // ];
-
-  //   const setMarker = () =>{
-       
-  //       const infoWindow = new google.maps.InfoWindow();
-  //           busLocations.forEach(([position, title], i) => {
-  //         const marker =  new google.maps.Marker({
-  //           position,
-  //           map:map.value,
-  //           title: `${i + 1}. ${title}`,
-  //           label: `${i + 1}`,
-  //           optimized: false,
-  //             icon: {
-  //                   path: faBus.icon[4],
-  //                   fillColor: "#4A545D",
-  //                   fillOpacity: 1,
-  //                   strokeWeight: 1,
-  //                   strokeColor: "#ffffff",
-  //                   scale: 0.075,},
-  //         });
-
-   
-  //   marker.addListener("click", () => {
-  //     infoWindow.close();
-  //     infoWindow.setContent(marker.getTitle());
-  //     infoWindow.open(marker.getMap(), marker);
-  //   });
-  //     });
-  // }
+  //   onMounted(async () => {
+  //     await loader.load()
+  //     map.value = new google.maps.Map(mapDiv.value, {
+  //       center: { lat: 35.13, lng: 33.19 },
+  //       zoom: 20,
+  //       disableDefaultUI: true,
+  //       styles: myStyles
+  //     })
+  //    
+  
+  const selectedService = ref('eleven')
 
 
 
 
-
-
-
- 
-
-
-    
-    return { mapDiv,userLocation,userDestination,service1}
+    return {selectedService }
   }
 }
 </script>

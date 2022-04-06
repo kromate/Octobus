@@ -20,7 +20,8 @@ const store = createStore({
             //     shortdesc: "Best Drip in the Market",
             //     url: "images/chelsea-shoes.png"
             //   },
-        ]
+        ],
+        service:[]
     },
     mutations: {
         setUser(state, payload) {
