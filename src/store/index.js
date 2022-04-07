@@ -21,7 +21,7 @@ const store = createStore({
             //     url: "images/chelsea-shoes.png"
             //   },
         ],
-        service:[]
+        service:null
     },
     mutations: {
         setUser(state, payload) {

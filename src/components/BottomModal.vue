@@ -23,24 +23,107 @@
 </template>
 
 <script>
-import { ref,onMounted } from 'vue'
+import { ref } from 'vue'
 import SelectMenu from './SelectMenu.vue'
+import { useService } from '../composables/service'
 
 export default {
 	Name: 'BottomModal',
 	components:{ SelectMenu },
 
 	setup(){
-    
-		const userLocation = ref()
+
+		// const getService = (async () => {
+		// 	const response = await fetch('https://gist.githubusercontent.com/Abiola-Farounbi/40bad9f072180e595b9f2e6e99672527/raw/1f0450e07f263a782b6c277e613509a91d0b9359/services.json')
+		// 	services.value  = await response.json()
+		// })
+
+		// getService()
+
+        const  {data} = useService();
 		const userDestination = ref()
 		const open = ref(false)
-		const services = ref([])
+		const services = [
+    {
+        "name": " Nicosia Service-1",
+        "routes":[
+        {
+            "name":"NEU Campus Main Station (8th Dormitory)",
+            "latitude":"13.038820",
+            "longitude":"77.594260"
+        },
+        {
+            "name":"Near East Bank Stop",
+            "latitude":"17.915420",
+            "longitude":"77.511990"
+        },
+        {
+            "name":"Honda Stop",
+            "latitude":"15.331700",
+            "longitude":"73.990790"
+        },
+        {
+            "name":"Çangar Stop",
+            "latitude":"42.270020",
+            "longitude":"-8.833490"
+        },
+        {
+            "name":"Reis Supermarket Stop (opposite to Reis Supermarket)",
+            "latitude":"42.317460",
+            "longitude":"-8.789430"
+        },
+        {
+            "name":"Kaymaklı Old Cemetery Stop",
+            "latitude":"-18.201660",
+            "longitude":"142.237120"
+        },
+        {
+            "name":"City Royal Hotel Terminal Stop",
+            "latitude":"30.731050",
+            "longitude":"76.654760"
+        },
+        {
+            "name":"NEU Faculty Of Law Stop",
+            "latitude":"47.490361",
+            "longitude":"19.058302"
+        }
+    ],
+        "times": ["6:45","7:30","8:15","9:15","10:15","11:15","12:15","13:15","14:15",
+        "15:15","16:15","17:15","18:15","19:15","20:15"]
+    },
+    {
+        "name": "Nicosia Service-1"
+    },
+    {
+        "name":"Hamitköy Service"
+    },
+    {
+        "name":"Kızılbaş Service"
+    },
+    {
+        "name":"Gönyeli Service-1"
+    },
+    {
+        "name":"Gönyeli Service-2" 
+    },
+    {
+        "name": "Gönyeli / Metehan Service"
+    },
+    {
+        "name": "Ortakoy / Yenikent Service Information"
+    },
+    {
+        "name": "Kyrenia Service Information "
+    },
+    {
+        "name": "Güzelyurt Service Information"
+    },
+    {
+        "name":" Famagusta Service Information "
+    }
+]
 
-		onMounted(async () => {
-			const response = await fetch('https://gist.githubusercontent.com/Abiola-Farounbi/40bad9f072180e595b9f2e6e99672527/raw/1f0450e07f263a782b6c277e613509a91d0b9359/services.json')
-			services.value  = await response.json()
-		})
+
 
 		const toggleModal = (el)=>{
 			if(el.target.className.includes('open')){
@@ -49,7 +132,7 @@ export default {
 		}
 
 		const logChange = (e) =>  {
-			console.log(e)
+            data.value = e.name
 		}
     
 		const displayRes = () => {
@@ -59,7 +142,7 @@ export default {
   
 
 		return {
-			open, toggleModal, userDestination, userLocation,services, logChange,displayRes
+			data ,open, toggleModal, userDestination, services, logChange,displayRes
 		}
 	}
 }

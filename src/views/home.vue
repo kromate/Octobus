@@ -55,13 +55,14 @@
 <script>
 /* eslint-disable no-undef */
 
-import { computed, ref} from 'vue'
+import {ref} from 'vue'
 // import { useGeolocation } from '../composables/useGeolocation'
 // import { Loader } from '@googlemaps/js-api-loader'
 // import { faBus } from "@fortawesome/free-solid-svg-icons";
 // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 import BottomModal from '../components/BottomModal.vue'
+import { useService } from '../composables/service'
 
 export default {
 	name: 'App',
@@ -89,13 +90,12 @@ export default {
 		//       styles: myStyles
 		//     })
 		//    
-  
+		const  data = useService();
 		const selectedService = ref('eleven')
+    	console.log(data.value)
 
 
-
-
-		return {selectedService }
+		return {data, selectedService }
 	}
 }
 </script>
