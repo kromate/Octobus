@@ -1,8 +1,6 @@
 import { ref } from 'vue'
 
-const data = ref(null)
+const data = ref({})
 export function useService() {
-  
- 
-  return { data }
+      return { data }
 }

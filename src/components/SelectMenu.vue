@@ -60,7 +60,7 @@ export default {
     const selected = ref({})
 
 onMounted(()=>{
-  selected.value = props.people[3]
+  selected.value = props.people[0]
 })
 
 
