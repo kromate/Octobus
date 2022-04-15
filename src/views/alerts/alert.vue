@@ -21,7 +21,7 @@ export default {
     const store = useStore();
 
     const countAlert = computed(() => {
-       return  store.state.alerts.length == 0
+       return  store.state.alerts.length != 0
     })
         
   return { countAlert}
