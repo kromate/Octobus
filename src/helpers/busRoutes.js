@@ -165,38 +165,57 @@ export const AllBusRoute = {
 		},
 		{cord: '35.2297615,33.3246945', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
 		}
-    ],
+	],
     
-    'Gönyeli / Metehan': [
-    {cord: '35.2297536,33.3245281', name: YDÜ Kampüs Ana Durak (8. Yurt Önü).
-},
-{cord: '35.226102,33.3256871' name: Near East Bank Durağı.
-},
-{cord: '35.2085481,33.3185105', name: Sismar Durağı.
-},
-{cord: '35.2079478,33.3141112', name: Üst Geçit Durağı.
-},
-{cord: '35.2080545,33.3073357', name: Arda Market Durağı.
-},
-{cord: '35.210114,33.2933283”' name: Sarıtaş Evler Durağı.
-},
-{cord: '35.1983067,33.3116735', name: Polis Akademisi Durağı.
-},
-{cord: '35.1937856,33.3211279', name: Zephyr Durağı.
-},
-{cord: '35.1914079,33.3256688', name: Kiler Durağı.
-},
-{cord: '35.2017902,33.3222991', name: Damdelen Durağı.
-},
-{cord: '35.204979,33.3172657' name: Gönyeli Belediyesi Durağı.
-},
-{cord: '35.2088117,33.3181717', name:  Skylap Apt. Durağı.
-},
-{cord: '35.2263203,33.3262207', name:Hukuk Fakültesi Durağı.
-},
-{cord: '35.2297565,33.3246929', name: YDÜ Kampüs Ana Durak (8. Yurt Önü).
-},
+	'Gönyeli / Metehan': [
+		{cord: '35.2297536,33.3245281', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
+		},
+		{cord: '35.226102,33.3256871', name: 'Near East Bank Durağı.'
+		},
+		{cord: '35.2085481,33.3185105', name: 'Sismar Durağı.'
+		},
+		{cord: '35.2079478,33.3141112', name: 'Üst Geçit Durağı.'
+		},
+		{cord: '35.2080545,33.3073357', name: 'Arda Market Durağı.'
+		},
+		{cord: '35.210114,33.2933283', name: 'Sarıtaş Evler Durağı.'
+		},
+		{cord: '35.1983067,33.3116735', name: 'Polis Akademisi Durağı.'
+		},
+		{cord: '35.1937856,33.3211279', name: 'Zephyr Durağı.'
+		},
+		{cord: '35.1914079,33.3256688', name: 'Kiler Durağı.'
+		},
+		{cord: '35.2017902,33.3222991', name: 'Damdelen Durağı.'
+		},
+		{cord: '35.204979,33.3172657', name: 'Gönyeli Belediyesi Durağı.'
+		},
+		{cord: '35.2088117,33.3181717', name: ' Skylap Apt. Durağı.'
+		},
+		{cord: '35.2263203,33.3262207', name:'Hukuk Fakültesi Durağı.'
+		},
+		{cord: '35.2297565,33.3246929', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
+		},
+	],
+    
+	'Hamitköy': [
+		{cord: '35.2297777,33.3245416', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
+		},
+		{cord: '35.2260443,33.3256875', name: 'Near East Bank Durağı.'
+		},
+		{cord: '35.2108205,33.3425181', name: 'Sanayi Durağı.'
+		},
+		{cord: '35.2111143,33.3706197', name:' Din Sitesi Durağı.'
+		},
+		{cord: '35.213301,33.3784365', name: 'Okmar 2 Durağı.'
+		},
+		{cord: '35.2212363,33.3773327', name: 'Hamitköy İlkokul Durağı.'
+		},
+		{cord: '35.2263368,33.3261885', name: 'YDÜ Hukuk Fakültesi Durağı.'
+		},
+		{cord: '35.2297681,33.3246827', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
+		},
 
-    ]
+	]
 
 }
