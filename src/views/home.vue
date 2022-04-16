@@ -1,7 +1,7 @@
 <template>
-	<keep-alive>
-		<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
-	</keep-alive>
+
+	<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+	
 	<bottom-modal/>
 </template>
 
