@@ -99,7 +99,5 @@ export default {
   height: calc(100vh - 96px);
 }
 
-.inputContainer i {
-   position: absolute;
-}
+
 </style>
