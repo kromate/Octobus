@@ -5,9 +5,9 @@ export function useGeolocation() {
 	const isSupported = 'navigator' in window && 'geolocation' in navigator
 
 	let watcher = null
-	onMounted(() => {
+	onMounted(async () => {
 		if (isSupported)
-			watcher = navigator.geolocation.watchPosition(
+			watcher = await navigator.geolocation.watchPosition(
 				(position) => (coords.value = position.coords)
 			)
 	})
