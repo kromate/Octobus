@@ -5,10 +5,12 @@
 		</div>
 
 	</transition>
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[4px]', 'px-3 z-50 fixed  py-4 bottom-14  inset-x-0 bg-white justify-between w-full animated open' ]">
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[4px]', 'px-3 z-50 fixed  py-4 bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
+		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-gray mx-auto']"/>
+	
 		<div class="relative" @click="toggleModal">
 			<i class="fas fa-search text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc80] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
-			<div  class="w-full rounded-xl p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" > Where to ?</div>
+			<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" > Where to ?</div>
 		</div>
 
 	

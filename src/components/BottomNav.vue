@@ -25,6 +25,6 @@ export default {
 
 .router-link-exact-active{
 
-  @apply   border-t-2  border-primary text-primary
+  @apply   border-t-2  border-secondary text-primary
 }
 </style>
