@@ -1,6 +1,6 @@
 <template>
 	<transition name="slideDown">
-		<div class="w-screen h-96 shadow-modal bg-white  z-40 fixed top-0 p-4" v-if="open">
+		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-if="open">
 			<div class="flex items-center">
 				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
 				<p class="font-bold ml-8 text-xl">
@@ -57,7 +57,18 @@ export default {
 </script>
 
 <style scoped>
-.animated{
+/* .animated{
 transition: all 0.35s ease;
-}
+} */
+
+  .slideDown-enter-from,
+  .slideDown-leave-to {
+    opacity: 0;
+	transform: translateY(-300px)
+  }
+
+  .slideDown-enter-active,
+  .slideDown-leave-active {
+    transition: opacity .5s ease;
+  }
 </style>

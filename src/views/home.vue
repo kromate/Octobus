@@ -10,7 +10,7 @@
 <script>
 /* eslint-disable no-undef */
 
-import {ref,onMounted,computed, watch} from 'vue'
+import {ref,onMounted,computed} from 'vue'
 import { useGeolocation } from '../composables/useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
