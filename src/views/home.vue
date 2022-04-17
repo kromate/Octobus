@@ -13,7 +13,7 @@
 import {ref,onMounted,computed} from 'vue'
 import { useGeolocation } from '../composables/useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import pin from '../assets/pin.png'
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 import BottomModal from '../components/BottomModal.vue'
@@ -33,7 +33,6 @@ export default {
 			lng: coords.value.longitude
 		}))
 
-		  // To remove the default pointers on the map
 		  const myStyles =[
 		  {
 		      featureType: 'poi',
@@ -63,7 +62,7 @@ export default {
 				title: 'Your Location',
 				optimized: false,
 				icon: {
-					path: faCircle.icon[4],
+					path: pin,
 					fillColor: 'black',
 					fillOpacity: 1,
 					strokeWeight: 1,
