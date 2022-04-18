@@ -36,9 +36,12 @@ export const initMap = async (mapDiv) => {
 		      styles: myStyles
 	})
     
-	if (coords.value.latitude  || coords.value.longitude) {
-		setMarker(currPos)
-	}
+	const checkLoc = setInterval(async () => {
+		if (coords.value.latitude || coords.value.longitude) {
+			await clearInterval(checkLoc)
+			setMarker(currPos)
+		}
+	}, 2000)
 	
 }      
 export const setMarker = (currPos) => {
@@ -50,11 +53,11 @@ export const setMarker = (currPos) => {
 		.then((response) => {
 			console.log(response)
 			if (response.results[0]) {
-				map.setZoom(11)
+				map.value.setZoom(16)
 
 				const marker = new google.maps.Marker({
 					position: currPos.value,
-					map: map,
+					map: map.value,
 				})
 
 				infowindow.setContent(response.results[0].formatted_address)
