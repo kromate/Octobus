@@ -1,5 +1,6 @@
 
 <template>
+	<loader/>
 	<topbar :css-class="$route.name == 'home' ? 'justify-center' : 'justify-between px-4' ">
 		<span class="font-semibold text-lg text-white">
 			{{$route.name == 'home' ? 'Home' : 'Bus Alert'}}
@@ -19,8 +20,9 @@
 import BottomNav from '../components/BottomNav.vue'
 import Topbar from '../components/Topbar.vue'
 import {useRouter} from 'vue-router'
+import Loader from '../components/loader.vue'
 export default {
-	components: { Topbar, BottomNav },
+	components: { Topbar, BottomNav, Loader },
 	setup(){
 		const router = useRouter()
 		return{
