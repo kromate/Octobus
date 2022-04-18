@@ -1,6 +1,6 @@
 <template>
 	<transition name="slideDown">
-		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-if="open">
+		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-show="open">
 			<div class="flex items-center">
 				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
 				<p class="font-bold ml-8 text-xl">
@@ -15,7 +15,7 @@
 				</div>
 				<div class="flex flex-col w-full">
 					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input" disabled>
-					<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete">
+					<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput">
 				</div>
 			</div>
 		</div>
@@ -36,23 +36,23 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
-import { AutoComplete } from '../composables/usePlace'
-import { onMounted } from '@vue/runtime-core'
+// import { onMounted } from '@vue/runtime-core'
 
 
 export default {
 	Name: 'BottomModal',
 
 	setup(){
+
 		const exactLoc = computed(()=>{
-			console.log(currLocation.value.results[0].formatted_address)
-			return currLocation.value.results[0].formatted_address
+			if(currLocation.value){
+				return currLocation.value.results[0].formatted_address
+			}
+			
 		})
 
 		
-		onMounted(async()=>{
-			await AutoComplete()
-		})
+	
 
 
 		const open = ref(false)

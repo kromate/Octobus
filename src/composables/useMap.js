@@ -7,7 +7,7 @@ import { useLoading } from './useNotification'
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 
-const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
+const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
 const map = ref(null)
   
 export const currLocation = ref('')
@@ -52,6 +52,7 @@ export const setMarker = async (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
 	
 	await geocoder(currPos, infowindow)
+	await AutoComplete()
 
 }
 
@@ -76,4 +77,13 @@ export const geocoder = async (currPos, infowindow) => {
 		 window.alert('Geocoder failed due to: ' + e)
 	}
 
+}
+
+export const AutoComplete = async () => {
+	console.log(document.getElementById('autocomplete'))
+	await loader.load()
+
+	new google.maps.places.Autocomplete(
+		document.getElementById('autocomplete')
+	)
 }
