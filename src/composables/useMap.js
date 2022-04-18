@@ -84,6 +84,11 @@ export const AutoComplete = async () => {
 	await loader.load()
 
 	new google.maps.places.Autocomplete(
-		document.getElementById('autocomplete')
+		document.getElementById('autocomplete'),
+		{
+			bounds: new google.maps.LatLngBounds(
+				new google.maps.LatLng(39.925533, 32.866287)
+			)
+		}
 	)
 }
