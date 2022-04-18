@@ -19,11 +19,11 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter, .fade-leave-to{
+.fade-enter-from, .fade-leave-to{
 opacity: 0;
 }
 .fade-enter-active, .fade-leave-active{
-	transition: all .35s ease;
+	transition: all .5s ease;
 }
 .loader {
   position: relative;

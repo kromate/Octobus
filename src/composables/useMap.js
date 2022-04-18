@@ -2,6 +2,7 @@
 import {computed, ref} from '@vue/reactivity'
 import { useGeolocation } from './useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
+import { useLoading } from './useNotification'
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
@@ -22,6 +23,7 @@ const myStyles =[
 	}]
               
 export const initMap = async (mapDiv) => {
+	useLoading().openLoading()
 	const { coords } = useGeolocation()
 	
 	const currPos = computed(() => ({

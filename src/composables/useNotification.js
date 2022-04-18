@@ -1,7 +1,7 @@
 import { ref } from '@vue/reactivity'
 
 const loadingState = {
-	active: ref(true),
+	active: ref(false),
 	message: ref('')
 }
 
