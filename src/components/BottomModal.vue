@@ -6,17 +6,15 @@
 				<p class="font-bold ml-8 text-xl">
 					Select destination
 				</p>
-
-				{{exactLoc}}
 			</div>
 			<div class="flex items-center mt-3 w-full">
 				<div class="flex flex-col h-full items-center mr-3">
 					<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
-					<div class="h-full min-h-[20px] border border-[#c6c2c2] w-0 my-0.5"/>
+					<div class="h-full min-h-[20px] border border-[#c6c2c2] bg-[#c6c2c2] w-0 my-0.5"/>
 					<div class="border-[7px] border-red-800 rounded-full w-6 h-6"/>
 				</div>
 				<div class="flex flex-col w-full">
-					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input">
+					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input" disabled>
 					<input type="text" placeholder="Search Location" class="mt-2 input">
 				</div>
 			</div>
@@ -46,8 +44,8 @@ export default {
 
 	setup(){
 		const exactLoc = computed(()=>{
-			console.log(currLocation.value.results[0])
-			return currLocation.value.results[0]
+			console.log(currLocation.value.results[0].formatted_address)
+			return currLocation.value.results[0].formatted_address
 		})
 		
 
