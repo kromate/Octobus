@@ -18,6 +18,8 @@
 					<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput">
 				</div>
 			</div>
+
+			<button  class="btn w-full mt-5">Find closest Bus stop</button>
 		</div>
 
 	</transition>
