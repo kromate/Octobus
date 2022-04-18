@@ -80,7 +80,6 @@ export const geocoder = async (currPos, infowindow) => {
 }
 
 export const AutoComplete = async () => {
-	console.log(document.getElementById('autocomplete'))
 	await loader.load()
 
 	new google.maps.places.Autocomplete(
