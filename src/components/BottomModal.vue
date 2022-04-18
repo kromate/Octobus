@@ -7,7 +7,7 @@
 					Select destination
 				</p>
 
-				{{currLocation}}
+				{{exactLoc}}
 			</div>
 			<div class="flex items-center mt-3 w-full">
 				<div class="flex flex-col h-full items-center mr-3">
@@ -16,7 +16,7 @@
 					<div class="border-[7px] border-red-800 rounded-full w-6 h-6"/>
 				</div>
 				<div class="flex flex-col w-full">
-					<input type="text" placeholder="Your Location" v-model="currLocation.formatted_address" class="input">
+					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input">
 					<input type="text" placeholder="Search Location" class="mt-2 input">
 				</div>
 			</div>
@@ -36,7 +36,8 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
+import { currLocation } from '../composables/useMap'
 // import { onMounted } from '@vue/runtime-core'
 
 
@@ -44,8 +45,12 @@ export default {
 	Name: 'BottomModal',
 
 	setup(){
+		const exactLoc = computed(()=>{
+			console.log(currLocation.value.results[0])
+			return currLocation.value.results[0]
+		})
 		
-		// console.log(currLocation)
+
 		const open = ref(false)
 		const toggleModal = ()=>{
 			// if(el.target.className.includes('open')){
@@ -54,7 +59,7 @@ export default {
 		}
 
 		return {
-			open, toggleModal
+			open, toggleModal, exactLoc
 		}
 	}
 }

@@ -9,6 +9,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
 const map = ref(null)
   
+export const currLocation = ref('')
 
      
 const myStyles =[
@@ -41,7 +42,7 @@ export const initMap = async (mapDiv) => {
 			await clearInterval(checkLoc)
 			setMarker(currPos)
 		}
-	}, 2000)
+	}, 1000)
 	
 }      
 export const setMarker = (currPos) => {
@@ -70,15 +71,17 @@ export const setMarker = (currPos) => {
 export const geocoder = async (currPos, infowindow) => {
 	const geocoder = new google.maps.Geocoder()
 	const data = await geocoder.geocode({ location: currPos.value })
-	console.log(data)
+	 currLocation.value = data
+
 	try {
 		if (data.results[0]) { 
-			map.value.setZoom(16)
+			map.value.setZoom(15)
 			const marker = new google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
 			})
-			infowindow.setContent(response.results[0].formatted_address)
+			infowindow.setContent(data.results[0].formatted_address)
+			infowindow.open(map, marker)
 		} else {
 			alert('Can\'t find your current location')
 		}
