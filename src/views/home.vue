@@ -7,7 +7,7 @@
 
 
 
-<script>
+<script setup>
 /* eslint-disable no-undef */
 
 import {ref, onMounted} from 'vue'
@@ -16,20 +16,13 @@ import { initMap } from '../composables/useMap'
 
 import BottomModal from '../components/BottomModal.vue'
 
-export default {
-	name: 'App',
-	components: { BottomModal },
-	setup() {
-
 		
 		  const mapDiv = ref(null)
 		  onMounted(initMap(mapDiv))
 
+
 	
-		  return { mapDiv}
-	
-	}
-}
+
 </script>
 
 
