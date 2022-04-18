@@ -13,7 +13,7 @@ const autocomplete = ref('')
 
   
 export const currLocation = ref('')
-export const endLocation
+export const endLocation = ref({})
 
      
 const myStyles =[
@@ -101,6 +101,9 @@ export const AutoComplete = async () => {
 
 const fillInAddress = () => {
 	const place = autocomplete.value.getPlace()
-
-	console.log(place.geometry.location.lat())
+	endLocation.value = {
+		lat: place.geometry.location.lat(),
+		lng: place.geometry.location.lat()
+	}
+	console.log(endLocation.value)
 }
