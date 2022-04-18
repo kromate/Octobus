@@ -9,9 +9,11 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
 const map = ref(null)
+const autocomplete = ref('')
 
   
 export const currLocation = ref('')
+export const endLocation
 
      
 const myStyles =[
@@ -83,21 +85,22 @@ export const geocoder = async (currPos, infowindow) => {
 export const AutoComplete = async () => {
 	await loader.load()
 
-	 const autocomplete = new google.maps.places.Autocomplete(
+	  autocomplete.value = new google.maps.places.Autocomplete(
 		document.getElementById('autocomplete'),
-		{
+		  {
+			  fields: ['formatted_address', 'geometry', 'name'],
 			bounds: new google.maps.LatLngBounds(
 				new google.maps.LatLng(39.925533, 32.866287)
 			)
 		}
 	 )
 	
-	autocomplete.addListener('place_changed', fillInAddress(autocomplete))
+	autocomplete.value.addListener('place_changed', fillInAddress)
 	
 }
 
-const fillInAddress = (autocomplete) => {
-	const place = autocomplete.getPlace()
+const fillInAddress = () => {
+	const place = autocomplete.value.getPlace()
 
-	console.log(place)
+	console.log(place.geometry.location.lat())
 }
