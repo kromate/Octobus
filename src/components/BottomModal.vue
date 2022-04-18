@@ -15,7 +15,7 @@
 				</div>
 				<div class="flex flex-col w-full">
 					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input" disabled>
-					<input type="text" placeholder="Search Location" class="mt-2 input">
+					<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete">
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,8 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
-// import { onMounted } from '@vue/runtime-core'
+import { AutoComplete } from '../composables/usePlace'
+import { onMounted } from '@vue/runtime-core'
 
 
 export default {
@@ -47,7 +48,12 @@ export default {
 			console.log(currLocation.value.results[0].formatted_address)
 			return currLocation.value.results[0].formatted_address
 		})
+
 		
+		onMounted(async()=>{
+			await AutoComplete()
+		})
+
 
 		const open = ref(false)
 		const toggleModal = ()=>{
