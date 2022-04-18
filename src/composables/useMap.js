@@ -19,6 +19,7 @@ const myStyles =[
 			{ visibility: 'off' }
 		]
 	}]
+
               
 export const initMap = async (mapDiv) => {
 	const { coords } = useGeolocation()
@@ -39,7 +40,8 @@ export const initMap = async (mapDiv) => {
 	const checkLoc = setInterval(async () => {
 		if (coords.value.latitude || coords.value.longitude) {
 			await clearInterval(checkLoc)
-			setMarker(currPos)
+			const { currLocation } = setMarker(currPos)
+			
 		}
 	}, 2000)
 	
@@ -52,6 +54,7 @@ export const setMarker = (currPos) => {
 		.geocode({ location: currPos.value })
 		.then((response) => {
 			console.log(response)
+			const currLocation = response.results[0]
 			if (response.results[0]) {
 				map.value.setZoom(16)
 
@@ -65,8 +68,11 @@ export const setMarker = (currPos) => {
 			} else {
 				window.alert('No results found')
 			}
+			return {currLocation }
 		})
 		.catch((e) => window.alert('Geocoder failed due to: ' + e))
+	
+	
 }
 
 // const marker =  new google.maps.Marker({

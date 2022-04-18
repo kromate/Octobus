@@ -6,6 +6,8 @@
 				<p class="font-bold ml-8 text-xl">
 					Select destination
 				</p>
+
+				{{currLocation}}
 			</div>
 			<div class="flex items-center mt-3 w-full">
 				<div class="flex flex-col h-full items-center mr-3">
@@ -14,7 +16,7 @@
 					<div class="border-[7px] border-red-800 rounded-full w-6 h-6"/>
 				</div>
 				<div class="flex flex-col w-full">
-					<input type="text" placeholder="Your Location" class="input">
+					<input type="text" placeholder="Your Location" v-model="currLocation.formatted_address" class="input">
 					<input type="text" placeholder="Search Location" class="mt-2 input">
 				</div>
 			</div>
@@ -35,22 +37,25 @@
 
 <script>
 import { ref } from '@vue/reactivity'
+import { setMarker } from '../composables/useMap'
+// import { onMounted } from '@vue/runtime-core'
 
 
 export default {
 	Name: 'BottomModal',
 
 	setup(){
+
+		console.log(currLocation)
 		const open = ref(false)
 		const toggleModal = ()=>{
-			console.log(open.value)
 			// if(el.target.className.includes('open')){
 			open.value = !open.value
 			// }
 		}
 
 		return {
-			open, toggleModal
+			open, toggleModal, currLocation
 		}
 	}
 }
