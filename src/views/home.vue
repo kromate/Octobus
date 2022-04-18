@@ -30,6 +30,16 @@ import BottomModal from '../components/BottomModal.vue'
 .map{
   height: calc(100vh - 96px);
 }
-
+.pac-icon{
+	display: none;
+}
+.pac-item{
+	padding: 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.pac-item:hover{
+background: #ececec;
+}
 
 </style>
