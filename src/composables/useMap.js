@@ -19,7 +19,6 @@ const myStyles =[
 			{ visibility: 'off' }
 		]
 	}]
-
               
 export const initMap = async (mapDiv) => {
 	const { coords } = useGeolocation()
@@ -40,53 +39,51 @@ export const initMap = async (mapDiv) => {
 	const checkLoc = setInterval(async () => {
 		if (coords.value.latitude || coords.value.longitude) {
 			await clearInterval(checkLoc)
-			const { currLocation } = setMarker(currPos)
-			
+			setMarker(currPos)
 		}
 	}, 2000)
 	
 }      
 export const setMarker = (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
-	const geocoder = new google.maps.Geocoder()
-	console.log(currPos)
-	geocoder
-		.geocode({ location: currPos.value })
-		.then((response) => {
-			console.log(response)
-			const currLocation = response.results[0]
-			if (response.results[0]) {
-				map.value.setZoom(16)
-
-				const marker = new google.maps.Marker({
-					position: currPos.value,
-					map: map.value,
-				})
-
-				infowindow.setContent(response.results[0].formatted_address)
-				infowindow.open(map, marker)
-			} else {
-				window.alert('No results found')
-			}
-			return {currLocation }
-		})
-		.catch((e) => window.alert('Geocoder failed due to: ' + e))
 	
-	
+	geocoder(currPos, infowindow)
+	// .then((response) => {
+	// 	console.log(response)
+	// 	if (response.results[0]) {
+	// 		map.value.setZoom(16)
+
+	// 		const marker = new google.maps.Marker({
+	// 			position: currPos.value,
+	// 			map: map.value,
+	// 		})
+
+	// 		infowindow.setContent(response.results[0].formatted_address)
+	// 		infowindow.open(map, marker)
+	// 	} else {
+	// 		window.alert('No results found')
+	// 	}
+	// })
+	// .catch((e) => window.alert('Geocoder failed due to: ' + e))
 }
 
-// const marker =  new google.maps.Marker({
-// 	position:currPos.value,
-// 	map:map.value,
-// 	title: 'Your Location',
-// 	optimized: false,
-	
-// })
-   
-// marker.addListener('click', () => {
-// 	infoWindow.close()
-// 	infoWindow.setContent(marker.getTitle())
-// 	infoWindow.open(marker.getMap(), marker)
-// })
-    
-// }
+export const geocoder = async (currPos, infowindow) => {
+	const geocoder = new google.maps.Geocoder()
+	const data = await geocoder.geocode({ location: currPos.value })
+	console.log(data)
+	try {
+		if (data.results[0]) { 
+			map.value.setZoom(16)
+			const marker = new google.maps.Marker({
+				position: currPos.value,
+				map: map.value,
+			})
+			infowindow.setContent(response.results[0].formatted_address)
+		} else {
+			alert('Can\'t find your current location')
+		}
+	} catch (e) {
+		 window.alert('Geocoder failed due to: ' + e)
+	}
+
+}

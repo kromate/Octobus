@@ -37,7 +37,6 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { setMarker } from '../composables/useMap'
 // import { onMounted } from '@vue/runtime-core'
 
 
@@ -45,8 +44,8 @@ export default {
 	Name: 'BottomModal',
 
 	setup(){
-
-		console.log(currLocation)
+		
+		// console.log(currLocation)
 		const open = ref(false)
 		const toggleModal = ()=>{
 			// if(el.target.className.includes('open')){
@@ -55,7 +54,7 @@ export default {
 		}
 
 		return {
-			open, toggleModal, currLocation
+			open, toggleModal
 		}
 	}
 }
