@@ -42,32 +42,17 @@ export const initMap = async (mapDiv) => {
 	const checkLoc = setInterval(async () => {
 		if (coords.value.latitude || coords.value.longitude) {
 			await clearInterval(checkLoc)
-			setMarker(currPos)
+			await setMarker(currPos)
+			useLoading().closeLoading()
 		}
 	}, 1000)
 	
 }      
-export const setMarker = (currPos) => {
+export const setMarker = async (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
 	
-	geocoder(currPos, infowindow)
-	// .then((response) => {
-	// 	console.log(response)
-	// 	if (response.results[0]) {
-	// 		map.value.setZoom(16)
+	await geocoder(currPos, infowindow)
 
-	// 		const marker = new google.maps.Marker({
-	// 			position: currPos.value,
-	// 			map: map.value,
-	// 		})
-
-	// 		infowindow.setContent(response.results[0].formatted_address)
-	// 		infowindow.open(map, marker)
-	// 	} else {
-	// 		window.alert('No results found')
-	// 	}
-	// })
-	// .catch((e) => window.alert('Geocoder failed due to: ' + e))
 }
 
 export const geocoder = async (currPos, infowindow) => {
