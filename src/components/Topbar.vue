@@ -12,13 +12,13 @@
 			<button class="btn py-1 px-3" @click="openAboutModal">
 				About us
 			</button>
-			<button class="btn py-1 px-3">
+			<button class="btn py-1 px-3" @click="openRoutesModal">
 				Route
 			</button>
-			<button class="btn py-1 px-3">
+			<button class="btn py-1 px-3" @click="openFAQsModal">
 				FAQ
 			</button>
-			<button class="btn py-1 px-3">
+			<button class="btn py-1 px-3" @click="openContactModal">
 				Contact
 			</button>
 		</div>
@@ -30,11 +30,11 @@ import {modalController} from '../composables/useModal'
 export default {
 	name:'TobBar',
 	setup(){
-
-		const {openAboutModal} = modalController()
+		console.log(modalController())
+		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal} = modalController()
 
 		return{
-			openAboutModal
+			openAboutModal, openContactModal, openFAQsModal, openRoutesModal
 		}
 	}
 }

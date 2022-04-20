@@ -1,7 +1,10 @@
 import { ref } from '@vue/reactivity'
 import AboutModal from '../components/modal/modals/AboutModal.vue'
+import ContactModal from '../components/modal/modals/ContactModal.vue'
+import FAQModal from '../components/modal/modals/FAQsModal.vue'
+import RouteModal from '../components/modal/modals/RouteModal.vue'
 
-const allModals = [AboutModal]
+const allModals = [AboutModal, ContactModal, FAQModal, RouteModal]
 
 const GlobalModalState = {}
 
