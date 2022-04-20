@@ -68,7 +68,7 @@
 
 <script>
 
-import Modal from '@/components/modal'
+import Modal from '../index.vue'
 
 export default {
 	name: 'AboutModal',

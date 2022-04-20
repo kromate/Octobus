@@ -66,11 +66,12 @@ export const geocoder = async (currPos, infowindow) => {
 
 	try {
 		if (data.results[0]) { 
-			map.value.setZoom(15)
+			map.value.setZoom(17)
 			const marker = new google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
 			})
+			map.value.setCenter()
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
 		} else {
