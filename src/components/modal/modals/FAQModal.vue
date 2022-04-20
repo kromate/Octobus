@@ -4,7 +4,7 @@
 			<div class="flex flex-col w-full h-full justify-between">
 				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
 					<h2 class="font-semibold text-2xl text-center ">
-						Routes
+						FAQs
 					</h2>
 					<div 	class="cursor-pointer absolute right-4 top-2" @click="close">
 						<i class="fas fa-times text-primary text-2xl"></i>
@@ -27,7 +27,7 @@
 import Modal from '../index.vue'
 
 export default {
-	name: 'RoutesModal',
+	name: 'FAQsModal',
 	components: { Modal },
 	props:{
 		showModal: {
