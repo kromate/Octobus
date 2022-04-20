@@ -3,14 +3,29 @@
 <template>
 	<Modal v-if="showModal">
 		<div class="h-screen bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl   fixed left-0 inset-y-0">
-			<div class="flex flex-col w-full h-full justify-between">
-				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
-					<h2 class="font-semibold text-2xl text-center ">
+			<div class="flex flex-col w-full h-full ">
+				<div class="flex items-center justify-start w-full border-b pb-3 border-secondary">
+					<h2 class="font-semibold text-2xl text-left ">
 						sideMenu
 					</h2>
 					<div 	class="cursor-pointer absolute right-4 top-2" @click="close">
 						<i class="fas fa-times text-primary text-2xl"></i>
 					</div>
+				</div>
+
+				<div class="flex flex-col items-center gap-4  text-xs mt-5">
+					<button class="btn w-full py-1 px-3" @click="open(openAboutModal)">
+						About us
+					</button>
+					<button class="btn w-full py-1 px-3" @click="open(openRoutesModal)">
+						Route
+					</button>
+					<button class="btn w-full py-1 px-3" @click="open(openFAQsModal)">
+						FAQ
+					</button>
+					<button class="btn w-full py-1 px-3" @click="open(openContactModal)">
+						Contact
+					</button>
 				</div>
 			</div>
 		</div>
@@ -20,6 +35,7 @@
 <script>
 
 import Modal from '../index.vue'
+import {modalController} from '@/composables/useModal'
 
 export default {
 	name: 'SideMenu',
@@ -36,14 +52,18 @@ export default {
 			default: ()=>{console.log('defaulter')}
 		}
 	},
-	setup() {
+	setup(){
+		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu, closeSideMenu} = modalController()
 
+		const open = (func)=>{
+			closeSideMenu()
+			func()
+		}
 
+		
 
-	
-		return {
-
-
+		return{open,
+			openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu
 		}
 	}
 }
