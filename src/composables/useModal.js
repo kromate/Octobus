@@ -49,4 +49,4 @@ export const modalController = () => {
 	return { ...GlobalModalState }
 }
 
-modalController()
+// modalController()
