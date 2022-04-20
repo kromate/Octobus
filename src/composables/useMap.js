@@ -75,7 +75,7 @@ export const geocoder = async (currPos, infowindow) => {
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
 			map.value.setCenter(initialLocation)
-			map.value.setZoom(19)
+			map.value.setZoom(16)
 		} else {
 			alert('Can\'t find your current location')
 		}
