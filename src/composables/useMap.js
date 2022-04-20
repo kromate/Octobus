@@ -66,14 +66,16 @@ export const geocoder = async (currPos, infowindow) => {
 
 	try {
 		if (data.results[0]) { 
-			map.value.setZoom(17)
+			map.value.setZoom(11)
 			const marker = new google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
 			})
-			map.value.setCenter()
+			const initialLocation = new google.maps.LatLng(currPos.value.lat, currPos.value.lng)
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
+			map.value.setCenter(initialLocation)
+			map.value.setZoom(19)
 		} else {
 			alert('Can\'t find your current location')
 		}
