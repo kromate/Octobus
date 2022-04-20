@@ -1,10 +1,10 @@
 <template>
 	<div class="bg-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-between flex shadow px-4 py-2 md:px-8">
 		<div class="flex items-center">
-			<i class="las la-bars "></i>
+			<i class="fas fa-bars mr-5 text-2xl" @click="openSideMenu"></i>
 			<h2 class="logo text-secondary text-2xl font-extrabold">
 				Octobus
-			</h2>
+			</h2> 
 		</div>
 	
 
@@ -31,10 +31,10 @@ export default {
 	name:'TobBar',
 	setup(){
 		console.log(modalController())
-		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal} = modalController()
+		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu} = modalController()
 
 		return{
-			openAboutModal, openContactModal, openFAQsModal, openRoutesModal
+			openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu
 		}
 	}
 }
