@@ -1,6 +1,6 @@
 <template>
 	<transition name="slideDown">
-		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-if="open">
+		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-show="open">
 			<div class="flex items-center">
 				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
 				<p class="font-bold ml-8 text-xl">
@@ -32,7 +32,7 @@
 				
 						<div class='flex flex-col'>
 							<p>
-								The closest bus Stop to your Start location is {{startDistance}}
+								The closest bus Stop to your Start location is  <b class="font-extrabold text-xl">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl">{{Math.round(startDistance.distance)}} km </b> away from you
 							</p>
 							<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5"  > 
 								view on map

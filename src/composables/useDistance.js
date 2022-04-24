@@ -31,7 +31,7 @@ export const getShortPoint = (location) => {
 			const distance = getDistanceFromLatLonInKm(location.value.lat, location.value.lng, cordsObj[0], cordsObj[1])
 			if (distance < closestPoint) {
 				closestPoint = distance
-				closestPlace = {route:x, ...placeObj}
+				closestPlace = {route:x, ...placeObj, distance}
 			} 
 		})
 	})
