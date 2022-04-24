@@ -23,19 +23,19 @@
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
 	
-			<div class='border-lightGray '>
-				<div class=" px-6 flex justify-between ">
-					<div>
-						<i class="las la-location-arrow"></i>
-						<span class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/> 6:45 </span>
-						<span class='list-none flex my-2'> <img src="../../assets/icons/route.svg" class='mr-2'/>  Regular Campuses </span>
-						<span class='list-none flex my-2'> <i class="fa-solid fa-location-crosshairs text-primary mr-2"></i> Nicosia </span>
+			<div class='bg-primary '>
+				<div class=" px-6 flex  items-center ">
+					<div class="md:mr-12 mr-4">
+						<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
 					</div>
-					<div class='my-2'>
-						<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="showModal"> 
-							alert me 
+				
+					<div class='flex flex-col'>
+						<p>
+							The closest bus Stop to your Start location is 
+						</p>
+						<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white mt-3"   @click="showModal"> 
+							view on map
 						</button>
-						<Modal v-show="isModalVisible" @close="closeModal" />
 					</div>
 				</div>
 			</div>
