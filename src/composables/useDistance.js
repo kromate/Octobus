@@ -8,13 +8,12 @@ export const endDistance = ref('')
 
 export const getClosestBusStop = () => {
 
-	 	startDistance.value = getShortPoint(currPosition, 'start')
-	 endDistance.value = getShortPoint(endLocation, 'end')
+	 	startDistance.value = getShortPoint(currPosition)
+	 endDistance.value = getShortPoint(endLocation)
 
 }
 
-export const getShortPoint = (location, x) => {
-	console.log(location, x)
+export const getShortPoint = (location) => {
 	let closestPoint = Infinity
 	let closestPlace = {}
 

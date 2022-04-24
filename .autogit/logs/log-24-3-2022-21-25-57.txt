@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sun Apr 24 2022 21:25:57 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/SelectMenu.vue
+* src/composables/useDistance.js
+* src/helpers/busRoutes.js
+* src/views/chat.vue
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

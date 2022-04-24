@@ -1,9 +1,15 @@
 <template>
 	<div class="mt-20 px-4">
-		<p>Get Update on various Routes</p>
-		<select-menu placeholder='route' >
+		<div class="flex items-center justify-between">
+			<p>Get Realtime Update on various Routes</p>
+			<button class="btn py-1 px-3 text-sm" @click="openAboutModal">
+				post update
+			</button>
+		</div>
+	
+		<select-menu placeholder='route'  :options="routeNamesOnly">
 			<template #icon>
-				<i class="fas fa-directions text-primary text-base"></i>
+				<i class="fas fa-directions text-primary text-xl"></i>
 			</template>
 		</select-menu>
 	</div>
@@ -22,7 +28,7 @@ export default {
 	setup() {
 	
         
-		return { }
+		return { routeNamesOnly}
 	}
 
 }

@@ -4,11 +4,11 @@
   
 		<div class="mt-1 relative">
 			<ListboxButton
-				class="relative w-full bg-lightGray  focus:ring-1 ring-primary active:border rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default
+				class="relative w-full bg-lightGray  focus:ring-1 ring-secondary active:border border-secondary rounded-md shadow-sm pl-3 pr-10 py-3 text-left cursor-default
        focus:outline-none  sm:text-sm">
 				<span class="flex items-center">
 					<slot name='icon'/>
-					<span  class="ml-3 block truncate text-gray">{{ selected.name }}</span>
+					<span  class="ml-3 block truncate text-primary">{{ selected }}</span>
 				</span>
 				<span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 					<i class="fas fa-angle-down"></i>
@@ -22,7 +22,7 @@
 							<div class="flex items-center">
 								<div  class="flex-shrink-0 h-6 w-6 rounded-full" />
 								<span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">
-									{{ person.name }}
+									{{ person }}
 								</span>
 							</div>
 
