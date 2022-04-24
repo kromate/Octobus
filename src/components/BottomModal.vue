@@ -1,5 +1,5 @@
 <template>
-	<transition name="slideDown">
+	<transition name="slideDown" appear>
 		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-show="open">
 			<div class="flex items-center">
 				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
@@ -113,6 +113,6 @@ transition: all 0.35s ease;
 
   .slideDown-enter-active,
   .slideDown-leave-active {
-    transition: opacity 1s ease;
+    transition: opacity 10s ease;
   }
 </style>
