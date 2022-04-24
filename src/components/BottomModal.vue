@@ -23,8 +23,8 @@
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
 	
-			<div class='bg-primary '>
-				<div class=" px-6 flex  items-center ">
+			<div class='bg-secondary text-white py-4 rounded-lg'>
+				<div class=" px-3 flex  items-center ">
 					<div class="md:mr-12 mr-4">
 						<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
 					</div>
@@ -33,7 +33,24 @@
 						<p>
 							The closest bus Stop to your Start location is 
 						</p>
-						<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white mt-3"   @click="showModal"> 
+						<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5"  > 
+							view on map
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class='bg-green-800 text-white py-4 rounded-lg mt-4'>
+				<div class=" px-3 flex  items-center ">
+					<div class="md:mr-12 mr-4">
+						<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
+					</div>
+				
+					<div class='flex flex-col'>
+						<p>
+							The closest bus Stop to your End location is 
+						</p>
+						<button class="text-primary rounded px-4 bg-white   mt-3 py-1.5"  > 
 							view on map
 						</button>
 					</div>
