@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun Apr 24 2022 01:57:24 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/composables/useDistance.js
+
+
+Created files:
+* .autogit/logs/log-24-3-2022-1-42-18.txt
+
+
+Deleted files:
+
+
+Renamed files:
