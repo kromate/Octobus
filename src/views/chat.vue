@@ -1,30 +1,28 @@
 <template>
-	<div class="py-4">
-   
-		<empty-state v-if="countAlert"/>
-		<active-state v-else/>
+	<div class="mt-20 px-4">
+		<p>Get Update on various Routes</p>
+		<select-menu placeholder='route' >
+			<template #icon>
+				<i class="fas fa-directions text-primary text-base"></i>
+			</template>
+		</select-menu>
 	</div>
+
 </template>
 
 <script>
-import emptyState from '../components/alerts/emptyState.vue'
-import activeState from '../components/alerts/activeState.vue'
-import {useStore} from 'vuex'
-import { computed} from 'vue'
+
+import SelectMenu from '../components/SelectMenu.vue'
+import {routeNamesOnly} from '../helpers/busRoutes'
 export default {
 	name:'AlertPage',
 	components:{
-		emptyState,
-		activeState
+		SelectMenu
 	},
 	setup() {
-		const store = useStore()
-
-		const countAlert = computed(() => {
-			return  store.state.alerts.length != 0
-		})
+	
         
-		return { countAlert}
+		return { }
 	}
 
 }

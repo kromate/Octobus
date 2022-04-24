@@ -1,5 +1,5 @@
 
-import { computed, ref } from '@vue/reactivity'
+import {  ref } from '@vue/reactivity'
 import {AllBusRoute} from '../helpers/busRoutes'
 import { endLocation, currPosition } from './useMap'
 
