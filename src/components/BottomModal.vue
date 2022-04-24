@@ -7,19 +7,22 @@
 					Select destination
 				</p>
 			</div>
-			<div class="flex items-center mt-3 w-full">
-				<div class="flex flex-col h-full items-center mr-3">
-					<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
-					<div class="h-full min-h-[20px] border border-[#c6c2c2] bg-[#c6c2c2] w-0 my-0.5"/>
-					<div class="border-[7px] border-red-800 rounded-full w-6 h-6"/>
+			<form @submit.prevent="getClosestBusStop">
+				<div class="flex items-center mt-3 w-full" >
+					<div class="flex flex-col h-full items-center mr-3">
+						<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
+						<div class="h-full min-h-[20px] border border-[#c6c2c2] bg-[#c6c2c2] w-0 my-0.5"/>
+						<div class="border-[7px] border-red-800 rounded-full w-6 h-6"/>
+					</div>
+					<div class="flex flex-col w-full">
+						<input type="text" placeholder="Your Location" v-model="exactLoc" class="input" disabled>
+						<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput" required>
+					</div>
 				</div>
-				<div class="flex flex-col w-full">
-					<input type="text" placeholder="Your Location" v-model="exactLoc" class="input" disabled>
-					<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput">
-				</div>
-			</div>
 
-			<button  class="btn w-full mt-5">Find closest Bus stop</button>
+				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
+			</form>
+		
 		</div>
 
 	</transition>
@@ -38,7 +41,7 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
-
+import {getClosestBusStop} from '../composables/useDistance'
 
 
 
@@ -65,7 +68,7 @@ export default {
 		}
 
 		return {
-			open, toggleModal, exactLoc
+			open, toggleModal, exactLoc, getClosestBusStop
 		}
 	}
 }
