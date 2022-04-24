@@ -1,26 +1,20 @@
 
 import { computed, ref } from '@vue/reactivity'
 import {AllBusRoute} from '../helpers/busRoutes'
-import { useGeolocation } from './useGeolocation'
-import { endLocation } from './useMap'
+import { endLocation, currPosition } from './useMap'
 
 export const startDistance = ref('')
 export const endDistance = ref('')
 
 export const getClosestBusStop = () => {
-	const { coords } = useGeolocation()
 
-	const currPos = computed(() => ({
-		lat: coords.value.latitude,
-		lng: coords.value.longitude
-	}))
-	 	startDistance.value = getShortPoint(currPos)
-	 endDistance.value = getShortPoint(endLocation)
+	 	startDistance.value = getShortPoint(currPosition, 'start')
+	 endDistance.value = getShortPoint(endLocation, 'end')
 
 }
 
-export const getShortPoint = (location) => {
-	console.log(location)
+export const getShortPoint = (location, x) => {
+	console.log(location, x)
 	let closestPoint = Infinity
 	let closestPlace = {}
 

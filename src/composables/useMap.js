@@ -12,6 +12,7 @@ const autocomplete = ref('')
 
   
 export const currLocation = ref('')
+export const currPosition = ref({})
 export const endLocation = ref({})
 
      
@@ -52,7 +53,7 @@ export const initMap = async (mapDiv) => {
 }      
 export const setMarker = async (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
-	
+	currPosition.value = currPos
 	await geocoder(currPos, infowindow)
 	await AutoComplete()
 
