@@ -8,13 +8,15 @@
 <script setup>
 /* eslint-disable no-undef */
 
-import {ref} from '@vue/reactivity'
+import {ref, onMounted} from 'vue'
+
 import { initMap } from '../composables/useMap'
+
 import BottomModal from '../components/BottomModal.vue'
 
+		
 		  const mapDiv = ref(null)
-		  window.addEventListener('loadeddata', initMap(mapDiv))
-
+		  onMounted(initMap(mapDiv))
 
 
 	

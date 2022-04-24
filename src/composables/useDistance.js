@@ -28,7 +28,8 @@ export const getShortPoint = (location) => {
 		closestPlace, 
 		AllBusRoute[x].map((placeObj) => {
 			const cordsObj = placeObj.cord.split(',')
-			const distance = getDistanceFromLatLonInKm(location.value.lat, location.value.lng, cordsObj[0], cordsObj[1])
+			console.log((typeof location.value.lat, typeof location.value.lng, typeof cordsObj[0], typeof cordsObj[1]))
+			const distance = getDistanceFromLatLonInKm(parseInt(location.value.lat), parseInt(location.value.lng), parseInt(cordsObj[0]), parseInt(cordsObj[1]))
 			if (distance < closestPoint) {
 				closestPoint = distance
 				closestPlace = {route:x, ...placeObj, distance}

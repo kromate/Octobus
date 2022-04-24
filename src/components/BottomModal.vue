@@ -47,7 +47,7 @@
 					<div class='bg-green-800 text-white py-4 rounded-lg mt-4' v-if="endDistance">
 						<div class=" px-3 flex  items-center ">
 							<div class="md:mr-12 mr-4">
-								<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
+					 			<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
 							</div>
 				
 							<div class='flex flex-col'>

@@ -29,6 +29,14 @@ const routes = [
 		}
 	},
 	{
+		path: '/chat',
+		name: 'chat',
+		component: ()=> import('../views/chat.vue'),
+		meta:{
+			layout:'landing'
+		}
+	},
+	{
 		path: '/add',
 		name: 'Add',
 		component: ()=> import('../views/addAlert.vue'),
