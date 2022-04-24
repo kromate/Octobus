@@ -17,7 +17,7 @@
 
 			<transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
 				<ListboxOptions class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-					<ListboxOption v-for="person in options" :key="person.id" v-slot="{ active, selected }" as="template" :value="person">
+					<ListboxOption v-for="person in options" :key="person" v-slot="{ active, selected }" as="template" :value="person" >
 						<li :class="[active ? 'text-white bg-indigo-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-3 pr-9']">
 							<div class="flex items-center">
 								<div  class="flex-shrink-0 h-6 w-6 rounded-full" />
@@ -26,9 +26,7 @@
 								</span>
 							</div>
 
-							<span v-if="selected" :class="[active ? 'text-white' : 'text-indigo-600', 'absolute inset-y-0 right-0 flex items-center pr-4']">
-								<!-- <CheckIcon class="h-5 w-5" aria-hidden="true" /> -->
-							</span>
+					
 						</li>
 					</ListboxOption>
 				</ListboxOptions>
@@ -52,17 +50,16 @@ export default {
 	},
 	props: {
 		options: {
-			type:Object,
-			required: false,
+			type:Array,
+			required: true,
 		},
+		selected:{
+			type:String,
+			required: false,
+		}
 	},
 	setup(props,context) {
-		const selected = ref({})
-
-		// onMounted(()=>{
-		// 	selected.value = props.options[0]
-		// })
-
+		const selected = ref()
 
 		watch(selected, (curr)=>{
 			context.emit('onChange', curr)
