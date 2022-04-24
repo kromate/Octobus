@@ -1,18 +1,35 @@
 
 import {AllBusRoute} from '../helpers/busRoutes'
+import { useGeolocation } from './useGeolocation'
+import { endLocation } from './useMap'
+
+const { coords } = useGeolocation()
+
+const getClosestBusStop = () => {
+	const 	start = getShortPoint({
+		lat: coords.value.latitude,
+		lng: coords.value.longitude
+	})
+}
 
 export const getShortPoint = (location) => {
 	console.log(location)
-	const closestPoint = 0
+	let closestPoint = Infinity
+	let closestPlace = {}
+
 	Object.keys(AllBusRoute).map((x) => {
-		console.log(x)
+		closestPlace, 
 		AllBusRoute[x].map((placeObj) => {
 			const cordsObj = placeObj.cord.split(',')
-			console.log(cordsObj)
 			const distance = getDistanceFromLatLonInKm(location.value.lat, location.value.lng, cordsObj[0], cordsObj[1])
-			console.log(distance)
+			if (distance < closestPoint) {
+				closestPoint = distance
+				closestPlace = placeObj
+			} 
 		})
 	})
+
+	return closestPlace
 }
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
@@ -32,3 +49,4 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 function deg2rad(deg) {
 	return deg * (Math.PI/180)
 }
+
