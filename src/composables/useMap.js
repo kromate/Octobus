@@ -53,7 +53,7 @@ export const initMap = async (mapDiv) => {
 }      
 export const setMarker = async (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
-	currPosition.value = currPos
+	currPosition.value = currPos.value
 	await geocoder(currPos, infowindow)
 	await AutoComplete()
 
