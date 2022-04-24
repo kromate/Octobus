@@ -1,4 +1,10 @@
-import { onUnmounted, onMounted, ref } from 'vue'
+import {  ref } from '@vue/reactivity'
+import {onUnmounted, onMounted} from '@vue/runtime-core'
+const options = {
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0
+}
 
 export function useGeolocation() {
 	const coords = ref({ latitude: 0, longitude: 0 })
@@ -7,9 +13,7 @@ export function useGeolocation() {
 	let watcher = null
 	onMounted(async () => {
 		if (isSupported)
-			watcher = await navigator.geolocation.watchPosition(
-				(position) => (coords.value = position.coords)
-			)
+			watcher = await navigator.geolocation.watchPosition((position) => { coords.value = position.coords }, error, options)
 	})
 	onUnmounted(() => {
 		if (watcher) navigator.geolocation.clearWatch(watcher)
@@ -17,3 +21,11 @@ export function useGeolocation() {
 
 	return { coords, isSupported }
 }
+
+
+function error(err) {
+	alert('ERROR(' + err.code + '): ' + err.message)
+}
+
+
+
