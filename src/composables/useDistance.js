@@ -1,7 +1,7 @@
 
 import {  ref } from '@vue/reactivity'
 import {AllBusRoute} from '../helpers/busRoutes'
-import { endLocation, currPosition } from './useMap'
+import {  currPosition } from './useMap'
 
 export const startDistance = ref('')
 export const endDistance = ref('')
@@ -9,7 +9,7 @@ export const endDistance = ref('')
 export const getClosestBusStop = () => {
 
 	 	startDistance.value = getShortPoint(currPosition)
-	 endDistance.value = getShortPoint(endLocation)
+	//  endDistance.value = getShortPoint(endLocation)
 
 }
 
