@@ -23,43 +23,46 @@
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
 	
-			<transition name="slideDown">
-				<div class='bg-secondary text-white py-4 rounded-lg' v-if="startDistance">
-					<div class=" px-3 flex  items-center ">
-						<div class="md:mr-12 mr-4">
-							<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
-						</div>
+			<div class="overflow-y-auto h-[60vh] pb-20">
+				<transition name="slideDown">
+					<div class='bg-secondary text-white py-4 rounded-lg' v-if="startDistance">
+						<div class=" px-3 flex  items-center ">
+							<div class="md:mr-12 mr-4">
+								<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
+							</div>
 				
-						<div class='flex flex-col'>
-							<p>
-								The closest bus Stop to your Start location is  <b class="font-extrabold text-xl">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl">{{Math.round(startDistance.distance)}} km </b> away from you
-							</p>
-							<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5"  > 
-								view on map
-							</button>
+							<div class='flex flex-col'>
+								<p>
+									The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-200">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{Math.round(startDistance.distance)}} km </b> away from you
+								</p>
+								<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5 w-72"  > 
+									view on map
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</transition>
+				</transition>
 
-			<transition name="slideDown">
-				<div class='bg-green-800 text-white py-4 rounded-lg mt-4' v-if="endDistance">
-					<div class=" px-3 flex  items-center ">
-						<div class="md:mr-12 mr-4">
-							<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
-						</div>
+				<transition name="slideDown">
+					<div class='bg-green-800 text-white py-4 rounded-lg mt-4' v-if="endDistance">
+						<div class=" px-3 flex  items-center ">
+							<div class="md:mr-12 mr-4">
+								<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
+							</div>
 				
-						<div class='flex flex-col'>
-							<p>
-								The closest bus Stop to your End location is {{endDistance}}
-							</p>
-							<button class="text-primary rounded px-4 bg-white   mt-3 py-1.5"  > 
-								view on map
-							</button>
+							<div class='flex flex-col'>
+								<p>
+									The closest bus Stop to your End location is  <b class="font-extrabold text-xl text-green-200">{{endDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{endDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{Math.round(endDistance.distance)}} km </b> away from your end location
+								</p>
+								<button class="text-primary rounded px-4 bg-white   mt-3 py-1.5 w-72"  > 
+									view on map
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</transition>
+				</transition>
+			</div>
+	
 		</div>
 
 	</transition>
