@@ -7,12 +7,12 @@
 			</button>
 		</div>
 	
-		<select-menu placeholder='route'  :options="routeNamesOnly"  class="mb-10">
+		<select-menu placeholder='route'  :options="routeNamesOnly"  class="mb-1">
 			<template #icon>
 				<i class="fas fa-directions text-primary text-xl"></i>
 			</template>
 		</select-menu>
-		<div class="overflow-y-auto h-[50vh]">
+		<div class="overflow-y-auto h-[60vh] pb-20 pt-15">
 			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in 10" :key="n">
 				<div class="flex items-start">
 					<img src="../assets/people/1.png" alt="person" class="rounded-full mr-4">
