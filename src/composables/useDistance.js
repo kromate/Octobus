@@ -11,10 +11,13 @@ const currPos = computed(() => ({
 	lng: coords.value.longitude
 }))
 
+export const startDistance = ref('')
+export const endDistance = ref('')
+
 export const getClosestBusStop = () => {
-	const 	start = getShortPoint(currPos)
-	const end = getShortPoint(endLocation)
-	console.log(start,'==========', end)
+	 	startDistance.value = getShortPoint(currPos)
+	 endDistance.value = getShortPoint(endLocation)
+
 }
 
 export const getShortPoint = (location) => {

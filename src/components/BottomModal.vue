@@ -74,35 +74,25 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
-import {getClosestBusStop} from '../composables/useDistance'
-
+import {getClosestBusStop, endDistance, startDistance} from '../composables/useDistance'
+ 
 
 
 export default {
 	Name: 'BottomModal',
-
 	setup(){
 		const exactLoc = computed(()=>{
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
 			}
-			
 		})
-
-		
-	
-
 
 		const open = ref(false)
 		const toggleModal = ()=>{
-			// if(el.target.className.includes('open')){
 			open.value = !open.value
-			// }
 		}
 
-		return {
-			open, toggleModal, exactLoc, getClosestBusStop
-		}
+		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance	}
 	}
 }
 </script>
