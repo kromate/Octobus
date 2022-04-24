@@ -1,6 +1,8 @@
 <template>
-
-	<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+	<keep-alive>
+		<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+	
+	</keep-alive>
 	
 	<bottom-modal/>
 </template>
@@ -10,7 +12,7 @@
 <script setup>
 /* eslint-disable no-undef */
 
-import {ref, onMounted} from 'vue'
+import {ref} from '@vue/reactivity'
 
 import { initMap } from '../composables/useMap'
 
@@ -18,7 +20,8 @@ import BottomModal from '../components/BottomModal.vue'
 
 		
 		  const mapDiv = ref(null)
-		  onMounted(initMap(mapDiv))
+		  window.addEventListener('load', initMap(mapDiv))
+
 
 
 	
