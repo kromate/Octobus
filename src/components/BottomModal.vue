@@ -7,7 +7,7 @@
 					Select destination
 				</p>
 			</div>
-			<form @submit.prevent="getClosestBusStop">
+			<form @submit.prevent="getClosestBusStop" class="mb-12">
 				<div class="flex items-center mt-3 w-full" >
 					<div class="flex flex-col h-full items-center mr-3">
 						<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
@@ -22,7 +22,23 @@
 
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
-		
+	
+			<div class='border-lightGray '>
+				<div class=" px-6 flex justify-between ">
+					<div>
+						<i class="las la-location-arrow"></i>
+						<span class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/> 6:45 </span>
+						<span class='list-none flex my-2'> <img src="../../assets/icons/route.svg" class='mr-2'/>  Regular Campuses </span>
+						<span class='list-none flex my-2'> <i class="fa-solid fa-location-crosshairs text-primary mr-2"></i> Nicosia </span>
+					</div>
+					<div class='my-2'>
+						<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="showModal"> 
+							alert me 
+						</button>
+						<Modal v-show="isModalVisible" @close="closeModal" />
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</transition>
