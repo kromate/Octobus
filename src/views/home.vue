@@ -20,7 +20,7 @@ import BottomModal from '../components/BottomModal.vue'
 
 		
 		  const mapDiv = ref(null)
-		  window.addEventListener('load', initMap(mapDiv))
+		  window.addEventListener('loaded', initMap(mapDiv))
 
 
 
