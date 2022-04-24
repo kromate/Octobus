@@ -1,6 +1,6 @@
 <template>
 	<transition name="slideDown">
-		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-show="open">
+		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-if="open">
 			<div class="flex items-center">
 				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
 				<p class="font-bold ml-8 text-xl">
@@ -23,39 +23,43 @@
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
 	
-			<div class='bg-secondary text-white py-4 rounded-lg'>
-				<div class=" px-3 flex  items-center ">
-					<div class="md:mr-12 mr-4">
-						<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
-					</div>
+			<transition name="slideDown">
+				<div class='bg-secondary text-white py-4 rounded-lg' v-if="startDistance">
+					<div class=" px-3 flex  items-center ">
+						<div class="md:mr-12 mr-4">
+							<i class="fas fa-location-arrow md:text-7xl text-4xl text-white rounded-full p-2 bg-green-800"></i>
+						</div>
 				
-					<div class='flex flex-col'>
-						<p>
-							The closest bus Stop to your Start location is 
-						</p>
-						<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5"  > 
-							view on map
-						</button>
+						<div class='flex flex-col'>
+							<p>
+								The closest bus Stop to your Start location is {{startDistance}}
+							</p>
+							<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5"  > 
+								view on map
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</transition>
 
-			<div class='bg-green-800 text-white py-4 rounded-lg mt-4'>
-				<div class=" px-3 flex  items-center ">
-					<div class="md:mr-12 mr-4">
-						<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
-					</div>
+			<transition name="slideDown">
+				<div class='bg-green-800 text-white py-4 rounded-lg mt-4' v-if="endDistance">
+					<div class=" px-3 flex  items-center ">
+						<div class="md:mr-12 mr-4">
+							<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
+						</div>
 				
-					<div class='flex flex-col'>
-						<p>
-							The closest bus Stop to your End location is 
-						</p>
-						<button class="text-primary rounded px-4 bg-white   mt-3 py-1.5"  > 
-							view on map
-						</button>
+						<div class='flex flex-col'>
+							<p>
+								The closest bus Stop to your End location is {{endDistance}}
+							</p>
+							<button class="text-primary rounded px-4 bg-white   mt-3 py-1.5"  > 
+								view on map
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</transition>
 		</div>
 
 	</transition>
@@ -85,13 +89,10 @@ export default {
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
 			}
+			
 		})
-
 		const open = ref(false)
-		const toggleModal = ()=>{
-			open.value = !open.value
-		}
-
+		const toggleModal = ()=> open.value = !open.value
 		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance	}
 	}
 }
@@ -104,12 +105,11 @@ transition: all 0.35s ease;
 
   .slideDown-enter-from,
   .slideDown-leave-to {
-    opacity: 0;
-	transform: translateY(-300px)
+	transform: translateY(-3000px)
   }
 
   .slideDown-enter-active,
   .slideDown-leave-active {
-    transition: opacity .5s ease;
+    transition: opacity 1s ease;
   }
 </style>

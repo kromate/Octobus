@@ -25,7 +25,7 @@ const myStyles =[
 	}]
               
 export const initMap = async (mapDiv) => {
-	// useLoading().openLoading()
+	useLoading().openLoading()
 	const { coords } = useGeolocation()
 	
 	const currPos = computed(() => ({
