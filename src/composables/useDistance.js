@@ -1,10 +1,17 @@
-import { endLocation } from './useMap'
-import { useGeolocation } from './useGeolocation'
+
 import {AllBusRoute} from '../helpers/busRoutes'
 
-export const getShortPoint = () => {
+export const getShortPoint = (location) => {
+	console.log(location)
+	const closestPoint = 0
 	Object.keys(AllBusRoute).map((x) => {
 		console.log(x)
+		AllBusRoute[x].map((placeObj) => {
+			const cordsObj = placeObj.cord.split(',')
+			console.log(cordsObj)
+			const distance = getDistanceFromLatLonInKm(location.value.lat, location.value.lng, cordsObj[0], cordsObj[1])
+			console.log(distance)
+		})
 	})
 }
 

@@ -3,7 +3,7 @@ import {computed, ref} from '@vue/reactivity'
 import { useGeolocation } from './useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 import { useLoading } from './useNotification'
-
+import { getShortPoint } from '@/composables/useDistance'
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 
@@ -76,6 +76,8 @@ export const geocoder = async (currPos, infowindow) => {
 			infowindow.open(map, marker)
 			map.value.setCenter(initialLocation)
 			map.value.setZoom(16)
+
+			getShortPoint(currPos)
 		} else {
 			alert('Can\'t find your current location')
 		}

@@ -38,7 +38,7 @@
 <script>
 import { computed, ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
-import { getShortPoint } from '../composables/useDistance'
+
 
 
 
@@ -46,7 +46,6 @@ export default {
 	Name: 'BottomModal',
 
 	setup(){
-		getShortPoint()
 		const exactLoc = computed(()=>{
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
