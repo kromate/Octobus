@@ -7,14 +7,39 @@ import { useLoading } from './useNotification'
 export const startDistance = ref('')
 export const endDistance = ref('')
 
+
+  
+ 
+		
 export const getClosestBusStop = () => {
 	useLoading().openLoading()
+	const gm = google.maps
+		
+	const lineSymbol = {
+		path: google.maps.SymbolPath.CIRCLE,
+		fillOpacity: 1,
+		scale: 3
+	}
+	const   polylineOptionsActual = new gm.Polyline({
+		strokeColor: '#8F2A46',
+		//strokeWeight: 5,
+		strokeOpacity: 1,
+		icons: [{
+			icon: lineSymbol,
+			offset: '0',
+			repeat: '10px'
+		}],
+	})
 	const startPoint=getShortPoint(currPosition)
-	console.log(startPoint)
+	const rendererOptions = {
+		map: map.value,
+		suppressMarkers: false,
+		polylineOptions: polylineOptionsActual
+	}
 
 
 	const directionsService = new google.maps.DirectionsService()
-	const directionsRenderer = new google.maps.DirectionsRenderer()
+	const directionsRenderer = new google.maps.DirectionsRenderer(rendererOptions)
 	directionsRenderer.setMap(map.value)
 
 	 const route = {
@@ -27,12 +52,14 @@ export const getClosestBusStop = () => {
 		function(response, status) { // anonymous function to capture directions
 			if (status !== 'OK') {
 				window.alert('Directions request failed due to ' + status)
+				useLoading().closeLoading()
 				return
 			} else {
 				directionsRenderer.setDirections(response) // Add route to the map
 				const directionsData = response.routes[0].legs[0] // Get data about the mapped route
 				if (!directionsData) {
 					window.alert('Directions request failed')
+					useLoading().closeLoading()
 					return
 				}
 				else {
