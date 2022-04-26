@@ -2,11 +2,14 @@ import { ref } from '@vue/reactivity'
 
 
 
-export const sendPost = () => {
+export const usePost = () => {
 	const postModalRoute = ref('')
 	const message = ref('')
     
-    const 
+	const send = () => {
+        
+		console.log(postModalRoute.value, message.value)
+	}
 
-	return {postModalRoute, message}
+	return {postModalRoute, message, send}
 }

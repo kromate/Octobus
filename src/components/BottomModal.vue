@@ -30,7 +30,7 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-[#ffffffdd] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
+		<div class='bg-[#ffffffdd] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="true">
 			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
 			<div class=" px-3 flex  items-center ">
 				<div class='flex flex-col'>
@@ -44,6 +44,7 @@
 			</div>
 		</div>
 	</transition>
+
 	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[4px]', 'px-3 z-30 fixed  py-4 bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
 		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-gray mx-auto']"/>
 	

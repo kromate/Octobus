@@ -11,7 +11,7 @@
 					</div>
 				</div>
 				<form action="" class="w-full">
-					<select-menu @onChange="route = $event" placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
+					<select-menu @onChange="postModalRoute.value = $event" placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
 						<template #icon>
 							<i class="fas fa-directions text-primary text-xl"></i>
 						</template>
@@ -37,6 +37,7 @@ import Modal from '../index.vue'
 
 import {routeNamesOnly} from '@/helpers/busRoutes'
 import SelectMenu from '../../SelectMenu.vue'
+import {usePost} from '@/composables/usePost'
 export default {
 	name: 'PostModal',
 	components: { Modal, SelectMenu },
@@ -53,7 +54,9 @@ export default {
 		}
 	},
 	setup() {	
-		return {routeNamesOnly}
+
+		const {postModalRoute, message} = usePost()
+		return {routeNamesOnly, postModalRoute, message}
 	}
 }
 </script>
