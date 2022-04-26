@@ -1,7 +1,7 @@
 <template>
 	<home-page>
 		<div class="py-4">
-			<empty-state v-if="true"/>
+			<empty-state v-if="false"/>
 			<active-state v-else/>
 		</div>
 	</home-page>

@@ -1,7 +1,7 @@
 <template>
 	<Modal v-if="showModal">
 		<div class="h-[300px] bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
-			<div class="flex flex-col w-full h-full justify-between">
+			<div class="flex flex-col w-full h-full ">
 				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
 					<h2 class="font-semibold text-2xl text-center ">
 						Post an Update
@@ -10,6 +10,12 @@
 						<i class="fas fa-times text-primary text-2xl"></i>
 					</div>
 				</div>
+
+				<select-menu placeholder='Pick a route'  :options="routeNamesOnly"  class="mb-1">
+					<template #icon>
+						<i class="fas fa-directions text-primary text-xl"></i>
+					</template>
+				</select-menu>
 			</div>
 		</div>
 	</Modal>
@@ -18,7 +24,7 @@
 <script>
 
 import Modal from '../index.vue'
-
+import {routeNamesOnly} from '@/helpers/busRoutes'
 export default {
 	name: 'UpdateModal',
 	components: { Modal },
@@ -35,9 +41,7 @@ export default {
 		}
 	},
 	setup() {	
-		return {
-
-		}
+		return {routeNamesOnly}
 	}
 }
 </script>

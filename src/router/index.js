@@ -26,12 +26,7 @@ const routes = [
 		name: 'chat',
 		component: ()=> import('../views/chat.vue'),
 	},
-	{
-		path: '/add',
-		name: 'Add',
-		component: ()=> import('../views/addAlert.vue'),
 
-	},
   
 	{
 		path: '/signup',
