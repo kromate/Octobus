@@ -25,7 +25,7 @@
 
 <script>
 import {googleAuth, signOutUser} from '@/firebase/auth'
-import { useUser } from '~/composables/useGlobals'
+import { useUser } from '@/composables/useGlobal'
 
 
 export default {

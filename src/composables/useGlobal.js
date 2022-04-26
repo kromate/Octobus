@@ -1,5 +1,5 @@
 
-import { ref } from '@nuxtjs/composition-api'
+import { ref } from '@vue/reactivity'
 import { useStorage } from '@vueuse/core'
 
 export const GlobalState = useStorage('GlobalState', {
