@@ -16,7 +16,7 @@
 		</form>
 
 
-		<button class="mt-12 mx-auto mt-4 p-3 px-12 text-center rounded-xl bg-secondary text-white"> login with Google </button>
+		<button class="mt-12 mx-auto p-3 px-12 text-center rounded-xl bg-secondary text-white" @click="googleAuth"> login with Google </button>
 		<p class='mt-28' >  Don’t have an account? 
 			<router-link to="/signup" class='text-blue-400' > Create account  </router-link> 
 		</p>
@@ -24,32 +24,14 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import {googleAuth, signOutUser} from '@/firebase/auth'
+import { useUser } from '~/composables/useGlobals'
+
 
 export default {
 	setup() {
-		const email = ref('')
-		const password = ref('')
-		const error = ref(null)
-
-		const store = useStore()
-		const router = useRouter()
-
-		const handleSubmit = async () => {
-			try {
-				await store.dispatch('login', {
-					email: email.value,
-					password: password.value
-				})
-				router.push('/')
-			}
-			catch (err) {
-				error.value = err.message
-			}
-		}
-		return { handleSubmit, email, password, error }
+		const {user} = useUser()
+		return{user, googleAuth, signOutUser}
 	}
 }
 </script>

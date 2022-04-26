@@ -1,15 +1,16 @@
 
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app'
 
 
 const firebaseConfig = {
-	apiKey: process.env.FIRE_API_KEY,
-	authDomain: 'timelinx.firebaseapp.com',
-	projectId: 'timelinx',
-	storageBucket: 'timelinx.appspot.com',
-	messagingSenderId: '104278527964',
-	appId: '1:104278527964:web:5bc248cc1d3288e5218919'
-};
+	apiKey: import.meta.env.VITE_FIRE_API_KEY,
+	authDomain: 'octobus-1.firebaseapp.com',
+	projectId: 'octobus-1',
+	storageBucket: 'octobus-1.appspot.com',
+	messagingSenderId: '27001174362',
+	appId: '1:27001174362:web:28ce110d72dfa186121b63',
+	measurementId: 'G-QVYC9LW4DE'
+}
 
 
-export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig)
