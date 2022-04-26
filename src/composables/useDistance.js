@@ -23,7 +23,7 @@ export const getClosestBusStop = () => {
 	const   polylineOptionsActual = new gm.Polyline({
 		strokeColor: '#8F2A46',
 		//strokeWeight: 5,
-		strokeOpacity: 1,
+		strokeOpacity: 0,
 		icons: [{
 			icon: lineSymbol,
 			offset: '0',
