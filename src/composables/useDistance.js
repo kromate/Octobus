@@ -1,7 +1,7 @@
 
 import {  ref } from '@vue/reactivity'
 import {AllBusRoute} from '../helpers/busRoutes'
-import {  currPosition } from './useMap'
+import {  currPosition, map } from './useMap'
 
 export const startDistance = ref('')
 export const endDistance = ref('')
@@ -9,7 +9,38 @@ export const endDistance = ref('')
 export const getClosestBusStop = () => {
 
 	console.log(getShortPoint(currPosition))
-	 	startDistance.value = getShortPoint(currPosition)
+
+
+	const directionsService = new google.maps.DirectionsService()
+	const directionsRenderer = new google.maps.DirectionsRenderer()
+	directionsRenderer.setMap(map.value)
+
+	 const route = {
+		origin: `${currPosition.value.lat},${currPosition.value.lng}`,
+		destination:getShortPoint(currPosition).cord,
+		travelMode: 'WALKING'
+	}
+	 
+	directionsService.route(route,
+		function(response, status) { // anonymous function to capture directions
+			if (status !== 'OK') {
+				window.alert('Directions request failed due to ' + status)
+				return
+			} else {
+				directionsRenderer.setDirections(response) // Add route to the map
+				const directionsData = response.routes[0].legs[0] // Get data about the mapped route
+				if (!directionsData) {
+					window.alert('Directions request failed')
+					return
+				}
+				else {
+					startDistance.value = getShortPoint(currPosition)
+					console.log(directionsData)
+					console.log(' Driving distance is ' + directionsData.distance.text + ' (' + directionsData.duration.text + ').')
+					// document.getElementById('msg').innerHTML += ' Driving distance is ' + directionsData.distance.text + ' (' + directionsData.duration.text + ').'
+				}
+			}
+		})
 	//  endDistance.value = getShortPoint(endLocation)
 
 }

@@ -7,7 +7,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
-const map = ref(null)
+export const map = ref(null)
 const autocomplete = ref('')
 
   

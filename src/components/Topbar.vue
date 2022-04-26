@@ -21,12 +21,16 @@
 			<button class="btn py-1 px-3" @click="openContactModal">
 				Contact
 			</button>
+			<button class="btn py-1 px-3"  @click="user ? signOutUser() : googleAuth()">
+				{{ user ? "Log Out" : "Login" }}
+			</button>
 		</div>
 	</div>
 </template>
 
 <script>
 import {modalController} from '../composables/useModal'
+import { useUser } from '../composables/useGlobal'
 export default {
 	name:'TobBar',
 	setup(){
