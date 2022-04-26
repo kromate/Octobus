@@ -2,13 +2,15 @@
 import {  ref } from '@vue/reactivity'
 import {AllBusRoute} from '../helpers/busRoutes'
 import {  currPosition, map } from './useMap'
+import { useLoading } from './useNotification'
 
 export const startDistance = ref('')
 export const endDistance = ref('')
 
 export const getClosestBusStop = () => {
-
-	console.log(getShortPoint(currPosition))
+	useLoading().openLoading()
+	const startPoint=getShortPoint(currPosition)
+	console.log(startPoint)
 
 
 	const directionsService = new google.maps.DirectionsService()
@@ -17,7 +19,7 @@ export const getClosestBusStop = () => {
 
 	 const route = {
 		origin: `${currPosition.value.lat},${currPosition.value.lng}`,
-		destination:getShortPoint(currPosition).cord,
+		destination:startPoint.cord,
 		travelMode: 'WALKING'
 	}
 	 
@@ -34,10 +36,10 @@ export const getClosestBusStop = () => {
 					return
 				}
 				else {
-					startDistance.value = getShortPoint(currPosition)
+					startDistance.value = startPoint
 					console.log(directionsData)
 					console.log(' Driving distance is ' + directionsData.distance.text + ' (' + directionsData.duration.text + ').')
-					// document.getElementById('msg').innerHTML += ' Driving distance is ' + directionsData.distance.text + ' (' + directionsData.duration.text + ').'
+					useLoading().closeLoading()
 				}
 			}
 		})

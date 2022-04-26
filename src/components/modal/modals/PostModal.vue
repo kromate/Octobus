@@ -34,10 +34,12 @@
 <script>
 
 import Modal from '../index.vue'
+
 import {routeNamesOnly} from '@/helpers/busRoutes'
+import SelectMenu from '../../SelectMenu.vue'
 export default {
 	name: 'PostModal',
-	components: { Modal },
+	components: { Modal, SelectMenu },
 	props:{
 		showModal: {
 			type: Boolean,

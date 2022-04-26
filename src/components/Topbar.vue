@@ -21,7 +21,7 @@
 			<button class="btn py-1 px-3" @click="openContactModal">
 				Contact
 			</button>
-			<button class="btn py-1 px-3"  @click="user ? signOutUser() : googleAuth()">
+			<button class="btn py-1 px-3"  @click="user ? signOutUser() : $router.push('/login')">
 				{{ user ? "Log Out" : "Login" }}
 			</button>
 		</div>
@@ -31,12 +31,14 @@
 <script>
 import {modalController} from '../composables/useModal'
 import { useUser } from '../composables/useGlobal'
+import { signOutUser } from '../firebase/auth'
 export default {
 	name:'TobBar',
 	setup(){
+		const { user } = useUser()
 		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu} = modalController()
 
-		return{
+		return{ user, signOutUser,
 			openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu
 		}
 	}
