@@ -11,7 +11,7 @@
 					</div>
 				</div>
 				<form action="" class="w-full">
-					<select-menu placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
+					<select-menu @onChange="route = $event" placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
 						<template #icon>
 							<i class="fas fa-directions text-primary text-xl"></i>
 						</template>

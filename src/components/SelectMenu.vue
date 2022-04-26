@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue'
+import {  watch, ref } from 'vue'
 import { Listbox, ListboxButton,  ListboxOption, ListboxOptions } from '@headlessui/vue'
 
 
@@ -51,27 +51,22 @@ export default {
 			type:Array,
 			required: true,
 		},
-		selected:{
-			type:String,
-			required: false,
-		},
+	
 		placeholder:{
 			type:String,
 			required: false,
 		}
 	},
 	setup(props,context) {
-		const selected = ref()
+		
+		const selected = ref('')
 
 		watch(selected, (curr)=>{
 			context.emit('onChange', curr)
 		})
 
 
-		return {
-			selected,
-
-		}
+		return {selected}
 	},
 }
 </script>
