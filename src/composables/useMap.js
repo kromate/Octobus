@@ -31,8 +31,10 @@ export const initMap = async (mapDiv) => {
 	const { coords } = useGeolocation()
 	
 	const currPos = computed(() => ({
-		lat: coords.value.latitude,
-		lng: coords.value.longitude
+		lat: 35.219646,
+		lng: 33.374931
+		// lat: coords.value.latitude,
+		// lng: coords.value.longitude
 	}))
     	await loader.load()
 		    map.value = new google.maps.Map(mapDiv.value, {

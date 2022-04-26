@@ -30,7 +30,7 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-secondary text-white py-4 rounded absolute top-[75px] w-[75%]' v-if="true">
+		<div class='bg-secondary text-white py-4 rounded absolute top-[75px] left-5 w-[75%] max-w-[25rem]' v-if="true">
 			<div class=" px-3 flex  items-center ">
 			
 				
