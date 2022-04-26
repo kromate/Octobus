@@ -1,7 +1,7 @@
 <template>
 	<home-page>
 		<div class="py-4">
-			<empty-state v-if="Alert.length"/>
+			<empty-state v-if="!Alert.length"/>
 			<active-state v-else/>
 		</div>
 	</home-page>
