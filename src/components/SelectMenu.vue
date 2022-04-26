@@ -8,7 +8,7 @@
        focus:outline-none  sm:text-sm">
 				<span class="flex items-center">
 					<slot name='icon'/>
-					<span  class="ml-3 block truncate text-primary">{{ selected }}</span>
+					<span  class="ml-3 block truncate text-primary">{{ placeholder }}</span>
 				</span>
 				<span class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 					<i class="fas fa-angle-down"></i>
@@ -54,6 +54,10 @@ export default {
 			required: true,
 		},
 		selected:{
+			type:String,
+			required: false,
+		},
+		placeholder:{
 			type:String,
 			required: false,
 		}
