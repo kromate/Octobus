@@ -27,8 +27,6 @@ const provider = new GoogleAuthProvider()
 
 
 export const googleAuth = () => {
-
-
 	openLoading('Logging you in... 🤩')
 	signInWithPopup(auth, provider)
 		.then((result) => {
