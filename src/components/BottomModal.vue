@@ -30,14 +30,17 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-[#ffffffdd] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="true">
+		<div class='bg-[#ffffff90] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="true">
 			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
 			<div class=" px-3 flex  items-center ">
 				<div class='flex flex-col'>
-					<p>
-						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-500">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-500"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-500">{{(startDistance.distance).toFixed(3)}} km </b> away from you
-					</p>
-					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-8/12"  > 
+					<div class="flex flex-col">
+						<span class="mt-2">	Route: <b>Güzelyurt</b> </span>
+						<span class="mt-2">	bus stop: <b>Guzelyurt Bus Terminal</b> </span>
+						<span class="mt-2">	Time taken: <b>30 mins </b> </span>
+						<span class="mt-2">	Distance: <b>2.5 km </b> </span>
+					</div>
+					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full"  > 
 						set Alert
 					</button>
 				</div>

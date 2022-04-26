@@ -35,7 +35,9 @@
 </template>
 <script>
 import Modal from '../../components/Modal.vue'
-import {  ref} from 'vue'
+import {ref} from 'vue'
+
+
 export default {
 	components: {
 		Modal,
