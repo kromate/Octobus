@@ -40,7 +40,7 @@
 						<span class="mt-2">	Time taken: <b class=" text-green-900 font-extrabold">{{startDistance.duration.text}}</b> </span>
 						<span class="mt-2">	Distance: <b class=" text-green-900 font-extrabold">{{startDistance.distance.text}} </b> </span>
 					</div>
-					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full"  > 
+					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
 						set Alert
 					</button>
 				</div>
@@ -63,6 +63,7 @@
 <script>
 import { computed,ref } from '@vue/reactivity'
 import { currLocation } from '../composables/useMap'
+import { addAlert } from '../composables/useAlert'
 import {getClosestBusStop, endDistance, startDistance} from '../composables/useDistance'
  
 
@@ -74,8 +75,14 @@ export default {
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
 			}
-			
 		})
+
+		const onAddAlert = (data)=>{
+			console.log(data)
+			// addAlert({
+			// 	'Bus Stop' : data
+			// })
+		}
 
 		const onGetClosestBusStop = ()=>{
 			getClosestBusStop()
@@ -85,7 +92,7 @@ export default {
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails	}
+		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails, addAlert	}
 	}
 }
 </script>
