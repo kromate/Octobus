@@ -79,9 +79,13 @@ export default {
 
 		const onAddAlert = (data)=>{
 			console.log(data)
-			// addAlert({
-			// 	'Bus Stop' : data
-			// })
+			console.log(data.cord)
+			addAlert({
+				'busStop' : data.end_address,
+				'Route' : data.route,
+				'timeTaken' : data.duration.text,
+				'distance' : data.distance.text,
+			})
 		}
 
 		const onGetClosestBusStop = ()=>{
@@ -92,7 +96,7 @@ export default {
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails, addAlert	}
+		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
 	}
 }
 </script>

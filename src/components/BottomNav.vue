@@ -5,8 +5,12 @@
 			<i class="fas fa-home text-primary text-2xl mx-auto"></i>
 		</router-link>
 
-		<router-link to="/alert" class="w-full block py-5 px-3 text-center duration-300 transition-all">
-			<i class="fas fa-bell text-primary text-2xl mx-auto "></i>
+		<router-link to="/alert" class="w-full block py-5 px-3 text-center duration-300 transition-all relative">
+			<i class="fas fa-bell text-primary text-2xl mx-auto "></i> 
+			<span class="bg-secondary  rounded-full text-xs w-5 h-5 absolute flex justify-center items-center top-0 left-[40px]">
+				{{Alert.length}}
+			</span>
+			
 		</router-link>
 		<router-link to="/chat" class="w-full block py-5 px-3 text-center duration-300 transition-all">
 			<i class="fas fa-comment text-primary text-2xl mx-auto "></i>
@@ -17,8 +21,13 @@
 </template>
 
 <script>
+import { Alert } from '../composables/useAlert'
 export default {
 	name:'BottomNav',
+
+	setup(){
+		return{Alert}
+	}
   
 }
 </script>
