@@ -5,14 +5,14 @@
 
 		<form @submit.prevent="handleSubmit" class="mt-4 mx-4">
      
-			<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Email" type="email" name="email" v-model="email" required>
+			<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Email" type="email" name="email" v-model="email.value" required>
 
-			<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Password" type="password" name="password" v-model="password" required>
+			<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Password" type="password" name="password" v-model="password.value" required>
 
 
 			<button class="w-full mt-4 p-3 text-center rounded-xl bg-primary text-white"> Login </button>
 
-			<div class='text-base text-red-700 my-4' v-if="error">{{ error }}</div>
+			<div class='text-base text-red-700 my-4' v-if="error.value">{{ error.value }}</div>
 		</form>
 
 
@@ -24,13 +24,14 @@
 </template>
 
 <script>
-import {googleAuth, signOutUser} from '@/firebase/auth'
+import {useLogin, signOutUser} from '@/firebase/auth'
 import { useUser } from '@/composables/useGlobal'
 
 
 export default {
 	setup() {
 		const {user} = useUser()
+		const {googleAuth, email, password, error} = useLogin()
 		return{user, googleAuth, signOutUser}
 	}
 }

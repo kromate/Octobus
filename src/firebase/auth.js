@@ -3,6 +3,7 @@ import { app } from './init'
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
 import { useAlert, useLoading } from '@/composables/useNotification'
 import { useUser } from '@/composables/useGlobal'
+import { useRouter } from 'vue-router'
 
 
 const {openAlert} = useAlert()
@@ -25,22 +26,30 @@ onAuthStateChanged(auth, (user) => {
 
 const provider = new GoogleAuthProvider()
 
+export const useLogin = () => {
+	const Router = useRouter()
+	
+	const googleAuth = () => {
+		openLoading('Logging you in... 🤩')
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				closeLoading()
+				const user = result.user
+				saveUser(user)
+				openAlert('You have successfully signed in 🥳')
+				Router.push('/')
+			}).catch((error) => {
+				closeLoading()
+				console.log(error)
+				openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
 
-export const googleAuth = () => {
-	openLoading('Logging you in... 🤩')
-	signInWithPopup(auth, provider)
-		.then((result) => {
-			closeLoading()
-			const user = result.user
-			saveUser(user)
-			openAlert('You have successfully signed in 🥳')
-		}).catch((error) => {
-			closeLoading()
-			console.log(error)
-			openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
+			})
+	} 
+	
+	return{googleAuth}
+}
 
-		})
-} 
+
 
 export const signOutUser = () => {
 	openLoading('Signing You out...😗')
