@@ -36,9 +36,8 @@ export const getClosestBusStop = () => {
 					return
 				}
 				else {
-					startDistance.value = startPoint
-					console.log(directionsData)
-					console.log(' Driving distance is ' + directionsData.distance.text + ' (' + directionsData.duration.text + ').')
+					startDistance.value = {...startPoint, ...directionsData}
+					console.log(startDistance.value)
 					useLoading().closeLoading()
 				}
 			}
