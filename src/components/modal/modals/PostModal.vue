@@ -10,8 +10,8 @@
 						<i class="fas fa-times text-primary text-2xl"></i>
 					</div>
 				</div>
-				<form action="" class="w-full">
-					<select-menu @onChange="postModalRoute.value = $event" placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
+				<form action="" class="w-full" @submit.prevent="send">
+					<select-menu @onChange="postModalRoute = $event" placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
 						<template #icon>
 							<i class="fas fa-directions text-primary text-xl"></i>
 						</template>
@@ -20,7 +20,7 @@
 					<textarea name="message" v-model="message" id=""  rows="7" class=" w-full bg-lightGray rounded-md shadow-sm pl-3 pr-10 py-3 mt-4 text-left cursor-default
        focus:outline-none  sm:text-sm1 "></textarea>
 
-					<button class="btn py-1 px-3 text-sm ml-auto mt-4" @click="openPostModal">
+					<button class="btn py-1 px-3 text-sm ml-auto mt-4" type="submit">
 						Send
 					</button>
 
@@ -55,8 +55,8 @@ export default {
 	},
 	setup() {	
 
-		const {postModalRoute, message} = usePost()
-		return {routeNamesOnly, postModalRoute, message}
+		const {postModalRoute, message, send} = usePost()
+		return {routeNamesOnly, postModalRoute, message, send}
 	}
 }
 </script>

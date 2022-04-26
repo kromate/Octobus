@@ -30,15 +30,15 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-[#ffffff90] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
+		<div class='bg-[#ffffffbe] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
 			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
 			<div class=" px-3 flex  items-center ">
 				<div class='flex flex-col'>
 					<div class="flex flex-col">
-						<span class="mt-2">	Route: <b>Güzelyurt</b> </span>
-						<span class="mt-2">	bus stop: <b>{{startDistance}}</b> </span>
-						<span class="mt-2">	Time taken: <b>30 mins </b> </span>
-						<span class="mt-2">	Distance: <b>2.5 km </b> </span>
+						<span class="mt-2">	Route: <b class=" text-green-900 font-extrabold">{{startDistance.route}}</b> </span>
+						<span class="mt-2">	bus stop: <b class=" text-green-900 font-extrabold">{{startDistance.end_address}}</b> </span>
+						<span class="mt-2">	Time taken: <b class=" text-green-900 font-extrabold">{{startDistance.duration.text}}</b> </span>
+						<span class="mt-2">	Distance: <b class=" text-green-900 font-extrabold">{{startDistance.distance.text}} </b> </span>
 					</div>
 					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full"  > 
 						set Alert
