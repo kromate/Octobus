@@ -4,9 +4,9 @@ import ContactModal from '../components/modal/modals/ContactModal.vue'
 import FAQModal from '../components/modal/modals/FAQsModal.vue'
 import RouteModal from '../components/modal/modals/RouteModal.vue'
 import SideMenu from '../components/modal/modals/SideMenu.vue'
-import UpdateModal from '../components/modal/modals/UpdateModal.vue'
+import PostModal from '../components/modal/modals/PostModal.vue'
 
-const allModals = [AboutModal, ContactModal, FAQModal, RouteModal, SideMenu, UpdateModal]
+const allModals = [AboutModal, ContactModal, FAQModal, RouteModal, SideMenu, PostModal]
 
 const GlobalModalState = {}
 
