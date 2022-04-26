@@ -18,7 +18,7 @@
 
 		<button class="mt-12 mx-auto p-3 px-12 text-center rounded-xl bg-secondary text-white" @click="googleAuth"> login with Google </button>
 		<p class='mt-28' >  Don’t have an account? 
-			<router-link to="/signup" class='text-blue-400' > Create account  </router-link> 
+			<router-link to="/signup" class='!text-secondary' > Create account  </router-link> 
 		</p>
 	</div>
 </template>
@@ -29,6 +29,7 @@ import { useUser } from '@/composables/useGlobal'
 
 
 export default {
+	name:'loginPage',
 	setup() {
 		const {user} = useUser()
 		const {googleAuth, email, password, error, loginEmail} = useLogin()

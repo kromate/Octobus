@@ -1,5 +1,5 @@
 import { app } from './init'
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { useAlert, useLoading } from '@/composables/useNotification'
 import { useUser } from '@/composables/useGlobal'
 import { useRouter } from 'vue-router'
@@ -32,9 +32,27 @@ export const useLogin = () => {
 	const email = ref('')
 	const password = ref('')
 	const error = ref('')
-	const loginEmail = () => {
+	const registerEmail = () => {
 		openLoading('Logging you in... 🤩')
 		createUserWithEmailAndPassword(auth, email.value, password.value)
+			.then((result) => {
+				closeLoading()
+				const user = result.user
+				saveUser(user)
+				openAlert('You have successfully signed in 🥳')
+				Router.push('/')
+			}).catch((err) => {
+				closeLoading()
+				console.log(err)
+				error.value = err.message
+				openAlert(`Oops seems something went wrong 😕 : ${err.message}`)
+
+			})
+	}
+	const loginEmail = () => {
+		error.value = ''
+		openLoading('Logging you in... 🤩')
+		signInWithEmailAndPassword(auth, email.value, password.value)
 			.then((result) => {
 				closeLoading()
 				const user = result.user
@@ -66,7 +84,7 @@ export const useLogin = () => {
 			})
 	} 
 	
-	return{googleAuth, email, password, error, loginEmail}
+	return{googleAuth, email, password, error, loginEmail, registerEmail}
 }
 
 
