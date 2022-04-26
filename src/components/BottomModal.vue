@@ -36,7 +36,7 @@
 				
 				<div class='flex flex-col'>
 					<p>
-						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-200">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{Math.round(startDistance.distance)}} km </b> away from you
+						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-200">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{(startDistance.distance).toFixed(3)}} km </b> away from you
 					</p>
 					<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5 w-72"  > 
 						view on map
