@@ -7,7 +7,7 @@
 					Select destination
 				</p>
 			</div>
-			<form @submit.prevent="getClosestBusStop" class="mb-12">
+			<form @submit.prevent="onGetClosestBusStop" class="mb-12">
 				<div class="flex items-center mt-3 w-full" >
 					<div class="flex flex-col h-full items-center mr-3">
 						<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
@@ -30,7 +30,7 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-secondary text-white py-4 rounded absolute top-[75px] left-5 w-[75%] max-w-[25rem]' v-if="true">
+		<div class='bg-[#ffffffef] text-secondary py-4 rounded absolute top-[75px] left-5 w-[75%] max-w-[25rem]' v-if="startDistance">
 			<div class=" px-3 flex  items-center ">
 			
 				
@@ -38,8 +38,8 @@
 					<p>
 						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-200">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{(startDistance.distance).toFixed(3)}} km </b> away from you
 					</p>
-					<button class="text-primary  rounded px-4 bg-white  mt-3 py-1.5 w-72"  > 
-						view on map
+					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-8/12"  > 
+						set Alert
 					</button>
 				</div>
 			</div>
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity'
-import { currLocation, open } from '../composables/useMap'
+import { computed,ref } from '@vue/reactivity'
+import { currLocation } from '../composables/useMap'
 import {getClosestBusStop, endDistance, startDistance} from '../composables/useDistance'
  
 
@@ -73,9 +73,15 @@ export default {
 			}
 			
 		})
+
+		const onGetClosestBusStop = ()=>{
+			getClosestBusStop()
+			toggleModal()
+		}
 		
+		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
-		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance	}
+		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance	}
 	}
 }
 </script>

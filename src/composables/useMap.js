@@ -11,7 +11,7 @@ const map = ref(null)
 const autocomplete = ref('')
 
   
-export const open = ref(false)
+
 export const currLocation = ref('')
 export const currPosition = ref({})
 export const endLocation = ref({})
@@ -31,10 +31,10 @@ export const initMap = async (mapDiv) => {
 	const { coords } = useGeolocation()
 	
 	const currPos = computed(() => ({
-		lat: 35.219646,
-		lng: 33.374931
-		// lat: coords.value.latitude,
-		// lng: coords.value.longitude
+		// lat: 35.219646,
+		// lng: 33.374931
+		lat: coords.value.latitude,
+		lng: coords.value.longitude
 	}))
     	await loader.load()
 		    map.value = new google.maps.Map(mapDiv.value, {
