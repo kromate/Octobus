@@ -7,7 +7,7 @@
 
 		<router-link to="/alert" class="w-full block py-5 px-3 text-center duration-300 transition-all relative">
 			<i class="fas fa-bell text-primary text-2xl mx-auto "></i> 
-			<span class="bg-secondary  rounded-full text-xs w-5 h-5 absolute flex justify-center items-center top-0 left-[40px]">
+			<span v-if="Alert.length" class="bg-secondary border-2  rounded-full text-xs w-5 text-white h-5 absolute flex justify-center items-center top-3 left-[50%]">
 				{{Alert.length}}
 			</span>
 			

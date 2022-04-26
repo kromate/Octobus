@@ -86,6 +86,7 @@ export default {
 				'timeTaken' : data.duration.text,
 				'distance' : data.distance.text,
 			})
+			offDetails()
 		}
 
 		const onGetClosestBusStop = ()=>{
