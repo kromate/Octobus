@@ -11,6 +11,7 @@ const map = ref(null)
 const autocomplete = ref('')
 
   
+export const open = ref(false)
 export const currLocation = ref('')
 export const currPosition = ref({})
 export const endLocation = ref({})

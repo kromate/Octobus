@@ -47,7 +47,7 @@
 					<div class='bg-green-800 text-white py-4 rounded-lg mt-4' v-if="endDistance">
 						<div class=" px-3 flex  items-center ">
 							<div class="md:mr-12 mr-4">
-					 			<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
+								<i class="fas fa-map-marker md:text-7xl text-4xl text-white rounded-full p-2 bg-secondary"></i>
 							</div>
 				
 							<div class='flex flex-col'>
@@ -79,8 +79,8 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/reactivity'
-import { currLocation } from '../composables/useMap'
+import { computed } from '@vue/reactivity'
+import { currLocation, open } from '../composables/useMap'
 import {getClosestBusStop, endDistance, startDistance} from '../composables/useDistance'
  
 
@@ -94,7 +94,7 @@ export default {
 			}
 			
 		})
-		const open = ref(false)
+		
 		const toggleModal = ()=> open.value = !open.value
 		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance	}
 	}

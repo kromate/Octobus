@@ -1,6 +1,6 @@
 <template>
 	<Modal v-if="showModal">
-		<div class="h-[300px] bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
+		<div class="h-auto bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
 			<div class="flex flex-col w-full h-full ">
 				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
 					<h2 class="font-semibold text-2xl text-center ">
@@ -10,12 +10,22 @@
 						<i class="fas fa-times text-primary text-2xl"></i>
 					</div>
 				</div>
+				<form action="" class="w-full">
+					<select-menu placeholder='Pick a route'  :options="routeNamesOnly" v-model="route" class="mb-1">
+						<template #icon>
+							<i class="fas fa-directions text-primary text-xl"></i>
+						</template>
+					</select-menu>
 
-				<select-menu placeholder='Pick a route'  :options="routeNamesOnly"  class="mb-1">
-					<template #icon>
-						<i class="fas fa-directions text-primary text-xl"></i>
-					</template>
-				</select-menu>
+					<textarea name="message" v-model="message" id=""  rows="7" class=" w-full bg-lightGray rounded-md shadow-sm pl-3 pr-10 py-3 mt-4 text-left cursor-default
+       focus:outline-none  sm:text-sm1 "></textarea>
+
+					<button class="btn py-1 px-3 text-sm ml-auto mt-4" @click="openUpdateModal">
+						Send
+					</button>
+
+				</form>
+		
 			</div>
 		</div>
 	</Modal>
