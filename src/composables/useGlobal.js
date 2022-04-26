@@ -3,7 +3,6 @@ import { ref } from '@vue/reactivity'
 import { useStorage } from '@vueuse/core'
 
 export const GlobalState = useStorage('GlobalState', {
-	savedData: [],
 	isLoggedIn: false,
 	UserRef: ''
 })
