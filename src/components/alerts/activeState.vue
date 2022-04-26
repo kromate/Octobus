@@ -1,17 +1,18 @@
 <template>
 	<div class='w-screen h-screen my-14  '> 
-		<div class='border-b border-lightGray ' v-for="item in ">
+		<div class='border-b border-lightGray ' v-for="(item, index) in Alert" :key="item">
 			<div class="alert-card px-6 flex justify-between ">
 				<div>
-					<li class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/> 6:45 </li>
-					<li class='list-none flex my-2'> <img src="../../assets/icons/route.svg" class='mr-2'/>  Regular Campuses </li>
-					<li class='list-none flex my-2'> <i class="fa-solid fa-location-crosshairs text-primary mr-2"></i> Nicosia </li>
+					<li class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/>  {{item.timeTaken}} </li>
+					<li class='list-none flex my-2'> <img src="../../assets/icons/route.svg" class='mr-2'/>  {{item.Route}} </li>
+					<li class='list-none flex my-2'> <img src="../../assets/icons/place.svg" class='mr-2'/>  {{item.busStop}} </li>
+
 				</div>
 				<div class='my-2'>
-					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="showModal"> 
-						alert me 
+					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="delAlert(index)"> 
+						Cancel Alert
 					</button>
-					<Modal v-show="isModalVisible" @close="closeModal" />
+					<!-- <Modal v-show="isModalVisible" @close="closeModal" /> -->
 				</div>
 			</div>
 		</div>
@@ -21,12 +22,12 @@
 
 <script>
 
-import { Alert } from '@/composables/useAlert'
+import { Alert, delAlert } from '@/composables/useAlert'
 
 export default {
 
 	setup(){
-		return{Alert}
+		return{Alert, delAlert}
 	}
     
 }
