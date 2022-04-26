@@ -8,58 +8,42 @@ const routes = [
 		path: '/',
 		name: 'home',
 		component: home,
-		meta:{
-			layout:'landing'
-		} 
+	
 	},
 	{
 		path: '/landing',
 		name: 'landing',
 		component: ()=> import('../views/landing.vue'),
-		meta:{
-			layout:'default'
-		}
+
 	},
 	{
 		path: '/alert',
 		name: 'alert',
 		component: Alert,
-		meta:{
-			layout:'landing'
-		}
 	},
 	{
 		path: '/chat',
 		name: 'chat',
 		component: ()=> import('../views/chat.vue'),
-		meta:{
-			layout:'landing'
-		}
 	},
 	{
 		path: '/add',
 		name: 'Add',
 		component: ()=> import('../views/addAlert.vue'),
-		meta:{
-			layout:'add'
-		}
+
 	},
   
 	{
 		path: '/signup',
 		name: 'SignUp',
 		component: ()=> import('../views/signUp.vue'),
-		meta:{
-			layout:'default'
-		}
+	
 	},
 	{
 		path: '/login',
 		name: 'Login',
 		component: ()=> import('../views/login.vue'),
-		meta:{
-			layout:'default'
-		}
+	
 	},
   
 ]

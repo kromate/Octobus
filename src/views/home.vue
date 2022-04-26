@@ -1,6 +1,9 @@
 <template>
-	<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
-	<bottom-modal/>
+	<homePage>
+		<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
+		<bottom-modal/>
+	</homePage>
+
 </template>
 
 
@@ -9,8 +12,8 @@
 /* eslint-disable no-undef */
 
 import {ref, onMounted} from 'vue'
-
 import { initMap } from '../composables/useMap'
+import homePage from '../layouts/homePage.vue'
 
 import BottomModal from '../components/BottomModal.vue'
 
