@@ -30,13 +30,12 @@
 	</transition>
 
 	<transition name="slideDown" appear>
-		<div class='bg-[#ffffffef] text-secondary py-4 rounded absolute top-[75px] left-5 w-[75%] max-w-[25rem]' v-if="startDistance">
+		<div class='bg-[#ffffffdd] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
+			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
 			<div class=" px-3 flex  items-center ">
-			
-				
 				<div class='flex flex-col'>
 					<p>
-						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-200">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-200"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-200">{{(startDistance.distance).toFixed(3)}} km </b> away from you
+						The closest bus Stop to your Start location is  <b class="font-extrabold text-xl text-green-500">{{startDistance.name}} </b> using the  <b class="font-extrabold text-xl text-green-500"> {{startDistance.route}} </b> route at appromixamtely <b class="font-extrabold text-xl text-green-500">{{(startDistance.distance).toFixed(3)}} km </b> away from you
 					</p>
 					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-8/12"  > 
 						set Alert
@@ -81,7 +80,8 @@ export default {
 		
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
-		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance	}
+		const offDetails = ()=> startDistance.value = ''
+		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails	}
 	}
 }
 </script>
