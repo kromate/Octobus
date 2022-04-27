@@ -14,6 +14,9 @@
 				</div>
 
 				<div class="flex flex-col items-center gap-4  text-xs mt-5">
+					<router-link to="/landing" class="btn w-full py-1 px-3" v-if="!user">
+						landing
+					</router-link>
 					<button class="btn w-full py-1 px-3" @click="open(openAboutModal)">
 						About us
 					</button>

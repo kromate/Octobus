@@ -1,6 +1,6 @@
 <template>
 	<Modal v-if="showModal">
-		<div class="h-[300px] bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
+		<div class=" bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
 			<div class="flex flex-col w-full h-full  items-center">
 				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
 					<h2 class="font-semibold text-2xl text-center ">
@@ -11,7 +11,7 @@
 					</div>
 				</div>
 
-				<div class="flex gap-20 mt-12 text-xl">
+				<div class="flex md:flex-row  flex-col gap-20 mt-12 text-xl">
 					<div class="flex flex-col gap-5">
 						<span> Jeremiah Godwin </span>
 						<span> 	+14044035611  </span>
