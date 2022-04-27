@@ -9,6 +9,7 @@ import { ref } from '@vue/reactivity'
 
 
 export const chatRouteRef = ref()
+export const routeMessage = ref()
 
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()

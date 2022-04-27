@@ -1,6 +1,6 @@
 <template>
 	<home-page>
-		<div class="mt-20 px-4 overflow-hidden">
+		<div class="mt-20 px-4 overflow-hidden min-h-screen">
 			<div class="flex items-center justify-between">
 				<p>Get Realtime Update on various Routes</p>
 				<button class="btn py-1 px-3 text-sm" @click="openPostModal" v-if="user">
@@ -8,7 +8,7 @@
 				</button>
 			</div>
 	
-			<select-menu placeholder='Pick a route'  :options="routeNamesOnly"  class="mb-1">
+			<select-menu placeholder='Pick a route' @onChange="chatRouteRef = $event"  :options="routeNamesOnly"  class="mb-1">
 				<template #icon>
 					<i class="fas fa-directions text-primary text-xl"></i>
 				</template>
@@ -27,6 +27,10 @@
 			
 					</div>
 				</div>
+			</div>
+
+			<div class="flex justify-center items-center h-96" v-else>
+				<p class="text-2xl text-center md: text-4xl">Select a Route to view updates</p>
 			</div>
 		
 		</div>
