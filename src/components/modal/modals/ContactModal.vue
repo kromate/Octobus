@@ -1,7 +1,7 @@
 <template>
 	<Modal v-if="showModal">
 		<div class="h-[300px] bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl rounded-md z-[10000] ">
-			<div class="flex flex-col w-full h-full justify-between">
+			<div class="flex flex-col w-full h-full  items-center">
 				<div class="flex items-center justify-center w-full border-b pb-3 border-secondary">
 					<h2 class="font-semibold text-2xl text-center ">
 						Contact
@@ -11,19 +11,25 @@
 					</div>
 				</div>
 
-				<div>
+				<div class="flex gap-20 mt-12 text-xl">
+					<div class="flex flex-col gap-5">
+						<span> Jeremiah Godwin </span>
+						<span> 	+14044035611  </span>
+						<span> 	20204960@std.neu.tr</span>
+					</div>
 
-					Jeremiah Godwin
-					+14044035611 
-					20204960@std.neu.tr
+					<div class="flex flex-col gap-5">
+						<span>	Julia Mayoko</span>
+						<span>	+90 533 835 09 86</span>
+						<span>	20166299@std.neu.edu.tr</span>	
+					</div>
 				</div>
+			
 		
 
 
 
-				Julia Mayoko
-				+90 533 835 09 86
-				20166299@std.neu.edu.tr
+			
 
 		
 	
