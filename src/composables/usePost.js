@@ -1,7 +1,9 @@
 import { ref } from '@vue/reactivity'
 import {modalController} from '../composables/useModal'
-// import { watch } from '@vue/runtime-dom'
+
 import { savePost } from '../firebase/firestore'
+import { useAlert } from './useNotification'
+
 
 export const usePost = () => {
 	const { closePostModal } = modalController()
@@ -14,6 +16,7 @@ export const usePost = () => {
 		if (postModalRoute.value !== '' && message.value !== '') {
 			await savePost(message.value, postModalRoute.value)
 			closePostModal()
+			useAlert().openAlert('Mesasage Posted')
 		}
 		
 	}

@@ -13,7 +13,8 @@
 					<i class="fas fa-directions text-primary text-xl"></i>
 				</template>
 			</select-menu>
-			<div class="overflow-y-auto h-[70vh] pb-6 pt-15">
+
+			<div class="overflow-y-auto h-[70vh] pb-6 pt-15" v-if="chatRouteRef">
 				<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in 10" :key="n">
 					<div class="flex items-start">
 						<img src="../assets/people/1.png" alt="person" class="rounded-full mr-4">
@@ -40,6 +41,7 @@ import SelectMenu from '../components/SelectMenu.vue'
 import {routeNamesOnly} from '../helpers/busRoutes'
 import HomePage from '../layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
+import {chatRouteRef} from '@/firebase/firestore' 
 export default {
 	name:'AlertPage',
 	components:{
@@ -49,7 +51,7 @@ export default {
 	setup() {
 		const { user } = useUser()
 		const { openPostModal} = modalController()
-		return { routeNamesOnly, openPostModal, user}
+		return { routeNamesOnly, openPostModal, user, chatRouteRef}
 	}
 
 }

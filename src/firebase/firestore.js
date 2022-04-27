@@ -1,22 +1,22 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { app } from './init'
-
+import { watch } from '@vue/runtime-dom'
 import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot } from 'firebase/firestore'
 import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
-import { usePost } from '@/composables/usePost'
+import { ref } from '@vue/reactivity'
 
 
-// const { postModalRoute } = usePost()
+export const chatRouteRef = ref()
 
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()
 export const db = getFirestore(app)
 
-// watch(postModalRoute, (newValue) => {
-// 	console.log(newValue)
-// })
+watch(chatRouteRef, (newValue) => {
+	console.log(newValue)
+})
 
 let result = []
 const timelineRef = collection(db, 'timelines')
