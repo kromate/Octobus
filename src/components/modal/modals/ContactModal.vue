@@ -11,8 +11,19 @@
 					</div>
 				</div>
 
-	
+				<div>
+
+					Jeremiah Godwin
+					+14044035611 
+					20204960@std.neu.tr
+				</div>
 		
+
+
+
+				Julia Mayoko
+				+90 533 835 09 86
+				20166299@std.neu.edu.tr
 
 		
 	

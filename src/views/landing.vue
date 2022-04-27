@@ -55,6 +55,22 @@
 
 	
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
+			<h2 class="text-center md:text-5xl text-3xl mb-16">Gallery</h2>
+
+			<carousel :items-to-show="6">
+				<slide v-for="slide in 10" :key="slide">
+					<img src="../assets/buses.png" alt="" class="w-[30rem] h-[30rem] rounded-2xl object-cover">
+				</slide>
+
+				<template #addons>
+					<!-- <navigation /> -->
+					<pagination />
+				</template>
+			</carousel>
+		</div>
+
+
+		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">What students say</h2>
 
 			<div class="flex gap-8 md:flex-wrap md:flex-row flex-col justify-center items-center">
@@ -148,8 +164,10 @@
 
 <script>
 import HomePage from '../layouts/homePage.vue'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 export default {
-	components: { HomePage },
+	components: { HomePage, Carousel, Slide, Pagination, Navigation },
 	name:'LandingPage',
 	setup(){
 		const getImageUrl = (name) => {
@@ -172,5 +190,26 @@ background:  rgba(0, 0, 0, 0.3) url('../assets/buses2.png');
 background-blend-mode: darken;
 }
 
+.carousel__item {
+  min-height: 200px;
+  width: 100%;
+  background-color: var(--vc-clr-primary);
+  color:  var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
+}
 
 </style>
