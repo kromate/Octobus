@@ -84,10 +84,35 @@
 
 		<div class="flex flex-col w-full justify-center items-center md:py-12 pt-12">
 			<h1 class="text-5xl">FAQs</h1>
-			<details>
-				<summary class="bg-blue rounded-md py-5 px-4 cursor-pointer select-none w-full outline-none">How is this made?</summary>
-				<p class="pt-1 pb-3 px-4">With the HTML5 <code class="text-sm text-red-500">details</code> element and some Tailwind for showcase.</p>
-			</details>
+			<div class="flex flex-col  w-full justify-center items-center">
+		
+			
+				<details class="max-w-[85%] bg-blue rounded-xl mt-5">
+					<summary class="flex items-center  p-5  max-w-[100%]  w-[40rem] font-bold text-lg">Are the buses available at all hours?
+						<button class="ml-auto">
+							<svg class="fill-current opacity-75 w-4 h-4 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+						</button>
+					</summary>
+					<div class="mt-4 leading-normal text-sm px-6 mb-8 ">Lorem ipsum dolor,  officia.</div>
+				</details>
+				<details class="max-w-[85%] bg-blue rounded-xl mt-5">
+					<summary class="flex items-center  p-5  max-w-[100%]  w-[40rem] font-bold text-lg">Are the buses available at all hours?
+						<button class="ml-auto">
+							<svg class="fill-current opacity-75 w-4 h-4 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+						</button>
+					</summary>
+					<div class="mt-4 leading-normal text-sm px-6 mb-8 ">Lorem ipsum dolor,  officia.</div>
+				</details>
+				<details class="max-w-[85%] bg-blue rounded-xl mt-5">
+					<summary class="flex items-center  p-5  max-w-[100%]  w-[40rem] font-bold text-lg">Are the buses available at all hours?
+						<button class="ml-auto">
+							<svg class="fill-current opacity-75 w-4 h-4 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+						</button>
+					</summary>
+					<div class="mt-4 leading-normal text-sm px-6 mb-8 ">Lorem ipsum dolor,  officia.</div>
+				</details>
+			</div>
+		
 		</div>
 
 		<footer class="w-full bg-blue md:p-24 p-8 mt-12">
@@ -147,27 +172,5 @@ background:  rgba(0, 0, 0, 0.3) url('../assets/buses2.png');
 background-blend-mode: darken;
 }
 
-details {
-  user-select: none;
-}
 
-details[open] summary svg {
-  transform: rotate(-90deg);
-}
-
-summary {
-  cursor: pointer;
-}
-
-svg {
-  transition: all 0.3s;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-:focus {
-  outline: none;
-}
 </style>
