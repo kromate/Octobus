@@ -9,6 +9,31 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
+
+details {
+  user-select: none;
+}
+
+details[open] summary svg {
+  transform: rotate(-90deg);
+}
+
+summary {
+  cursor: pointer;
+}
+
+svg {
+  transition: all 0.3s;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+:focus {
+  outline: none;
+}
+
 @layer components{
 .input{
 @apply bg-lightGray p-2.5 rounded-md w-full 
