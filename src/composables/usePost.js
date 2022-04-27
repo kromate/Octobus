@@ -16,6 +16,8 @@ export const usePost = () => {
 		if (postModalRoute.value !== '' && message.value !== '') {
 			await savePost(message.value, postModalRoute.value)
 			closePostModal()
+			postModalRoute.value = ''
+			message.value = ''
 			useAlert().openAlert('Mesasage Posted')
 		}
 		

@@ -1,7 +1,7 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { app } from './init'
-import { watch } from '@vue/runtime-dom'
+import { watch, onUnmounted } from '@vue/runtime-dom'
 import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot } from 'firebase/firestore'
 import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
@@ -65,6 +65,8 @@ export const getRouteMessage = async (route) => {
 		useLoading().closeLoading()
 		routeMessage.value = result
 	})
+
+	onUnmounted(unsubscribe)
 
 	
 	
