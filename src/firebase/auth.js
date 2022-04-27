@@ -39,7 +39,7 @@ export const useLogin = () => {
 				closeLoading()
 				const user = result.user
 				saveUser(user)
-				openAlert('You have successfully signed in 🥳')
+				openAlert('You have successfully signed in')
 				Router.push('/')
 			}).catch((err) => {
 				closeLoading()
@@ -51,13 +51,13 @@ export const useLogin = () => {
 	}
 	const loginEmail = () => {
 		error.value = ''
-		openLoading('Logging you in... 🤩')
+		openLoading('Logging you in...')
 		signInWithEmailAndPassword(auth, email.value, password.value)
 			.then((result) => {
 				closeLoading()
 				const user = result.user
 				saveUser(user)
-				openAlert('You have successfully signed in 🥳')
+				openAlert('You have successfully signed in ')
 				Router.push('/')
 			}).catch((err) => {
 				closeLoading()
@@ -74,7 +74,7 @@ export const useLogin = () => {
 				closeLoading()
 				const user = result.user
 				saveUser(user)
-				openAlert('You have successfully signed in 🥳')
+				openAlert('You have successfully signed in')
 				Router.push('/')
 			}).catch((error) => {
 				closeLoading()

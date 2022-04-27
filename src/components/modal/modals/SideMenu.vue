@@ -26,6 +26,9 @@
 					<button class="btn w-full py-1 px-3" @click="open(openContactModal)">
 						Contact
 					</button>
+					<button class="btn w-full py-1 px-3"  @click="user ? signOutUser() : $router.push('/login')">
+						{{ user ? "Log Out" : "Login" }}
+					</button>
 				</div>
 			</div>
 		</div>
@@ -36,7 +39,8 @@
 
 import Modal from '../index.vue'
 import {modalController} from '@/composables/useModal'
-
+import { useUser } from '@/composables/useGlobal'
+import { signOutUser } from '@/firebase/auth'
 export default {
 	name: 'SideMenu',
 	components: { Modal },
@@ -53,6 +57,7 @@ export default {
 		}
 	},
 	setup(){
+		const { user } = useUser()
 		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu, closeSideMenu} = modalController()
 
 		const open = (func)=>{
@@ -62,7 +67,7 @@ export default {
 
 		
 
-		return{open,
+		return{open, user, signOutUser,
 			openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu
 		}
 	}
