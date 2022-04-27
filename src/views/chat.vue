@@ -13,21 +13,28 @@
 					<i class="fas fa-directions text-primary text-xl"></i>
 				</template>
 			</select-menu>
-
-			<div class="overflow-y-auto h-[70vh] pb-6 pt-15" v-if="chatRouteRef">
-				<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in routeMessage" :key="n">
-					<div class="flex items-start">
-						<img src="../assets/people/1.png" alt="person" class="rounded-full mr-4">
-						<div>
-							<div class="">
-								there is going to be delay at the Nicosia 1 route, I have been here for hours no bus
+			<div v-if="chatRouteRef">
+				<div class="overflow-y-auto h-[70vh] pb-6 pt-15" v-if="routeMessage.length">
+					<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in routeMessage" :key="n">
+						<div class="flex items-start">
+							<img src="../assets/people/1.png" alt="person" class="rounded-full mr-4">
+							<div>
+								<div class="">
+									{{n}}
+									there is going to be delay at the Nicosia 1 route, I have been here for hours no bus
+								</div>
+								<span class="text-xs italic">Date: {{n.date.seconds /60/60}}</span>
 							</div>
-							<span class="text-xs italic">Date: 3 mins ago</span>
-						</div>
 			
+						</div>
 					</div>
 				</div>
+
+				<div class="flex justify-center items-center h-96" v-else>
+					<p class="text-xl text-center md:text-3xl">This Route has no update yet</p>
+				</div>
 			</div>
+		
 
 			<div class="flex justify-center items-center h-96" v-else>
 				<p class="text-2xl text-center md:text-4xl">Select a Route to view updates</p>
