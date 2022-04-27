@@ -21,7 +21,7 @@ watch(chatRouteRef, (newValue) => {
 })
 
 let result = []
-const timelineRef = collection(db, 'timelines')
+// const timelineRef = collection(db, chatRouteRef.value)
 
 export const savePost = async (post, routes) => {
 	useLoading().openLoading()
@@ -48,24 +48,26 @@ export const delTimeline = async (id) => {
 export const getRouteMessage = async (route) => {
 	useLoading().openLoading()
 
-	result = []
+
 
 	const q = query(collection(db, route))
 
-	const querySnapshot = await getDocs(q)
-	querySnapshot.forEach((doc) => {
-		result.push(doc.data())
-	})
+	// const querySnapshot = await getDocs(q)
+	// querySnapshot.forEach((doc) => {
+	// 	result.push(doc.data())
+	// })
 
-	const unsubscribe = onSnapshot(timelineRef, (snapshot) => {
+	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		result = []
-		snapshot.docChanges().forEach((change) => {
-			result.push(change.doc.data())
+		querySnapshot.forEach((doc) => {
+			result.push(doc.data())
 		})
+		useLoading().closeLoading()
+		routeMessage.value = result
 	})
 
-	useLoading().closeLoading()
-	routeMessage.value = result
+	
+	
 	return result 
 }
 
