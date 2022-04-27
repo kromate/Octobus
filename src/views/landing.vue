@@ -57,9 +57,15 @@
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">Gallery</h2>
 
-			<carousel :items-to-show="3"  :wrap-around="true">
-				<slide v-for="slide in 10" :key="slide">
-					<img src="../assets/buses.png" alt="" class="w-[30rem] h-[30rem] rounded-2xl object-cover">
+			<carousel  >
+				<slide  key="1">
+					<img src="../assets/buses.png" alt="" class="w-[95%] h-[30rem] rounded-md   object-cover">
+				</slide>
+				<slide  key="2">
+					<img src="../assets/buses3.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
+				</slide>
+				<slide  key="2">
+					<img src="../assets/buses4.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
 				</slide>
 
 				<template #addons>
@@ -173,8 +179,12 @@ export default {
 		const getImageUrl = (name) => {
 			return new URL(name, import.meta.url).href
 		}
+
+		const gallery = [
+			'../assets/buses.png', '../assets/buses2.png'
+		]
 		return{
-			getImageUrl
+			getImageUrl, gallery
 		}
 	}
 }
@@ -193,9 +203,9 @@ background-blend-mode: darken;
 
 
 .carousel__slide {
-  padding: 10px;
-width: 480px !important;
-height: 480px !important;
+  padding: 5px;
+/* width: 480px !important; */
+/* height: 480px !important; */
 }
 
 
