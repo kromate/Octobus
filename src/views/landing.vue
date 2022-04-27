@@ -86,7 +86,9 @@
 			<carousel  :itemsToShow="1" :wrapAround="true" class="md:w-10/12">
 				
 				<slide  key="1">
-					<img src="../assets/buses.png" alt="" class="w-[95%] h-[30rem] rounded-md   object-cover">
+					<iframe id="ytplayer" type="text/html" width="640" height="360" class="max-w-[90%] rounded"
+						src="https://www.youtube.com/embed/4JTHiJCgusE?autoplay=1&origin=http://example.com"
+						frameborder="0"></iframe>
 				</slide>
 				<slide  key="2">
 					<img src="../assets/buses3.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
@@ -202,9 +204,10 @@
 <script>
 import HomePage from '../layouts/homePage.vue'
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Pagination, } from 'vue3-carousel'
+
 export default {
-	components: { HomePage, Carousel, Slide, Pagination, Navigation },
+	components: { HomePage, Carousel, Slide, Pagination },
 	name:'LandingPage',
 	setup(){
 		const getImageUrl = (name) => {
