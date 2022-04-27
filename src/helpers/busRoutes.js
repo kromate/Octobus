@@ -221,5 +221,5 @@ export const AllBusRoute = {
 }
 
 
-export const routeNamesOnly = ['Nicosia 1', 'Ortaköy / Yenikent', 'Gönyeli 1', 'Gönyeli 2',
-	'Nicosia 2', 'Kyrenia', 'Güzelyurt', 'Famagusta', 'Kızılbaş', 'Gönyeli / Metehan', 'Hamitköy']
+export const routeNamesOnly = ['Nicosia 1', 'Ortaköy - Yenikent', 'Gönyeli 1', 'Gönyeli 2',
+	'Nicosia 2', 'Kyrenia', 'Güzelyurt', 'Famagusta', 'Kızılbaş', 'Gönyeli - Metehan', 'Hamitköy']
