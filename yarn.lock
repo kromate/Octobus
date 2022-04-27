@@ -3505,6 +3505,11 @@ vue-router@^4.0.11:
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.18"
 
+vue3-carousel@^0.1.38:
+  version "0.1.38"
+  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.1.38.tgz#dbd832ef7eb936d1e699cabc83d34472787174f2"
+  integrity sha512-mTWvlyFIu2QqnMbHiphdJWKRBaPHG8oXr5fcRWjvnPwcQ3XCpI9/FLDI/l1vVBCs13hBSuKp/kYleuxs2WOoKA==
+
 vue3-google-map@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/vue3-google-map/-/vue3-google-map-0.8.3.tgz#9e3fdcaf0e309d0ea8c2aac705073758daf12d78"
