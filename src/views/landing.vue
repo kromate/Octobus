@@ -4,7 +4,7 @@
 
 		<div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
 			<p class="md:text-2xl text-4xl">Near East University’s</p>
-			<h2 class="md:text-6xl text-3xl">Bus Navigation System</h2>
+			<h2 class="md:text-6xl text-2xl px-2 mt-4">Bus Navigation System</h2>
 			<button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
 		</div>
 
@@ -15,7 +15,7 @@
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">How it works</h2>
 
-			<div class="flex gap-8 md:flex-row md:flex-wrap flex-col justify-center ">
+			<div class="flex gap-8 md:flex-row md:flex-wrap flex-col justify-center items-center md:items-stretch">
 				<div
 					class="bg-blue max-w-[85%] md:rounded-xl rounded-lg md:w-[20%] min-w-[18rem] py-10 flex flex-col items-center justify-center gap-8 p-4 text-center"
 				>
@@ -47,11 +47,13 @@
 			</div>
 		</div>
 
-		<div class="gray flex flex-col justify-center items-center bg-secondary text-white h-[15rem]  text-center px-4 py-10 mt-12">
-			<h2 class="md:text-4xl text-2xl">Navigating university has never been easier</h2>
-			<button class="btn h-12 !bg-white !text-secondary mt-8">Get started</button>
+		<div class="bg2 w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
+			<h2 class="md:text-6xl text-3xl px-3">Navigating campus has never been easier</h2>
+			<p class="md:text-2xl text-lg px-3 mt-5">You can always find a bus to take you to your destination from anywhere you are.</p>
+			<button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
 		</div>
 
+	
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">What students say</h2>
 
@@ -130,6 +132,10 @@ export default {
 <style scoped>
 .bg{
 background:  rgba(0, 0, 0, 0.3) url('../assets/buses.png');
+background-blend-mode: darken;
+}
+.bg2{
+background:  rgba(0, 0, 0, 0.3) url('../assets/buses2.png');
 background-blend-mode: darken;
 }
 </style>
