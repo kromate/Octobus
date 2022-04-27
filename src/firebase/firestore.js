@@ -27,7 +27,7 @@ export const savePost = async (post, routes) => {
 	useLoading().openLoading()
 	const usedId = user.value.uid
 	const id = uuidv4()
-	await setDoc(doc(db, `${routes}`, id), { post, usedId, id, date: new Date() })
+	await setDoc(doc(db, `${routes}`, id), { post, usedId, id, date: Date() })
 	useLoading().closeLoading()
 }
 
