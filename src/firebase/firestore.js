@@ -6,25 +6,27 @@ import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs
 import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
 import { usePost } from '@/composables/usePost'
-import { watch } from '@vue/reactivity'
 
-const { postModalRoute } = usePost()
+
+// const { postModalRoute } = usePost()
 
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()
 export const db = getFirestore(app)
 
-watch(postModalRoute, (newValue) => {
-	console.log(newValue)
-})
+// watch(postModalRoute, (newValue) => {
+// 	console.log(newValue)
+// })
 
 let result = []
 const timelineRef = collection(db, 'timelines')
 
-export const saveTimeline = async (timeline) => {
+export const savePost = async (post, routes) => {
+	useLoading().openLoading()
 	const usedId = user.value.uid
 	const id = uuidv4()
-	await setDoc(doc(db, 'timelines', id), {...timeline, usedId, id})
+	await setDoc(doc(db, routes, id), { post, usedId, id })
+	useLoading().closeLoading()
 }
 
 export const editTimeline = async (timeline, id) => {

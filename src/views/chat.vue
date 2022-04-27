@@ -3,7 +3,7 @@
 		<div class="mt-20 px-4 overflow-hidden">
 			<div class="flex items-center justify-between">
 				<p>Get Realtime Update on various Routes</p>
-				<button class="btn py-1 px-3 text-sm" @click="openPostModal">
+				<button class="btn py-1 px-3 text-sm" @click="openPostModal" v-if="user">
 					post update
 				</button>
 			</div>
@@ -39,6 +39,7 @@ import {modalController} from '../composables/useModal'
 import SelectMenu from '../components/SelectMenu.vue'
 import {routeNamesOnly} from '../helpers/busRoutes'
 import HomePage from '../layouts/homePage.vue'
+import { useUser } from '@/composables/useGlobal'
 export default {
 	name:'AlertPage',
 	components:{
@@ -46,8 +47,9 @@ export default {
 		HomePage
 	},
 	setup() {
+		const { user } = useUser()
 		const { openPostModal} = modalController()
-		return { routeNamesOnly, openPostModal}
+		return { routeNamesOnly, openPostModal, user}
 	}
 
 }

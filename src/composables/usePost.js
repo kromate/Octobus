@@ -1,6 +1,7 @@
 import { ref } from '@vue/reactivity'
 import {modalController} from '../composables/useModal'
-import { watch } from '@vue/reactivity'
+// import { watch } from '@vue/runtime-dom'
+import { savePost } from '../firebase/firestore'
 
 export const usePost = () => {
 	const { closePostModal } = modalController()
@@ -8,13 +9,15 @@ export const usePost = () => {
 	const postModalRoute = ref('')
 	const message = ref('')
     
-	const send = () => {
+	const send = async() => {
 		console.log(postModalRoute.value, message.value)
-		closePostModal()
+		if (postModalRoute.value !== '' && message.value !== '') {
+			await savePost(message.value, postModalRoute.value)
+			closePostModal()
+		}
+		
 	}
 
-	watch(postModalRoute, (newValue) => {
-		console.log(newValue)
-	})
+
 	return {postModalRoute, message, send}
 }
