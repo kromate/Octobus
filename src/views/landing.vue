@@ -57,16 +57,47 @@
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">Gallery</h2>
 
-			<carousel  >
+			<carousel  :itemsToShow="1" :wrapAround="true" class="md:w-10/12">
+				
 				<slide  key="1">
 					<img src="../assets/buses.png" alt="" class="w-[95%] h-[30rem] rounded-md   object-cover">
 				</slide>
 				<slide  key="2">
 					<img src="../assets/buses3.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
 				</slide>
-				<slide  key="2">
+				<slide  key="3">
 					<img src="../assets/buses4.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
 				</slide>
+				<slide  key="4">
+					<img src="../assets/buses5.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
+				</slide>
+
+
+				<template #addons>
+					<!-- <navigation /> -->
+					<pagination />
+				</template>
+			</carousel>
+		</div>
+
+		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36 bg-secondary text-white">
+			<h2 class="text-center md:text-5xl text-3xl mb-16">What students say</h2>
+
+			<carousel  :itemsToShow="1" :wrapAround="true" class="md:w-10/12">
+				
+				<slide  key="1">
+					<img src="../assets/buses.png" alt="" class="w-[95%] h-[30rem] rounded-md   object-cover">
+				</slide>
+				<slide  key="2">
+					<img src="../assets/buses3.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
+				</slide>
+				<slide  key="3">
+					<img src="../assets/buses4.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
+				</slide>
+				<slide  key="4">
+					<img src="../assets/buses5.png" alt="" class="w-[95%] h-[30rem]  rounded-md   object-cover">
+				</slide>
+
 
 				<template #addons>
 					<!-- <navigation /> -->
