@@ -9,7 +9,7 @@ import { ref } from '@vue/reactivity'
 
 
 export const chatRouteRef = ref()
-export const routeMessage = ref()
+export const routeMessage = ref([])
 
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()
@@ -17,6 +17,7 @@ export const db = getFirestore(app)
 
 watch(chatRouteRef, (newValue) => {
 	console.log(newValue)
+	getRouteMessage(newValue)
 })
 
 let result = []
@@ -44,14 +45,14 @@ export const delTimeline = async (id) => {
 	
 }
 
-export const getUserTimeline = async () => {
-	openLoading('Getting your timeline, this shouldn\'t take long 😙')
+export const getRouteMessage = async (route) => {
+	useLoading().openLoading()
 
-	const id = user.value.uid
 	result = []
 
-	const userTimeline = query(timelineRef, where('usedId', '==', id))
-	const querySnapshot = await getDocs(userTimeline)
+	const q = query(collection(db, route))
+
+	const querySnapshot = await getDocs(q)
 	querySnapshot.forEach((doc) => {
 		result.push(doc.data())
 	})
@@ -63,8 +64,8 @@ export const getUserTimeline = async () => {
 		})
 	})
 
-	closeLoading()
-	
+	useLoading().closeLoading()
+	routeMessage.value = result
 	return result 
 }
 

@@ -29,7 +29,7 @@
 
 	</transition>
 
-	<transition name="slideDown" appear>
+	<transition name="slide" appear>
 		<div class='bg-[#ffffffbe] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
 			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
 			<div class=" px-3 flex  items-center ">
@@ -116,4 +116,14 @@ transition: all 0.35s ease;
   .slideDown-leave-active {
     transition: opacity 10s ease;
   }
+
+  .slide-enter-from,
+.slide-leave-to{
+	transform: translateX(-30rem);
+	opacity: 0;
+}
+
+.slide-enter-active, .slide-leave-active{
+	transition: all 0.5s ease;
+}
 </style>
