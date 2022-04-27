@@ -15,34 +15,34 @@
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
 			<h2 class="text-center md:text-5xl text-3xl mb-16">How it works</h2>
 
-			<div class="flex gap-8 md:flex-row flex-col justify-center items-center">
+			<div class="flex gap-8 md:flex-row md:flex-wrap flex-col justify-center ">
 				<div
-					class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg md:w-[20%] min-w-[18rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-4 text-center"
+					class="bg-blue max-w-[85%] md:rounded-xl rounded-lg md:w-[20%] min-w-[18rem] py-10 flex flex-col items-center justify-center gap-8 p-4 text-center"
 				>
 					<i class="fas fa-route text-secondary text-7xl"></i>
 					<h5 class="font-bold text-lg text-secondary">Find bus routes</h5>
-					<p class="text-base">Find out the routes closest to your location and destination, so that you can always catch a bus to your destinaion.   </p>
+					<p class="text-sm">Find out the routes closest to your location and destination, so that you can always catch a bus to your destinaion.   </p>
 				</div>
 				<div
-					class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg md:w-[20%] min-w-[18rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-4 text-center"
+					class="bg-blue max-w-[85%] md:rounded-xl rounded-lg md:w-[20%] min-w-[18rem] py-10 flex flex-col items-center justify-center gap-8 p-4 text-center"
 				>
-					<img src="../assets/icons/date.svg" class="h-12 w-12 text-secondary"/>
+					<i class="fas fa-calendar text-secondary text-7xl"></i>
 					<h5 class="font-bold text-lg text-secondary">Check bus schedules</h5>
-					<p class="text-base">Check the date, time, route, start point and depature time of all available buses so you know when to board the right bus.   </p>
+					<p class="text-sm">Check the date, time, route, start point and depature time of all available buses so you know when to board the right bus.   </p>
 				</div>
 				<div
-					class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg md:w-[20%] min-w-[18rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-4 text-center"
+					class="bg-blue max-w-[85%] md:rounded-xl rounded-lg md:w-[20%] min-w-[18rem] py-10 flex flex-col items-center justify-center gap-8 p-4 text-center"
 				>
-					<img src="../assets/icons/add_bell.svg" class="h-12 w-12 text-secondary"/>
+					<i class="fas fa-bell text-secondary text-7xl"></i>
 					<h5 class="font-bold text-lg text-secondary">Set bus alerts</h5>
-					<p class="text-base">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
+					<p class="text-sm">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
 				</div>
 				<div
-					class="bg-blue max-w-[85%] md:rounded-[2rem] rounded-lg md:w-[20%] min-w-[18rem] h-[21.9375rem] flex flex-col items-center justify-center gap-8 p-4 text-center"
+					class="bg-blue max-w-[85%] md:rounded-xl rounded-lg md:w-[20%] min-w-[18rem] py-10 flex flex-col items-center justify-center gap-8 p-4 text-center"
 				>
-					<img src="../assets/icons/add_bell.svg" class="h-12 w-12 text-secondary"/>
+					<i class="fas fa-comment text-secondary text-7xl"></i>
 					<h5 class="font-bold text-lg text-secondary">Set bus alerts</h5>
-					<p class="text-base">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
+					<p class="text-sm">Set alerts to get notified before the depature of a bus so that you can always catch the bus on time.  </p>
 				</div>
 			</div>
 		</div>

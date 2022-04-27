@@ -2,7 +2,7 @@
 	<home-page>
 		<div class="mt-20 px-4 overflow-hidden min-h-screen">
 			<div class="flex items-center justify-between">
-				<p>Get Realtime Update on various Routes</p>
+				<p>Get real-time updates on various routes from your peers</p>
 				<button class="btn py-1 px-3 text-sm" @click="openPostModal" v-if="user">
 					post update
 				</button>
