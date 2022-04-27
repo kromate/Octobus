@@ -2,7 +2,6 @@
 	<home-page>
 
 
-		<topbar/>
 		<div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
 			<p class="md:text-2xl text-4xl">Near East University’s</p>
 			<h2 class="md:text-6xl text-3xl">Bus Navigation System</h2>
@@ -11,7 +10,6 @@
 
 		<div class="gray flex flex-col justify-center items-center bg-blue md:h-[15rem] h-[10rem] text-center px-4">
 			<h2 class="md:text-4xl text-2xl">Never miss a class with Octobus.</h2>
-			<p class="md:text-lg mt-4">Stay up to date on all available buses and routes.</p>
 		</div>
 
 		<div class="flex flex-col w-full justify-center items-center md:py-32 pt-36">
