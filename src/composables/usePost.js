@@ -1,6 +1,6 @@
 import { ref } from '@vue/reactivity'
 import {modalController} from '../composables/useModal'
-
+import { watch } from '@vue/reactivity'
 
 export const usePost = () => {
 	const { closePostModal } = modalController()
@@ -13,5 +13,8 @@ export const usePost = () => {
 		closePostModal()
 	}
 
+	watch(postModalRoute, (newValue) => {
+		console.log(newValue)
+	})
 	return {postModalRoute, message, send}
 }

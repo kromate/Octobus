@@ -1,15 +1,22 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { app } from './init'
-// eslint-disable-next-line import/named
+
 import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot } from 'firebase/firestore'
 import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
+import { usePost } from '@/composables/usePost'
+import { watch } from '@vue/reactivity'
+
+const { postModalRoute } = usePost()
 
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()
 export const db = getFirestore(app)
 
+watch(postModalRoute, (newValue) => {
+	console.log(newValue)
+})
 
 let result = []
 const timelineRef = collection(db, 'timelines')
