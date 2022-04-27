@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Apr 27 2022 05:36:07 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/modal/modals/AboutModal.vue
+* src/components/modal/modals/ContactModal.vue
+* src/components/modal/modals/SideMenu.vue
+* src/views/login.vue
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

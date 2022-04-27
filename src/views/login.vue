@@ -1,6 +1,6 @@
 <template>
 	<home-page>
-		<div class="w-screen h-screen  items-center flex flex-col">
+		<div class="w-screen h-screen  items-center flex flex-col mt-12">
 			<h1 class='text-xl text-primary mb-4 mt-10 font-bold'> Welcome Back </h1>
 			<p class='text-primary mb-4'> Login to continue </p>
 
