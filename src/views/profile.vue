@@ -22,7 +22,11 @@
 </template>
 
 <script setup>
+import { useUser } from '../composables/useGlobal'
 import homePage from '../layouts/homePage.vue'
+
+console.log(useUser().user.value)
+
 
 </script>
 

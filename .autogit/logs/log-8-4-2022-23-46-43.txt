@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 08 2022 23:46:43 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/firebase/firestore.js
+* src/views/chat.vue
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

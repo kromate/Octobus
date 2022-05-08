@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {  watch, ref } from 'vue'
+import {  watch, ref, onMounted } from 'vue'
 import { Listbox, ListboxButton,  ListboxOption, ListboxOptions } from '@headlessui/vue'
 
 
@@ -58,7 +58,9 @@ export default {
 		}
 	},
 	setup(props,context) {
-		
+		onMounted(()=>{
+			selected.value = props.options[0]
+		})
 		const selected = ref('')
 
 		watch(selected, (curr)=>{
