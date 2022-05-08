@@ -7,10 +7,13 @@ import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
 import { ref } from '@vue/reactivity'
 
+import Filter from 'bad-words'
+
 
 export const chatRouteRef = ref()
 export const routeMessage = ref([])
 
+const filter = new Filter()
 const { user } = useUser()
 const {openLoading, closeLoading} = useLoading()
 export const db = getFirestore(app)
@@ -27,7 +30,7 @@ export const savePost = async (post, routes) => {
 	useLoading().openLoading()
 	const usedId = user.value.uid
 	const id = uuidv4()
-	await setDoc(doc(db, `${routes}`, id), { post, usedId, id, date: Date() })
+	await setDoc(doc(db, `${routes}`, id), { post: filter.clean(post), usedId, id, date: Date() })
 	useLoading().closeLoading()
 }
 
