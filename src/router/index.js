@@ -40,6 +40,12 @@ const routes = [
 		component: ()=> import('../views/login.vue'),
 	
 	},
+	{
+		path: '/driver',
+		name: 'Driver',
+		component: ()=> import('../views/driver.vue'),
+	
+	},
   
 ]
 
