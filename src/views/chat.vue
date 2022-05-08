@@ -53,7 +53,8 @@ import SelectMenu from '../components/SelectMenu.vue'
 import {routeNamesOnly} from '../helpers/busRoutes'
 import HomePage from '../layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
-import {chatRouteRef, routeMessage} from '@/firebase/firestore' 
+import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore' 
+import { onMounted } from 'vue-demi'
 export default {
 	name:'AlertPage',
 	components:{
@@ -61,6 +62,7 @@ export default {
 		HomePage
 	},
 	setup() {
+		onMounted(getRouteMessage(routeNamesOnly[0]))
 		const formatTime = (time)=>{
 
 

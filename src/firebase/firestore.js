@@ -10,7 +10,7 @@ import { ref } from '@vue/reactivity'
 import Filter from 'bad-words'
 
 
-export const chatRouteRef = ref()
+export const chatRouteRef = ref(1)
 export const routeMessage = ref([])
 
 const filter = new Filter()
