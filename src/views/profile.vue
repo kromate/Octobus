@@ -10,7 +10,7 @@
 
 			<span class="text-xl font-extrabold text-center mt-6">{{useUser().user.value.displayName}}</span>
 
-			<div class="bg-secondary p-5 flex flex-col justify-center items-center rounded-3xl mt-4 max-w-[80%] w-[400px] mx-auto">
+			<div class="bg-secondary p-5 flex flex-col justify-center items-center rounded-md mt-4 max-w-[80%] w-[400px] mx-auto">
 				<button class="font-medium bg-white text-purple text-xs py-2 px-4 rounded-full mt-2 w-fit cursor-pointer" @click="resetPassword">Change Password</button>
 			</div>	
 		</div>
@@ -19,7 +19,9 @@
 			<p class="text-center">
 				You need to sign in to view profile
 			</p>
-			
+			<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/login')">
+				Login
+			</button>
 		</div>
 	</home-page>
 	

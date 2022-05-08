@@ -55,11 +55,19 @@ export default {
 		placeholder:{
 			type:String,
 			required: false,
+		},
+		load:{
+			type:Boolean,
+			required:false,
+			default:true
 		}
 	},
 	setup(props,context) {
 		onMounted(()=>{
-			selected.value = props.options[0]
+			if(props.load){
+				selected.value = props.options[0]
+			}
+			
 		})
 		const selected = ref('')
 
