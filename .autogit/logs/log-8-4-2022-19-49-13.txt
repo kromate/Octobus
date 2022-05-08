@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 08 2022 19:49:13 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/router/index.js
+
+
+Created files:
+* src/views/driver.vue
+
+
+Deleted files:
+
+
+Renamed files:
