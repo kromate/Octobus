@@ -17,7 +17,9 @@
 						</template>
 					</select-menu>
 
-					<textarea name="message" v-model="message" id=""  rows="7" class=" w-full bg-lightGray rounded-md shadow-sm pl-3 pr-10 py-3 mt-4 text-left cursor-default
+					<textarea name="message" v-model="message" id=""  rows="7" 
+						placeholder="All messages sent are monitored and censored"
+						class=" w-full bg-lightGray rounded-md shadow-sm pl-3 pr-10 py-3 mt-4 text-left cursor-default
        focus:outline-none  sm:text-sm1 "></textarea>
 
 					<button class="btn py-1 px-3 text-sm ml-auto mt-4" type="submit">

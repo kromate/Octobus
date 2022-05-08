@@ -44,7 +44,11 @@ const routes = [
 		path: '/driver',
 		name: 'Driver',
 		component: ()=> import('../views/driver.vue'),
-	
+	},
+	{
+		path: '/profile',
+		name: 'Profile',
+		component: ()=> import('../views/profile.vue'),
 	},
   
 ]
