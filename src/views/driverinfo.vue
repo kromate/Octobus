@@ -33,7 +33,7 @@ body {
 .marker {
   width: 8%;
   height: 8%;
-  background-image: url(dot1.svg);
+  background-image: url('https://cdn.corbpie.com/assets/dot.svg');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -43,7 +43,7 @@ body {
 .ping {
   width: 8%;
   height: 8%;
-  background-image: url(dot1.svg);
+  background-image: url('https://cdn.corbpie.com/assets/dot.svg');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
