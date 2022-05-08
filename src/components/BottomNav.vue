@@ -15,6 +15,9 @@
 		<router-link to="/chat" class="w-full block py-5 px-3 text-center duration-300 transition-all">
 			<i class="fas fa-comment text-primary text-2xl mx-auto "></i>
 		</router-link>
+		<router-link to="/profile" class="w-full block py-5 px-3 text-center duration-300 transition-all">
+			<i class="fas fa-user text-primary text-2xl mx-auto "></i>
+		</router-link>
 
 
 	</nav>
