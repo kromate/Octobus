@@ -50,6 +50,11 @@ const routes = [
 		name: 'Profile',
 		component: ()=> import('../views/profile.vue'),
 	},
+	{
+		path: '/driverInfo',
+		name: 'DriverInfo',
+		component: ()=> import('../views/driverinfo.vue'),
+	},
   
 ]
 
