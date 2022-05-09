@@ -1,9 +1,6 @@
 <template>
 	<home-page>
 		<div class="w-screen h-screen  items-center flex flex-col mt-12">
-			<h1 class='text-xl text-primary mb-4 mt-10 font-bold'> Driver Check in </h1>
-			<p class='text-primary mb-4'> Fill in the details to continue </p>
-
 			<div class="wrapper">
 				<div class="video-main">
 					<div class="promo-video">
@@ -17,7 +14,9 @@
 				</div>
 			</div>
 
-
+			<p class="text-xl mt-80">
+				Location currently transmitted 
+			</p>
 	
 		</div>
 	</home-page>
@@ -41,7 +40,7 @@ body {
 .wrapper {
   display: inline-block;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%,-50%)
 }
@@ -90,8 +89,8 @@ body {
 
 .waves {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 170px;
+  height: 170px;
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   border-radius: 100%;
