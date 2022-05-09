@@ -27,11 +27,13 @@
 <script>
 
 import { Alert, delAlert } from '@/composables/useAlert'
+import {getClosestBusStop, endDistance, startDistance} from '@/composables/useDistance'
 
 export default {
 
 	setup(){
 		const openMaps = (data) =>{
+			const URL = `http://maps.google.com/maps?saddr=20.344,34.34&daddr=${data.cord}`
 			console.log(data)
 		}
 		return{Alert, delAlert, openMaps}
