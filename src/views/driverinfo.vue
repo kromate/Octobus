@@ -4,11 +4,16 @@
 			<h1 class='text-xl text-primary mb-4 mt-10 font-bold'> Driver Check in </h1>
 			<p class='text-primary mb-4'> Fill in the details to continue </p>
 
-			<div>
-				<div class="waves-block">
-					<div class="waves wave-1"></div>
-					<div class="waves wave-2"></div>
-					<div class="waves wave-3"></div>
+			<div class="wrapper">
+				<div class="video-main">
+					<div class="promo-video">
+						<div class="waves-block">
+							<div class="waves wave-1"></div>
+							<div class="waves wave-2"></div>
+							<div class="waves wave-3"></div>
+						</div>
+					</div>
+					<a class="video video-popup mfp-iframe" data-lity><i class="fa fa-play"></i></a>
 				</div>
 			</div>
 
@@ -28,6 +33,36 @@ const {route} = useDriver.value
 
 
 <style scoped>
+body {
+  position: relative;
+  height: 100vh;
+}
+        
+.wrapper {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+
+.video-main {
+  position: relative;
+  display: inline-block;
+}
+
+.video {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 100%;
+  background: transparent;
+  color: #fff;
+  display: inline-block;
+  background: #000000;
+  z-index: 999;
+}
 
 @keyframes waves {
   0% {
