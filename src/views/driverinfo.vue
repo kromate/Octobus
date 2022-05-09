@@ -13,7 +13,7 @@
 							<div class="waves wave-3"></div>
 						</div>
 					</div>
-					<a class="video video-popup mfp-iframe" data-lity><i class="fa fa-play"></i></a>
+					<a class="video video-popup mfp-iframe" data-lity><i class="fa fa-map-marker"></i></a>
 				</div>
 			</div>
 
@@ -52,9 +52,9 @@ body {
 }
 
 .video {
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
   text-align: center;
   border-radius: 100%;
   background: transparent;
@@ -62,6 +62,7 @@ body {
   display: inline-block;
   background: #000000;
   z-index: 999;
+  font-size: 2rem;
 }
 
 @keyframes waves {
@@ -89,11 +90,10 @@ body {
 
 .waves {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   border-radius: 100%;
   right: -50px;
   bottom: -50px;
