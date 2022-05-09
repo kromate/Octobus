@@ -9,9 +9,12 @@
 					<li class='list-none flex my-2'> <img src="../../assets/icons/place.svg" class='mr-2'/>  {{item.busStop}} </li>
 
 				</div>
-				<div class='my-2'>
+				<div class='my-2 flex flex-col'>
 					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="delAlert(index)"> 
 						Cancel Alert
+					</button>
+					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white mt-2"   @click="openMaps(item)"> 
+						get Directions
 					</button>
 					<!-- <Modal v-show="isModalVisible" @close="closeModal" /> -->
 				</div>
@@ -28,7 +31,10 @@ import { Alert, delAlert } from '@/composables/useAlert'
 export default {
 
 	setup(){
-		return{Alert, delAlert}
+		const openMaps = (data) =>{
+			console.log(data)
+		}
+		return{Alert, delAlert, openMaps}
 	}
     
 }

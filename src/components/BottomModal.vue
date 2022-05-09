@@ -85,6 +85,7 @@ export default {
 				'Route' : data.route,
 				'timeTaken' : data.duration.text,
 				'distance' : data.distance.text,
+				'cord': data.cord
 			})
 			offDetails()
 		}
