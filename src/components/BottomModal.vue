@@ -79,15 +79,15 @@ export default {
 
 		const onAddAlert = (data)=>{
 
-			console.log(currLocation.value)
-			// addAlert({
-			// 	'busStop' : data.end_address,
-			// 	'Route' : data.route,
-			// 	'timeTaken' : data.duration.text,
-			// 	'distance' : data.distance.text,
-			// 	'cord': data.cord
-			// })
-			// offDetails()
+			addAlert({
+				'busStop' : data.end_address,
+				'Route' : data.route,
+				'timeTaken' : data.duration.text,
+				'distance' : data.distance.text,
+				'Ecord': data.cord,
+				'Scord': `${currLocation.value.results[0].geometry.location.lat()},${currLocation.value.results[0].geometry.location.lng()}`
+			})
+			offDetails()
 		}
 
 		const onGetClosestBusStop = ()=>{

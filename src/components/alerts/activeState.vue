@@ -33,8 +33,9 @@ export default {
 
 	setup(){
 		const openMaps = (data) =>{
-			console.log(currPosition.value)
-			const URL = `http://maps.google.com/maps?saddr=20.344,34.34&daddr=${data.cord}`
+
+			const URL = `http://maps.google.com/maps?saddr=${data.Scord}&daddr=${data.Ecord}`
+			window.open(URL,'_blank')
 			console.log(data)
 		}
 		return{Alert, delAlert, openMaps}
