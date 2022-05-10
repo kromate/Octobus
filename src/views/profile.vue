@@ -5,7 +5,8 @@
 				<span class=" text-xl font-extrabold text-center">Profile</span>
 				<i class="lar la-bell text-primary bg-white p-3 rounded-full ml-auto absolute right-6  "></i>
 			</div>
-			<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-28 h-28 mx-auto mt-8 rounded-full">
+			<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" >
+			<avatar v-else :name="useUser().user.value.email.split('@')[0]" class="w-28 h-28 mx-auto mt-8 rounded-full" :size="112"/>
 
 
 			<span class="text-xl font-extrabold text-center mt-6" v-if="useUser().user.value.displayName">{{useUser().user.value.displayName}}</span>
@@ -32,6 +33,7 @@
 import { useUser } from '../composables/useGlobal'
 import { useAlert } from '../composables/useNotification'
 import homePage from '../layouts/homePage.vue'
+import Avatar from '../components/Avatar.vue'
 
 const resetPassword = ()=>{
 	useAlert().openAlert(`Password reset link sent to ${useUser().user.value.email}`)
