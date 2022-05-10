@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade" appear>
-		<div v-if="active" class="fixed top-0 inset-0 z-[1000] bg-[#ffffff96] flex justify-center items-center">
+		<div v-if="active" class="fixed top-0 inset-0 z-[10] bg-[#ffffff96] flex justify-center items-center">
 			<div class="loader"></div>
 		</div>
 	</transition>

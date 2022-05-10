@@ -5,7 +5,7 @@
 				<span class=" text-xl font-extrabold text-center">Profile</span>
 				<i class="lar la-bell text-primary bg-white p-3 rounded-full ml-auto absolute right-6  "></i>
 			</div>
-			<img :src="useUser().user.value.photoURL" alt="profile picture" class="w-28 h-28 mx-auto mt-8 rounded-full">
+			<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-28 h-28 mx-auto mt-8 rounded-full">
 
 
 			<span class="text-xl font-extrabold text-center mt-6">{{useUser().user.value.displayName}}</span>
