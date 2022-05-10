@@ -1,44 +1,75 @@
 <template>
 	<home-page>
-		<div class="w-screen h-screen  items-center flex flex-col mt-12">
-			<h1 class='text-xl text-primary mb-4 mt-10 font-bold'> Welcome Back </h1>
-			<p class='text-primary mb-4'> Login to continue </p>
 
-			<form @submit.prevent="loginEmail" class="mt-4 mx-4">
-     
-				<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Email" type="email" name="email" v-model="email" required>
-
-				<input class="w-full rounded-xl p-3 bg-lightGray text-gray my-4" placeholder="Password" type="password" name="password" v-model="password" required>
-
-
-				<button class="w-full mt-4 p-3 text-center rounded-xl bg-primary text-white"> Login </button>
-
-				<div class='text-base text-red-700 my-4' v-if="error">{{ error }}</div>
-			</form>
-
-
-			<button class="mt-12 mx-auto p-3 px-12 text-center rounded-xl bg-secondary text-white" @click="googleAuth"> login with Google </button>
-			<p class='mt-28' >  Don’t have an account? 
-				<router-link to="/signup" class='!text-secondary' > Create account  </router-link> 
-			</p>
+  
+		<div v-if="selectedService == 'Nicosia Service-1'" class='w-full h-screen bottom-0 absolute -top-10'>
+			<iframe  src="https://www.google.com/maps/d/embed?mid=11aQf6gpnCk1N1r_fmFLITInhgOR3J9on&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%" class="100vh"></iframe>
 		</div>
+
+		<div v-if="selectedService == 'Nicosia Service-2'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=14KMh9iVvKqLOFF-TS08nRV2ktF95duSR&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Hamitköy Service'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=13z0dYnpU6kwXh8e-OxZ1dgV6JexuI9vj&hl=tr&z=14" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Kızılbaş Service'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=1GmeU9X6tsioyF2gm9Qpjy38RffSq3CpQ&hl=tr&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Gönyeli Service-1'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=1hf1y1GnbmUzTV3MMmA_YdEUaNd0zHChe&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Gönyeli Service-2'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=1XRRhWCa2Ud4UR2V0jZtuMw8Z3PEZUO4h&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Gönyeli / Metehan Service'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=1Mzl8Y1mDwQXBYPg9QQG6qaOIpqjOfJas&hl=tr&z=13" width="100%" height="100%"></iframe>
+		</div>
+ 
+  
+		<div v-if='selectedService == "Ortakoy / Yenikent Service Information"' class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/embed?mid=15xtEiemsDX0Fj0fKWhPr1YKPaqcaSCWq&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService  == 'Kyrenia Service Information'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1l8blTebI9b0sIK51egZ-X71JZhEBGC2S&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Güzelyurt Service Information'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1m04R9WbsFOWd6Pk7eZur7qJI6jqZgKHx&z=13" width="100%" height="100%"></iframe>
+		</div>
+
+		<div v-if="selectedService == 'Famagusta Service Information'" class='w-full h-full absolute -top-24'>
+			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=11rq2kW3xdyGS9HtsZsgtwsw-oD8z4WMY&z=11" width="100%" height="100%"></iframe>
+		</div>
+
+
 	</home-page>
 
 </template>
 
-<script>
-import {useLogin, signOutUser} from '@/firebase/auth'
-import { useUser } from '@/composables/useGlobal'
+
+
+<script setup>
+import {ref} from 'vue'
 import homePage from '../layouts/homePage.vue'
 
 
-export default {
-	components: { homePage },
-	name:'loginPage',
-	setup() {
-		const {user} = useUser()
-		const {googleAuth, email, password, error, loginEmail} = useLogin()
-		return{user, googleAuth, signOutUser, email, password, error, loginEmail}
-	}
-}
+const selectedService = ref('Nicosia Service-1')
+
 </script>
+
+
+<style>
+/* .map{
+  height: calc(100vh - 96px);
+}
+
+.inputContainer i {
+   position: absolute;
+} */
+</style>
