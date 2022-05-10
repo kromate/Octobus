@@ -55,6 +55,11 @@ const routes = [
 		name: 'DriverInfo',
 		component: ()=> import('../views/driverinfo.vue'),
 	},
+	{
+		path: '/routes',
+		name: 'Routes',
+		component: ()=> import('../views/routes.vue'),
+	},
   
 ]
 
