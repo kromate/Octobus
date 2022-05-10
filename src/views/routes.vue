@@ -1,28 +1,33 @@
 <template>
 	<home-page>
 
+		<select-menu placeholder='Pick a route' @onChange="selectedService = $event"  :options="routeNamesOnly"  class="mt-16 z-40 inset-x-2 fixed !bg-transparent">
+			<template #icon>
+				<i class="fas fa-directions text-primary text-xl"></i>
+			</template>
+		</select-menu>
   
-		<div v-if="selectedService == 'Nicosia Service-1'" class='w-full h-screen bottom-0 absolute -top-10'>
+		<div v-if="selectedService == 'Nicosia 1'" class='w-full h-screen bottom-0 absolute -top-10'>
 			<iframe  src="https://www.google.com/maps/d/embed?mid=11aQf6gpnCk1N1r_fmFLITInhgOR3J9on&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%" class="100vh"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Nicosia Service-2'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Nicosia 2'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=14KMh9iVvKqLOFF-TS08nRV2ktF95duSR&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Hamitköy Service'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Hamitköy'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=13z0dYnpU6kwXh8e-OxZ1dgV6JexuI9vj&hl=tr&z=14" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Kızılbaş Service'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Kızılbaş'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=1GmeU9X6tsioyF2gm9Qpjy38RffSq3CpQ&hl=tr&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Gönyeli Service-1'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Gönyeli 1'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=1hf1y1GnbmUzTV3MMmA_YdEUaNd0zHChe&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Gönyeli Service-2'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Gönyeli 2'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=1XRRhWCa2Ud4UR2V0jZtuMw8Z3PEZUO4h&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
 		</div>
 
@@ -57,7 +62,8 @@
 <script setup>
 import {ref} from 'vue'
 import homePage from '../layouts/homePage.vue'
-
+import SelectMenu from '../components/SelectMenu.vue'
+import {routeNamesOnly} from '../helpers/busRoutes'
 
 const selectedService = ref('Nicosia Service-1')
 
