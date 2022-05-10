@@ -8,7 +8,8 @@
 			<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-28 h-28 mx-auto mt-8 rounded-full">
 
 
-			<span class="text-xl font-extrabold text-center mt-6">{{useUser().user.value.displayName}}</span>
+			<span class="text-xl font-extrabold text-center mt-6" v-if="useUser().user.value.displayName">{{useUser().user.value.displayName}}</span>
+			<span class="text-xl font-extrabold text-center mt-6" v-else> {{useUser().user.value.email.split('@')[0]}}</span>
 
 			<div class="bg-secondary p-5 flex flex-col justify-center items-center rounded-md mt-4 max-w-[80%] w-[400px] mx-auto">
 				<button class="font-medium bg-white text-purple text-xs py-2 px-4 rounded-full mt-2 w-fit cursor-pointer" @click="resetPassword">Change Password</button>
