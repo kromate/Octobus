@@ -71,22 +71,20 @@ export const getRouteMessage = async (route) => {
 	return result 
 }
 
-export const getUsers = async (route) => {
+export const getUsers = async () => {
 	useLoading().openLoading()
+	const UserResult = ref([])
 	const q = query(collection(db, 'users'))
-	const unsubscribe = onSnapshot(q, (querySnapshot) => {
-		console.log(querySnapshot)
-		result = []
+	const unsubscribe = await onSnapshot(q, (querySnapshot) => {
+		UserResult.value = []
 		querySnapshot.forEach((doc) => {
-			result.push(doc.data())
+			UserResult.value.push(doc.data())
 		})
 		useLoading().closeLoading()
-		routeMessage.value = result
-	})
 
-	onUnmounted(unsubscribe)
-	console.log(result)
-	return result 
+	})
+	return UserResult
+	
 }
 
 

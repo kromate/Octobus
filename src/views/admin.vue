@@ -3,6 +3,19 @@
 		<div class="mt-24 flex flex-col">
 			<p class="text-3xl font-semibold text-center">Admin Panel</p>
 			<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
+
+			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in users" :key="n">
+				<div class="flex items-center">
+					{{n}}
+					<!-- <avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/> -->
+					<div>
+						<!-- <p class="bg-secondary text-white w-auto px-4 py-0.5 rounded" v-if="n.user">{{n.user.name}}</p> -->
+					
+
+					</div>
+			
+				</div>
+			</div>
 		</div>
 	</home-page>
 	
@@ -18,7 +31,8 @@ const {route} = useDriver.value
 const users = ref([])
 
 onMounted(async()=>{
-	users.value = await getUsers()
+	console.log(await getUsers())
+	users.value =  (await getUsers()).value
 })
 
 console.log(users.value)
