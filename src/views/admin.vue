@@ -3,14 +3,13 @@
 		<div class="mt-24 flex flex-col">
 			<p class="text-3xl font-semibold text-center">Admin Panel</p>
 			<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
-			{{UserResult}}
 			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in UserResult" :key="n">
 				<div class="flex items-center">
-					{{n}}
-					<!-- <avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/> -->
+					<avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/>
 					<div>
-						<!-- <p class="bg-secondary text-white w-auto px-4 py-0.5 rounded" v-if="n.user">{{n.user.name}}</p> -->
+						<p class="bg-secondary text-white w-auto px-4 py-0.5 rounded mt-1" >{{n.email}}</p>
 					
+						<button class="btn-outline py-0.5 mt-2">Delete</button>
 
 					</div>
 			
@@ -23,8 +22,10 @@
 
 <script setup>
 import homePage from '../layouts/homePage.vue'
-import {UserResult} from '@/firebase/firestore' 
+import {UserResult, getUsers} from '@/firebase/firestore' 
+import { onMounted } from 'vue-demi'
 
+onMounted(getUsers)
 
 console.log(UserResult)
 
