@@ -18,7 +18,7 @@
 					<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in routeMessage" :key="n">
 						<div class="flex items-center">
 							<img :src="n.user.photo" alt="person" class="rounded-full mr-4 w-16" v-if="n.user.photo">
-							<avatar v-else :name="n.user.value.email.split('@')[0]" class="w-28 h-28 mx-auto mt-8 rounded-full" :size="64"/>
+							<avatar v-else :name="n.user.name.split('@')[0]"  :size="64" class="mr-4"/>
 							<div>
 								<p class="bg-secondary text-white w-auto px-4 py-0.5 rounded" v-if="n.user">{{n.user.name}}</p>
 								<div class="">

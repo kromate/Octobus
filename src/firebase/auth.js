@@ -95,6 +95,7 @@ export const signOutUser = () => {
 		clearUser()
 		location.reload()
 		closeLoading()
+		location.href = '/login'
 	}).catch((error) => {
 		closeLoading()
 		openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
