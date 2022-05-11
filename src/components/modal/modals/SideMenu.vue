@@ -5,9 +5,9 @@
 		<div class="h-screen bg-white max-w-[89%] md:w-7/12 w-full   py-5 px-5 md:rounded-xl   fixed left-0 inset-y-0">
 			<div class="flex flex-col w-full h-full ">
 				<div class="flex items-center justify-start w-full border-b pb-3 border-secondary">
-					<h2 class="font-semibold text-2xl text-left ">
-						sideMenu
-					</h2>
+					<router-link to="/landing" class="logo text-secondary text-2xl font-extrabold border-0 outline-none" >
+						Octobus
+					</router-link> 
 					<div 	class="cursor-pointer absolute right-4 top-2" @click="close">
 						<i class="fas fa-times text-primary text-2xl"></i>
 					</div>

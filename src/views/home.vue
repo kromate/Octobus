@@ -11,15 +11,17 @@
 <script setup>
 /* eslint-disable no-undef */
 
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, onUnmounted} from 'vue'
 import { initMap } from '../composables/useMap'
 import homePage from '../layouts/homePage.vue'
 
 import BottomModal from '../components/BottomModal.vue'
+import { useLoading } from '../composables/useNotification'
 
 		
 		  const mapDiv = ref(null)
 		  onMounted(initMap(mapDiv))
+		  onUnmounted(useLoading().closeLoading())
 
 
 	
