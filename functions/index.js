@@ -22,15 +22,16 @@ exports.userDeleted = functions.auth.user().onDelete((user) => {
 
 
 exports.deleteUser = functions.https.onCall((data, context) => {
-  //get user and add custom claim
-  return admin.auth().getUserByEmail(data.email).then(user => {
-    const uid = user.uid
-    admin.auth().
-  }).then(()=>{
-    return{
-      message: `Success <br> user ${data.email} has been deleted`
-    }
-  }).catch(err=>{return err})
+	//get user and add custom claim
+	console.log(data)
+	return admin.auth().getUserByEmail(data.email).then((user) => {
+		const uid = user.uid
+		return admin.auth().deleteUser(uid)
+	}).then(()=>{
+		return{
+			message: `Success <br> user ${data.email} has been deleted`
+		}
+	}).catch((err)=>{return err})
 })
 
 
