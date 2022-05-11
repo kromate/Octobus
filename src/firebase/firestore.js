@@ -12,6 +12,8 @@ import Filter from 'bad-words'
 
 export const chatRouteRef = ref(1)
 export const routeMessage = ref([])
+export const UserResult = ref([])
+
 
 const filter = new Filter()
 const { user } = useUser()
@@ -24,6 +26,7 @@ watch(chatRouteRef, (newValue) => {
 })
 
 let result = []
+let userResult = []
 // const timelineRef = collection(db, chatRouteRef.value)
 
 export const savePost = async (post, routes) => {
@@ -73,17 +76,19 @@ export const getRouteMessage = async (route) => {
 
 export const getUsers = async () => {
 	useLoading().openLoading()
-	const UserResult = ref([])
+
 	const q = query(collection(db, 'users'))
-	const unsubscribe = await onSnapshot(q, (querySnapshot) => {
-		UserResult.value = []
+	const unsubscribe = onSnapshot(q, (querySnapshot) => {
+		userResult = []
 		querySnapshot.forEach((doc) => {
-			UserResult.value.push(doc.data())
+			console.log(doc)
+			userResult.push(doc.data())
 		})
+		console.log(userResult)
+		UserResult.value = userResult
 		useLoading().closeLoading()
 
 	})
-	return UserResult
 	
 }
 

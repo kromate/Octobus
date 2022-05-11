@@ -3,8 +3,8 @@
 		<div class="mt-24 flex flex-col">
 			<p class="text-3xl font-semibold text-center">Admin Panel</p>
 			<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
-
-			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in users" :key="n">
+			{{UserResult}}
+			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in UserResult" :key="n">
 				<div class="flex items-center">
 					{{n}}
 					<!-- <avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/> -->
@@ -23,19 +23,12 @@
 
 <script setup>
 import homePage from '../layouts/homePage.vue'
-import {useDriver} from '../composables/useDriver'
-import { getUsers } from '../firebase/firestore'
-import { onMounted, ref } from 'vue'
-const {route} = useDriver.value
+import {UserResult} from '@/firebase/firestore' 
 
-const users = ref([])
 
-onMounted(async()=>{
-	console.log(await getUsers())
-	users.value =  (await getUsers()).value
-})
+console.log(UserResult)
 
-console.log(users.value)
+
 
 </script>
 
