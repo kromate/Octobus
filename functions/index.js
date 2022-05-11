@@ -26,16 +26,17 @@ exports.userDeleted = functions.auth.user().onDelete((user) => {
 
 
 
-exports.deleteUser = functions.https.onRequest((data, context) => {
+exports.deleteUser = functions.https.onRequest((data, res) => {
 	//get user and add custom claim
 	console.log(data.query.email)
 	return admin.auth().getUserByEmail(data.query.email).then((user) => {
 		console.log(user)
 		const uid = user.uid
 		return admin.auth().deleteUser(uid)
-	}).then(()=>{
+	}).then(() => {
+		res.status(200).send(`Success <br> user ${data.email} has been deleted`)
 		return{
-			message: `Success <br> user ${data.email} has been deleted`
+			message: `Success <br> user ${data.query.email} has been deleted`
 		}
 	}).catch((err)=>{return err})
 })
