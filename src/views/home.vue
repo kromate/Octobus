@@ -21,7 +21,9 @@ import { useLoading } from '../composables/useNotification'
 		
 		  const mapDiv = ref(null)
 		  onMounted(initMap(mapDiv))
-		  onUnmounted(useLoading().closeLoading())
+		  onUnmounted( ()=>{
+	useLoading().closeLoading()
+		  } )
 
 
 	

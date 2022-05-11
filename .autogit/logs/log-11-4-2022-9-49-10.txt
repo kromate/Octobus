@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 11 2022 09:49:10 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/modal/modals/SideMenu.vue
+* src/views/home.vue
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
