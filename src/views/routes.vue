@@ -1,7 +1,7 @@
 <template>
 	<home-page>
 
-		<select-menu placeholder='Pick a route' @onChange="selectedService = $event"  :options="routeNamesOnly"  class="mt-16 z-40 inset-x-2 fixed !bg-transparent">
+		<select-menu placeholder='Pick a route' @onChange="selectedService = $event"  :options="routeNamesOnly"  class="mt-16 z-10 inset-x-2 fixed !bg-transparent">
 			<template #icon>
 				<i class="fas fa-directions text-primary text-xl"></i>
 			</template>
@@ -31,24 +31,24 @@
 			<iframe src="https://www.google.com/maps/d/embed?mid=1XRRhWCa2Ud4UR2V0jZtuMw8Z3PEZUO4h&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Gönyeli / Metehan Service'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Gönyeli - Metehan'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=1Mzl8Y1mDwQXBYPg9QQG6qaOIpqjOfJas&hl=tr&z=13" width="100%" height="100%"></iframe>
 		</div>
  
   
-		<div v-if='selectedService == "Ortakoy / Yenikent Service Information"' class='w-full h-full absolute -top-10'>
+		<div v-if='selectedService == "Ortaköy - Yenikent"' class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/embed?mid=15xtEiemsDX0Fj0fKWhPr1YKPaqcaSCWq&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService  == 'Kyrenia Service Information'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService  == 'Kyrenia'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1l8blTebI9b0sIK51egZ-X71JZhEBGC2S&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Güzelyurt Service Information'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Güzelyurt'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1m04R9WbsFOWd6Pk7eZur7qJI6jqZgKHx&z=13" width="100%" height="100%"></iframe>
 		</div>
 
-		<div v-if="selectedService == 'Famagusta Service Information'" class='w-full h-full absolute -top-10'>
+		<div v-if="selectedService == 'Famagusta'" class='w-full h-full absolute -top-10'>
 			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=11rq2kW3xdyGS9HtsZsgtwsw-oD8z4WMY&z=11" width="100%" height="100%"></iframe>
 		</div>
 

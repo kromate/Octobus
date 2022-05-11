@@ -12,8 +12,8 @@
 			<button class="btn py-1 px-3" @click="openAboutModal">
 				About us
 			</button>
-			<button class="btn py-1 px-3" @click="openRoutesModal">
-				Route
+			<button class="btn py-1 px-3" @click="$router.push('/admin')">
+				admin
 			</button>
 			<button class="btn py-1 px-3" @click="openFAQsModal">
 				FAQ

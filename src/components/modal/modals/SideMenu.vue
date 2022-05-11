@@ -20,8 +20,8 @@
 					<button class="btn w-full py-1 px-3" @click="open(openAboutModal)">
 						About us
 					</button>
-					<button class="btn w-full py-1 px-3" @click="open(openRoutesModal)">
-						Route
+					<button class="btn w-full py-1 px-3" @click="$router.push('/admin')">
+						Admin
 					</button>
 					<button class="btn w-full py-1 px-3" @click="open(openFAQsModal)">
 						FAQ
