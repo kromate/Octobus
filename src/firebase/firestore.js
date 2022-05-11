@@ -56,16 +56,7 @@ export const delTimeline = async (id) => {
 
 export const getRouteMessage = async (route) => {
 	useLoading().openLoading()
-
-
-
 	const q = query(collection(db, route))
-
-	// const querySnapshot = await getDocs(q)
-	// querySnapshot.forEach((doc) => {
-	// 	result.push(doc.data())
-	// })
-
 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		result = []
 		querySnapshot.forEach((doc) => {
@@ -77,21 +68,27 @@ export const getRouteMessage = async (route) => {
 
 	onUnmounted(unsubscribe)
 
-	
-	
 	return result 
 }
 
-export const getSingleTimeline = async (id) => {
-	openLoading('Loading up the timeline 👽')
-	const singleTimelineRef = doc(db, 'timelines', id)
-	const docSnap = await getDoc(singleTimelineRef)
-	closeLoading()
-	if (docSnap.exists()) {
-		return docSnap.data()
-	} else {
-		return null
-	}
+export const getUsers = async (route) => {
+	useLoading().openLoading()
+	const q = query(collection(db, 'users'))
+	const unsubscribe = onSnapshot(q, (querySnapshot) => {
+		console.log(querySnapshot)
+		result = []
+		querySnapshot.forEach((doc) => {
+			result.push(doc.data())
+		})
+		useLoading().closeLoading()
+		routeMessage.value = result
+	})
+
+	onUnmounted(unsubscribe)
+	console.log(result)
+	return result 
 }
+
+
 
 

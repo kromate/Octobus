@@ -1,23 +1,8 @@
 <template>
 	<home-page>
-		<div class="w-screen h-screen  items-center flex flex-col mt-12">
-			<div class="wrapper">
-				<div class="video-main">
-					<div class="promo-video">
-						<div class="waves-block">
-							<div class="waves wave-1"></div>
-							<div class="waves wave-2"></div>
-							<div class="waves wave-3"></div>
-						</div>
-					</div>
-					<a class="video video-popup mfp-iframe" data-lity><i class="fa fa-map-marker"></i></a>
-				</div>
-			</div>
-
-			<p class="text-xl mt-80">
-				Location currently transmitted 
-			</p>
-	
+		<div class="mt-24 flex flex-col">
+			<p class="text-3xl font-semibold text-center">Admin Panel</p>
+			<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
 		</div>
 	</home-page>
 	
@@ -26,7 +11,17 @@
 <script setup>
 import homePage from '../layouts/homePage.vue'
 import {useDriver} from '../composables/useDriver'
+import { getUsers } from '../firebase/firestore'
+import { onMounted, ref } from 'vue'
 const {route} = useDriver.value
+
+const users = ref([])
+
+onMounted(async()=>{
+	users.value = await getUsers()
+})
+
+console.log(users.value)
 
 </script>
 
