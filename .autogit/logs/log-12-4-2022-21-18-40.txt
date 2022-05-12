@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Thu May 12 2022 21:18:40 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* functions/auth.js
+* src/composables/useGoogle.js
+
+
+Created files:
+* .autogit/logs/log-12-4-2022-21-8-24.txt
+
+
+Deleted files:
+* functions/firebase-debug.log
+
+
+Renamed files:

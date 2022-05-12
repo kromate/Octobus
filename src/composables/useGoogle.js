@@ -22,6 +22,7 @@ export default function() {
 		document.head.appendChild(googleScript)
 		// googleScript.onload instead of window.onload because window.onload can be triggered by other libraries and or just missed while googleScript.onload is more consistent
 		googleScript.onload = () => {
+			console.log(client_id)
 			if (client_id) {
 				window.google.accounts.id.initialize({
 					client_id: client_id,
