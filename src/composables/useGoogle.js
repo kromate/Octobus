@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 export default function() {
 	const CLIENT_ID = '27001174362-pm1iko4vr9r79plujgc0domhiul3pakk.apps.googleusercontent.com'
-	const CLIENT_URL = 'http://localhost:3000/'
+	// const CLIENT_URL = 'http://localhost:3000/'
 	const API_URL = 'http://localhost:3001/'
 
 	const userData = ref()
@@ -22,7 +22,7 @@ export default function() {
 		document.head.appendChild(googleScript)
 		// googleScript.onload instead of window.onload because window.onload can be triggered by other libraries and or just missed while googleScript.onload is more consistent
 		googleScript.onload = () => {
-			console.log(client_id)
+		
 			if (client_id) {
 				window.google.accounts.id.initialize({
 					client_id: client_id,
@@ -31,6 +31,7 @@ export default function() {
 					cancel_on_tap_outside: cancel_on_tap_outside,
 					context: contextValue
 				})
+				console.log(window.google.accounts.id)
 				window.google.accounts.id.prompt()
 			} else {
 				console.error('client_id is missing')
@@ -45,7 +46,7 @@ export default function() {
 
 			// Access-Control-Allow-Origin is mandatory as this is a "Complex" request. This must match the "origin" in the CorsOptions in the backend, or it will fail the preflight.
 			const axiosOptions = {
-				headers: { 'Access-Control-Allow-Origin': CLIENT_URL }
+				// headers: { 'Access-Control-Allow-Origin': '*', mode: 'no-cors'}
 			}
 
 			// Google One-Tap Signin sends a POST request which must be sent to a server to be processed.

@@ -13,10 +13,9 @@ const port = process.env.PORT || 3001
 const cors = require('cors')
 
 const corsOptions = {
-	origin: CLIENT_URL,
+	origin: '*',
 	optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 	methods: 'POST',
-	credentials: true,
 }
 
 // enable pre-flight request for verify-token request
