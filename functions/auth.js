@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-app.use(express.json());
+app.use(express.json())
 app.use(express.urlencoded({
-  extended: true
-}));
+	extended: true
+}))
 
 require('dotenv').config()
 const CLIENT_ID = process.env.CLIENT_ID
@@ -13,11 +13,11 @@ const port = process.env.PORT || 3000
 
 const cors = require('cors')
 
-var corsOptions = {
-  origin: CLIENT_URL,
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  methods: "POST",
-  credentials: true,
+const corsOptions = {
+	origin: CLIENT_URL,
+	optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+	methods: 'POST',
+	credentials: true,
 }
 
 // enable pre-flight request for verify-token request
@@ -27,26 +27,26 @@ app.options('/verify-token', cors(corsOptions))
 
 // This route is just for testing, comment out or remove in production if desired
 app.get('/', cors(), (req, res) => {
-  if (process.env.NODE_ENV === 'production') {
-    res.send('Server is up!')
-  } else {
-    res.json({
-      message: 'Server is up!', 
-      clientUrl: CLIENT_URL,
-      clientId: CLIENT_ID
-    })
-  }
+	if (process.env.NODE_ENV === 'production') {
+		res.send('Server is up!')
+	} else {
+		res.json({
+			message: 'Server is up!', 
+			clientUrl: CLIENT_URL,
+			clientId: CLIENT_ID
+		})
+	}
 })
 
 // Main Route, route name can be changed as desired
 app.post('/verify-token', cors(corsOptions), (req, res) => {
-  const CLIENT_ID = process.env.CLIENT_ID
+	const CLIENT_ID = process.env.CLIENT_ID
 
-  const { OAuth2Client } = require('google-auth-library')
-  const client = new OAuth2Client(CLIENT_ID)
+	const { OAuth2Client } = require('google-auth-library')
+	const client = new OAuth2Client(CLIENT_ID)
 
-  async function verify() {
-    const token = req.body.credential
+	async function verify() {
+		const token = req.body.credential
 
   	const ticket = await client.verifyIdToken({
   		idToken: token,
@@ -61,17 +61,19 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   	// If request specified a G Suite domain:
   	// const domain = payload['hd']
 
-    res.json({
-      email: payload.email,
-      email_verified: payload.email_verified,
-      picture: payload.picture,
-      name: payload.name,
-    })
-  }
+		res.json({
+			email: payload.email,
+			email_verified: payload.email_verified,
+			picture: payload.picture,
+			name: payload.name,
+		})
+	}
 
-  verify().catch(console.error)
+	verify().catch(console.error)
 })
 
 app.listen(port, () => {
-  console.log(`Google One-Tap Signin Server is listening on port ${port}`)
+	console.log(`Google One-Tap Signin Server is listening on port ${port}`)
 })
+
+export default app

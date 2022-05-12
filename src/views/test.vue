@@ -1,120 +1,64 @@
 <template>
-	<div>
-		<h1>IsInit: {{ Vue3GoogleOauth.isInit }}</h1>
-		<h1>IsAuthorized: {{ Vue3GoogleOauth.isAuthorized }}</h1>
-		<h2 v-if="user">signed user: {{user}}</h2>
-		<button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button>
-		<button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get authCode</button>
-		<button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
-		<button @click="handleClickDisconnect" :disabled="!Vue3GoogleOauth.isAuthorized">disconnect</button>
+	<div class="hello">
+
+		<h3>Demo Github Repo</h3><br/>
+		<p>Frontend: <a href="https://github.com/Zensynthium/vue-google-onetap-signin" target="_blank" rel="noopener noreferrer">https://github.com/Zensynthium/vue-google-onetap-signin</a></p>
+		<p>Backend: <a href="https://github.com/Zensynthium/google-onetap-server" target="_blank" rel="noopener noreferrer">https://github.com/Zensynthium/google-onetap-server</a></p>
+		<h3>Google Profile Information</h3>
+		<p>This information will populate after the Google One-Tap Signin is completed.</p>
+		<img :title="googleUserData.name" :src="googleUserData.picture" alt="User's Profile Picture">
+		<p>Name: {{ googleUserData.name}}</p>
+		<p>Email: {{ googleUserData.email }}</p>
+		<p>Email Verified: {{ googleUserData.email_verified }}</p>
 	</div>
 </template>
 
 <script>
-import { inject, toRefs } from 'vue'
+import googleOneTapSignin from '@/composables/useGoogle.js' 
+import { onMounted, ref, watch } from 'vue'
 
 export default {
 	name: 'HelloWorld',
 	props: {
-		msg: String,
+		msg: String
 	},
+	setup(){
+		const googleUserData = ref({
+			name: '',
+			email: '',
+			email_verified: '',
+			picture: ''
+		})
+    
+		onMounted(() => {
+			const { googleOptions, oneTapSignin, userData } = googleOneTapSignin()
+			oneTapSignin(googleOptions)
 
-	data(){
-		return {
-			user: '',
-		}
-	},
+			watch(userData, () => {
+				console.log(userData.value)
+				googleUserData.value = userData.value
+			})
+		})
 
-	methods: {
-		async handleClickSignIn(){
-			try {
-				const googleUser = await this.$gAuth.signIn()
-				if (!googleUser) {
-					return null
-				}
-				console.log('googleUser', googleUser)
-				this.user = googleUser.getBasicProfile().getEmail()
-				console.log('getId', this.user)
-				console.log('getBasicProfile', googleUser.getBasicProfile())
-				console.log('getAuthResponse', googleUser.getAuthResponse())
-				console.log(
-					'getAuthResponse',
-					this.$gAuth.instance.currentUser.get().getAuthResponse()
-				)
-
-			} catch (error) {
-				//on fail do something
-				console.error(error)
-				return null
-			}
-		},
-
-		async handleClickGetAuthCode(){
-			try {
-				const authCode = await this.$gAuth.getAuthCode()
-				console.log('authCode', authCode)
-			} catch(error) {
-				//on fail do something
-				console.error(error)
-				return null
-			}
-		},
-
-		async handleClickSignOut() {
-			try {
-				await this.$gAuth.signOut()
-				console.log('isAuthorized', this.Vue3GoogleOauth.isAuthorized)
-				this.user = ''
-			} catch (error) {
-				console.error(error)
-			}
-		},
-
-		handleClickDisconnect() {
-			window.location.href = `https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=${window.location.href}`
-		},
-	},
-	setup(props) {
-		const { isSignIn } = toRefs(props)
-		const Vue3GoogleOauth = inject('Vue3GoogleOauth')
-
-		const handleClickLogin = () => {}
-		return {
-			Vue3GoogleOauth,
-			handleClickLogin,
-			isSignIn,
-		}
-	},
+		return { googleUserData }
+	}
 }
 </script>
 
-<style>
-button {
-  display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #dcdfe6;
-  color: #606266;
-  -webkit-appearance: none;
-  text-align: center;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: 0;
-  margin: 0;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-  font-weight: 500;
-  padding: 12px 20px;
-  font-size: 14px;
-  border-radius: 4px;
-  margin-right: 1em;
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
 }
-
-button:disabled {
-  background: #fff;
-  color: #ddd;
-  cursor: not-allowed;
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
 }
 </style>
