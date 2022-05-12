@@ -48,7 +48,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   	const ticket = await client.verifyIdToken({
   		idToken: token,
 			audience: CLIENT_ID,
-		  scope: 
+			scope: 'openid email profile https://www.googleapis.com/auth/calendar'
 			// Specify the CLIENT_ID of the app that accesses the backend
   		// Or, if multiple clients access the backend:
   		//[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]

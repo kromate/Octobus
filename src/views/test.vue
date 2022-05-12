@@ -1,16 +1,11 @@
 <template>
-	<div class="hello">
+	<p>Google Calendar API Quickstart</p>
 
-		<h3>Demo Github Repo</h3><br/>
-		<p>Frontend: <a href="https://github.com/Zensynthium/vue-google-onetap-signin" target="_blank" rel="noopener noreferrer">https://github.com/Zensynthium/vue-google-onetap-signin</a></p>
-		<p>Backend: <a href="https://github.com/Zensynthium/google-onetap-server" target="_blank" rel="noopener noreferrer">https://github.com/Zensynthium/google-onetap-server</a></p>
-		<h3>Google Profile Information</h3>
-		<p>This information will populate after the Google One-Tap Signin is completed.</p>
-		<img :title="googleUserData.name" :src="googleUserData.picture" alt="User's Profile Picture">
-		<p>Name: {{ googleUserData.name}}</p>
-		<p>Email: {{ googleUserData.email }}</p>
-		<p>Email Verified: {{ googleUserData.email_verified }}</p>
-	</div>
+	<!--Add buttons to initiate auth sequence and sign out-->
+	<button id="authorize_button" @click="handleAuthClick()">Authorize</button>
+	<button id="signout_button" @click="handleSignoutClick()">Sign Out</button>
+
+	<pre id="content" style="white-space: pre-wrap;"></pre>
 </template>
 
 <script>
