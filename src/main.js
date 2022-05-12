@@ -10,7 +10,7 @@ const init = async () => {
 	const router = await setupRouter
 
 	const app = createApp(App)
-	app.use(gAuthPlugin, { clientId: '27001174362-e28tr884dkac4mud474bb5i0ce4duei4.apps.googleusercontent.com', scope: 'email', prompt: 'consent', fetch_basic_profile: true })
+	app.use(gAuthPlugin, { clientId: '27001174362-pm1iko4vr9r79plujgc0domhiul3pakk.apps.googleusercontent.com', scope: 'openid email profile https://www.googleapis.com/auth/calendar', prompt: 'consent', fetch_basic_profile: false })
 
 	app.use(router).mount('#app')
 }
