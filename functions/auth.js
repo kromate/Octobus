@@ -6,7 +6,7 @@ app.use(express.urlencoded({
 }))
 
 require('dotenv').config()
-const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_ID = '27001174362-pm1iko4vr9r79plujgc0domhiul3pakk.apps.googleusercontent.com'
 const CLIENT_URL = 'http://localhost:3000'
 const port = process.env.PORT || 3001
 
@@ -38,8 +38,7 @@ app.get('/', cors(), (req, res) => {
 
 // Main Route, route name can be changed as desired
 app.post('/verify-token', cors(corsOptions), (req, res) => {
-	const CLIENT_ID = process.env.CLIENT_ID
-
+	const CLIENT_ID = '27001174362-pm1iko4vr9r79plujgc0domhiul3pakk.apps.googleusercontent.com'
 	const { OAuth2Client } = require('google-auth-library')
 	const client = new OAuth2Client(CLIENT_ID)
 
@@ -48,11 +47,14 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
 
   	const ticket = await client.verifyIdToken({
   		idToken: token,
-  		audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
+			audience: CLIENT_ID,
+		  scope: 
+			// Specify the CLIENT_ID of the app that accesses the backend
   		// Or, if multiple clients access the backend:
   		//[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
   	})
 
+	
   	const payload = ticket.getPayload()
   	// const userid = payload['sub']
 
@@ -64,6 +66,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
 			email_verified: payload.email_verified,
 			picture: payload.picture,
 			name: payload.name,
+			payload
 		})
 	}
 

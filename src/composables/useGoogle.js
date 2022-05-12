@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export default function() {
 	const CLIENT_ID = '27001174362-pm1iko4vr9r79plujgc0domhiul3pakk.apps.googleusercontent.com'
 	// const CLIENT_URL = 'http://localhost:3000/'
-	const API_URL = 'http://localhost:3001/'
+	const API_URL = 'http://localhost:3001'
 
 	const userData = ref()
 
