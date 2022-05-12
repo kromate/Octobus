@@ -7,9 +7,8 @@ app.use(express.urlencoded({
 
 require('dotenv').config()
 const CLIENT_ID = process.env.CLIENT_ID
-const CLIENT_URL = process.env.CLIENT_URL
-
-const port = process.env.PORT || 3000
+const CLIENT_URL = 'http://localhost:3000'
+const port = process.env.PORT || 3001
 
 const cors = require('cors')
 
