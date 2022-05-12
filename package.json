@@ -21,6 +21,7 @@
     "vue-router": "^4.0.11",
     "vue3-carousel": "^0.1.38",
     "vue3-google-map": "^0.8.3",
+    "vue3-google-oauth2": "^1.0.6",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
