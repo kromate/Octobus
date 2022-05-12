@@ -76,4 +76,4 @@ app.listen(port, () => {
 	console.log(`Google One-Tap Signin Server is listening on port ${port}`)
 })
 
-export default app
+module.exports = app

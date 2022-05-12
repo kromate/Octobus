@@ -1,6 +1,9 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+const app = require('./auth')
 admin.initializeApp()
+
+
 
 functions.runWith({
 	timeoutSeconds: 540,
@@ -17,6 +20,8 @@ exports.newUserSignUp = functions.auth.user().onCreate((user) => {
 
 	})
 })
+
+exports.app = app
 
 // auth trigger (user deleted)
 exports.userDeleted = functions.auth.user().onDelete((user) => {
