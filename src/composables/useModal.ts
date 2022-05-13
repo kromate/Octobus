@@ -13,7 +13,7 @@ const GlobalModalState = {}
 
 
 export const globalModal = () => {
-	const globalModalArray = []
+	const globalModalArray = [] as any
 
 	for (const modal of allModals) {
 		globalModalArray.push(

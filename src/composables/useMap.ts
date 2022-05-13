@@ -7,7 +7,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
-export const map = ref(null)
+export const map = ref()
 // const autocomplete = ref('')
 
   
@@ -71,7 +71,7 @@ export const geocoder = async (currPos, infowindow) => {
 
 	try {
 		if (data.results[0]) { 
-			map.value!.setZoom(11)
+			map.value.setZoom(11)
 			const marker = new google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
