@@ -11,7 +11,7 @@ export const map = ref()
 // const autocomplete = ref('')
 
   
-var google 
+
 
 export const currLocation = ref('')
 export const currPosition = ref()
@@ -39,7 +39,7 @@ export const initMap = async (mapDiv) => {
 		lng: coords.value.longitude
 	}))
     	await loader.load()
-		    map.value = new google.maps.Map(mapDiv.value, {
+	map.value = new window.google.maps.Map(mapDiv.value, {
 		    // center: { lat: 35.2297654, lng: 33.3246926 },
 		center:currPos.value,
 		      zoom: 16,
@@ -57,7 +57,7 @@ export const initMap = async (mapDiv) => {
 	
 }      
 export const setMarker = async (currPos) => {
-	const infowindow = new google.maps.InfoWindow()
+	const infowindow = new window.google.maps.InfoWindow()
 	currPosition.value = currPos.value
 	await geocoder(currPos, infowindow)
 	// await AutoComplete()
@@ -65,7 +65,7 @@ export const setMarker = async (currPos) => {
 }
 
 export const geocoder = async (currPos, infowindow) => {
-	const geocoder = new google.maps.Geocoder()
+	const geocoder = new window.google.maps.Geocoder()
 	const data = await geocoder.geocode({ location: currPos.value })
 	 currLocation.value = data
 
@@ -76,7 +76,7 @@ export const geocoder = async (currPos, infowindow) => {
 				position: currPos.value,
 				map: map.value,
 			})
-			const initialLocation = new google.maps.LatLng(currPos.value.lat, currPos.value.lng)
+			const initialLocation = new window.google.maps.LatLng(currPos.value.lat, currPos.value.lng)
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
 			map.value!.setCenter(initialLocation)
