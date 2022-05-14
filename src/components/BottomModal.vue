@@ -20,7 +20,7 @@
 					</div>
 				</div>
 
-				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
+				<!-- <button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button> -->
 			</form>
 		</div>
 
@@ -45,13 +45,12 @@
 		</div>
 	</transition>
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', 'px-4 py-6 z-30 fixed bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', 'px-4 py-8 z-30 fixed bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
 		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
 	
-		<div class="relative" @click="toggleModal">
-			<i class="fas fa-map-marker text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc4c] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
-			<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" >Where are you going?</div>
-		</div>
+
+		<button  class="btn w-full" type="submit">Find closest Bus stop</button>
+
 
 	
 	</div>
