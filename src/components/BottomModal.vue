@@ -45,11 +45,37 @@
 		</div>
 	</transition>
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', 'px-4 py-8 z-30 fixed bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', ' px-4 pt-4 z-30 fixed bottom-16  inset-x-0 bg-white justify-between w-full transition-all duration-500 ' ]" >
 		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
-	
+		
+		<transition name="slideUp" appear>
+			<div class='bg-blue border text-primary font-extrabold py-4 rounded-lg mt-4' v-if="true">
+				<!-- <i class="fas fa-times text-secondary text-right text-xl cursor-pointer" @click="offDetails"></i> -->
+				<div class=" px-3 flex  items-center ">
+					<div class='flex flex-col'>
+						<div class="flex flex-col">
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
+							<!-- <span class="mt-2">	Route: <b class=" text-green-900 font-normal">{{startDistance.route}}</b> </span>
+							<span class="mt-2">	bus stop: <b class=" text-green-900 font-normal">{{startDistance.end_address}}</b> </span>
+							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
+							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span> -->
+						</div>
+						<!-- <button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
+							set Alert
+						</button> -->
+					</div>
+				</div>
+			</div>
+		</transition>
 
-		<button  class="btn w-full" type="submit">Find closest Bus stop</button>
+
+		<div class="w-full py-6">
+			<button  class="btn w-full " @click="getClosestBusStop()">Find closest Bus stop</button>
+		</div>
+		
 
 
 	
@@ -86,23 +112,21 @@ export default {
 			offDetails()
 		}
 
-		const onGetClosestBusStop = ()=>{
-			getClosestBusStop()
-			toggleModal()
-		}
+		// const onGetClosestBusStop = ()=>{
+		// 	getClosestBusStop()
+		// 	toggleModal()
+		// }
 		
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
+		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
 	}
 }
 </script>
 
 <style scoped>
-/* .animated{
-transition: all 0.35s ease;
-} */
+
 
   .slideDown-enter-from,
   .slideDown-leave-to {
@@ -114,13 +138,15 @@ transition: all 0.35s ease;
     transition: all 0.5s ease;
   }
 
-  .slide-enter-from,
-.slide-leave-to{
+  .slideUp-enter-from,
+.slideUp-leave-to{
 	transform: translateX(-30rem);
 	opacity: 0;
 }
 
-.slide-enter-active, .slide-leave-active{
+.slideUp-enter-active, .slideUp-leave-active{
 	transition: all 0.5s ease;
 }
+
+
 </style>
