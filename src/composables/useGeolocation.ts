@@ -1,5 +1,5 @@
-import {  ref } from '@vue/reactivity'
-import {onUnmounted, onMounted} from '@vue/runtime-core'
+import { ref } from '@vue/reactivity'
+import { onUnmounted, onMounted } from '@vue/runtime-core'
 const options = {
 	enableHighAccuracy: true,
 	timeout: 15000,

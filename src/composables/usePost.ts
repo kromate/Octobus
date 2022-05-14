@@ -1,5 +1,5 @@
 import { ref } from '@vue/reactivity'
-import {modalController} from '../composables/useModal'
+import {modalController} from './useModal'
 
 import { savePost } from '../firebase/firestore'
 import { useAlert } from './useNotification'
