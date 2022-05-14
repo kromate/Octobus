@@ -19,8 +19,6 @@
 						<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput" required>
 					</div>
 				</div>
-
-				<!-- <button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button> -->
 			</form>
 		</div>
 
@@ -32,7 +30,6 @@
 		
 		<transition name="slideUp" appear>
 			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="startDistance">
-				<!-- <i class="fas fa-times text-secondary text-right text-xl cursor-pointer" @click="offDetails"></i> -->
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
@@ -41,9 +38,7 @@
 							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
 							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
 						</div>
-						<!-- <button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
-							set Alert
-						</button> -->
+				
 					</div>
 				</div>
 			</div>
@@ -54,7 +49,7 @@
 			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
 		</div>
 		<div class="w-full py-6 gap-4 flex items-center" v-else>
-			<button  class="btn w-full " @click="openMaps(item)" >Directions</button>
+			<button  class="btn-outline w-full " @click="openMaps(item)" >Directions</button>
 			<button  class="btn w-full " @click="offDetails()" > Close</button>
 		</div>
 		
@@ -99,11 +94,6 @@ export default {
 			})
 			offDetails()
 		}
-
-		// const onGetClosestBusStop = ()=>{
-		// 	getClosestBusStop()
-		// 	toggleModal()
-		// }
 		
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
