@@ -27,8 +27,8 @@
 	</transition>
 
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', ' px-4 pt-4 z-30 fixed bottom-[60px]  inset-x-0 bg-white justify-between w-full transition-all duration-500 ' ]" >
-		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
+	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
+		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
 		
 		<transition name="slideUp" appear>
 			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="startDistance">
@@ -123,7 +123,7 @@ export default {
 
   .slideDown-enter-active,
   .slideDown-leave-active {
-    transition: all 0.5s ease;
+    transition: all 0.35s ease;
   }
 
   .slideUp-enter-from,
@@ -133,7 +133,7 @@ export default {
 }
 
 .slideUp-enter-active, .slideUp-leave-active{
-	transition: all 0.5s ease;
+	transition: all 0.35s ease;
 }
 
 
