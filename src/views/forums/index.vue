@@ -49,11 +49,11 @@
 </template>
 
 <script setup>
-import {modalController} from '../composables/useModal'
-import SelectMenu from '../components/SelectMenu.vue'
+import {modalController} from '@/composables/useModal'
+import SelectMenu from '@/components/SelectMenu.vue'
 import avatar from '@/components/Avatar.vue'
-import {routeNamesOnly} from '../helpers/busRoutes'
-import HomePage from '../layouts/homePage.vue'
+import {routeNamesOnly} from '@/helpers/busRoutes'
+import HomePage from '@/layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
 import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore' 
 import { onMounted } from 'vue'
