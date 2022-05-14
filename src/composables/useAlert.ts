@@ -3,7 +3,7 @@ import { useAlert } from './useNotification'
 
 export const Alert = useStorage('Alerts', [])
 
-export const addAlert = (data) => {
+export const addAlert = (data: never) => {
 	Alert.value.push(data)
 	useAlert().openAlert('Alert Added')
 }
