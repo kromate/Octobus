@@ -10,9 +10,9 @@
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
-							<span class="mt-2">	Start: <b class=" text-green-900 font-normal">{{start}}</b> </span>
-							<span class="mt-2"> Stops:<b class=" text-green-900 font-normal">test</b> </span>
-							<span class="mt-2">	End: <b class=" text-green-900 font-normal">test</b> </span>
+							<span class="mt-2">	Start: <b class=" text-green-900 font-normal ml-2">{{start}}</b> </span>
+							<span class="mt-2"> Stops:<b class=" text-green-900 font-normal ml-2">{{stops}}</b> </span>
+							<span class="mt-2">	End: <b class=" text-green-900 font-normal ml-2">{{end}}</b> </span>
 						</div>
 				
 					</div>
@@ -46,15 +46,22 @@ export default {
 		}
 	},
 	setup(props){
-		console.log(AllBusRoute[props.route][0].name)
+		const len =  AllBusRoute[props.route].length
+		const stops = len-1
+		console.log(len)
 		const start = computed({
 			get:()=>{
 				return AllBusRoute[props.route][0].name
 			}
 		})
+		const end = computed({
+			get:()=>{
+				return AllBusRoute[props.route][len-1].name
+			}
+		})
 
 
-		return {start}
+		return {start, end, stops}
 	}
 }
 </script>
