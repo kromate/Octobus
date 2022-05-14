@@ -43,7 +43,7 @@ a{
 	@apply text-primary
 }
 
-.router-link-exact-active{
+.router-link-active{
 
   @apply   border-t-2  border-secondary !text-secondary
 }

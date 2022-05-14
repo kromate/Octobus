@@ -10,7 +10,7 @@
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
-							<span class="mt-2">	Start: <b class=" text-green-900 font-normal">test</b> </span>
+							<span class="mt-2">	Start: <b class=" text-green-900 font-normal">{{start}}</b> </span>
 							<span class="mt-2"> Stops:<b class=" text-green-900 font-normal">test</b> </span>
 							<span class="mt-2">	End: <b class=" text-green-900 font-normal">test</b> </span>
 						</div>
@@ -33,11 +33,8 @@
 </template>
 
 <script>
-import { computed,ref } from '@vue/reactivity'
-
-
- 
-
+import { AllBusRoute } from '@/helpers/busRoutes'
+import { computed } from '@vue/reactivity'
 
 export default {
 	Name: 'RouteModal',
@@ -49,9 +46,15 @@ export default {
 		}
 	},
 	setup(props){
-	
+		console.log(AllBusRoute[props.route][0].name)
+		const start = computed({
+			get:()=>{
+				return AllBusRoute[props.route][0].name
+			}
+		})
 
 
+		return {start}
 	}
 }
 </script>
