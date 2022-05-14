@@ -1,30 +1,12 @@
 <template>
-	<div class="bg-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-between flex shadow px-4 py-2 md:px-8">
-		<div class="flex items-center">
-			<i class="fas fa-bars mr-5 text-2xl md:hidden" @click="openSideMenu"></i>
-			<router-link to="/landing" class="logo text-secondary text-2xl font-extrabold border-0 outline-none" >
-				Octobus
-			</router-link> 
-		</div>
-	
+	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-between flex shadow px-4 py-2 md:px-8">
 
-		<div class="md:flex items-center gap-4 hidden text-xs">
-			<button class="btn py-1 px-3" @click="openAboutModal">
-				About us
-			</button>
-			<button class="btn py-1 px-3" @click="$router.push('/admin')">
-				admin
-			</button>
-			<button class="btn py-1 px-3" @click="openFAQsModal">
-				FAQ
-			</button>
-			<button class="btn py-1 px-3" @click="openContactModal">
-				Contact
-			</button>
-			<button class="btn py-1 px-3"  @click="user ? signOutUser() : $router.push('/login')">
-				{{ user ? "Log Out" : "Login" }}
-			</button>
-		</div>
+		<h3 class="text-base font-medium">
+			{{name}}
+		</h3>
+
+		<i class="fas fa-plus text-xl"></i>
+	
 	</div>
 </template>
 
@@ -34,6 +16,13 @@ import { useUser } from '../composables/useGlobal'
 import { signOutUser } from '../firebase/auth'
 export default {
 	name:'TobBar',
+	props:{
+		name:{
+			type:String,
+			default:'',
+			required:true
+		}
+	},
 	setup(){
 		const { user } = useUser()
 		const {openAboutModal, openContactModal, openFAQsModal, openRoutesModal, openSideMenu} = modalController()

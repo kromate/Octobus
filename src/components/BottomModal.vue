@@ -1,11 +1,11 @@
 <template>
 	<transition name="slideDown" appear>
 		<div class="w-screen  shadow-modal bg-white  z-40 fixed top-0 p-4" v-show="open">
-			<div class="flex items-center">
-				<i class="fas fa-times text-primary text-left text-2xl cursor-pointer" @click="toggleModal"></i>
-				<p class="font-bold ml-8 text-xl">
+			<div class="flex items-center justify-center bg-secondary text-white -mx-4 p-4 -mt-4">
+				<p class="font-medium  text-base">
 					Select destination
 				</p>
+				<i class="fas fa-times text-2xl cursor-pointer absolute right-2" @click="toggleModal"></i>
 			</div>
 			<form @submit.prevent="onGetClosestBusStop" class="mb-12">
 				<div class="flex items-center mt-3 w-full" >
@@ -22,9 +22,6 @@
 
 				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
-	
-		
-	
 		</div>
 
 	</transition>
@@ -48,12 +45,12 @@
 		</div>
 	</transition>
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[4px]', 'px-3 z-30 fixed  py-4 bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
-		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-gray mx-auto']"/>
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', 'px-4 py-6 z-30 fixed bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
+		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
 	
 		<div class="relative" @click="toggleModal">
-			<i class="fas fa-search text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc80] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
-			<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" > Where to ?</div>
+			<i class="fas fa-map-marker text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc4c] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
+			<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" >Where are you going?</div>
 		</div>
 
 	
@@ -110,12 +107,12 @@ transition: all 0.35s ease;
 
   .slideDown-enter-from,
   .slideDown-leave-to {
-	transform: translateY(-3000px)
+	transform: translateY(-300px)
   }
 
   .slideDown-enter-active,
   .slideDown-leave-active {
-    transition: opacity 10s ease;
+    transition: all 0.5s ease;
   }
 
   .slide-enter-from,

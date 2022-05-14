@@ -1,7 +1,9 @@
 module.exports = {
-	purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-	darkMode: false, // or 'media' or 'class'
-	mode:'jit',
+	content: [
+		'./index.html',
+		'./src/**/*.{vue,js,ts,jsx,tsx}',
+	],
+	mode: 'jit',
 	theme: {
 		extend: {
 			spacing: {
@@ -10,7 +12,8 @@ module.exports = {
 			colors:{
 				primary:'#000000',
 				secondary:'#8F2A46',
-				lightGray:'#F6F6F6',
+				lightGray2:'#F6F6F6',
+				lightGray:'#F3F4F7;',
 				gray:'#A4A8BA',
 				blue:'#2c58de0d',
 			},

@@ -69,7 +69,7 @@ export const getRouteMessage = async (route) => {
 		routeMessage.value = result
 	})
 
-	onUnmounted(unsubscribe)
+	// onUnmounted(unsubscribe)
 
 	return result 
 }

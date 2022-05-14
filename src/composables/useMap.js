@@ -8,7 +8,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
 export const map = ref(null)
-const autocomplete = ref('')
+// const autocomplete = ref('')
 
   
 
@@ -58,7 +58,7 @@ export const setMarker = async (currPos) => {
 	const infowindow = new google.maps.InfoWindow()
 	currPosition.value = currPos.value
 	await geocoder(currPos, infowindow)
-	await AutoComplete()
+	// await AutoComplete()
 
 }
 
@@ -90,27 +90,27 @@ export const geocoder = async (currPos, infowindow) => {
 
 }
 
-export const AutoComplete = async () => {
-	await loader.load()
+// export const AutoComplete = async () => {
+// 	await loader.load()
 
-	  autocomplete.value = new google.maps.places.Autocomplete(
-		document.getElementById('autocomplete'),
-		  {
-			  fields: ['formatted_address', 'geometry', 'name'],
-			bounds: new google.maps.LatLngBounds(
-				new google.maps.LatLng(39.925533, 32.866287)
-			)
-		}
-	 )
+// 	  autocomplete.value = new google.maps.places.Autocomplete(
+// 		document.getElementById('autocomplete'),
+// 		  {
+// 			  fields: ['formatted_address', 'geometry', 'name'],
+// 			bounds: new google.maps.LatLngBounds(
+// 				new google.maps.LatLng(39.925533, 32.866287)
+// 			)
+// 		}
+// 	 )
 	
-	autocomplete.value.addListener('place_changed', fillInAddress)
+// 	autocomplete.value.addListener('place_changed', fillInAddress)
 	
-}
+// }
 
-const fillInAddress = () => {
-	const place = autocomplete.value.getPlace()
-	endLocation.value = {
-		lat: place.geometry.location.lat(),
-		lng: place.geometry.location.lat()
-	}
-}
+// const fillInAddress = () => {
+// 	const place = autocomplete.value.getPlace()
+// 	endLocation.value = {
+// 		lat: place.geometry.location.lat(),
+// 		lng: place.geometry.location.lat()
+// 	}
+// }

@@ -27,9 +27,8 @@ export default defineComponent({
 	name: 'AvatarComp',
 	props: {
 		src: {
-			type: Object,
-			default: null,
-			validator: (p: any) => p === null || p === undefined || typeof p.link === 'string' || typeof p.url === 'string'
+			default: undefined,
+
 		},
 		name: {
 			type: String,

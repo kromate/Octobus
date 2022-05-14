@@ -1,7 +1,6 @@
 
 <template>
 	<loader/>
-	<topbar />
 
 
 	<slot/>
