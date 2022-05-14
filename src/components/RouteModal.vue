@@ -47,7 +47,7 @@ export default {
 	},
 	setup(props){
 		const len =  AllBusRoute[props.route].length
-		const stops = len-1
+		const stops = len
 		console.log(len)
 		const start = computed({
 			get:()=>{

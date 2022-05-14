@@ -20,7 +20,7 @@ export const AllBusRoute = {
 		},
 	],
     
-	'Ortaköy / Yenikent': [
+	'Ortaköy - Yenikent': [
 		{index: '1', cord: '35.2297737,33.3246781', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
 		},
 		{index: '2', cord: '35.2259681,33.325705', name:' Near East Bank Durağı.'
@@ -167,7 +167,7 @@ export const AllBusRoute = {
 		}
 	],
     
-	'Gönyeli / Metehan': [
+	'Gönyeli - Metehan': [
 		{index: '1', cord: '35.2297536,33.3245281', name: 'YDÜ Kampüs Ana Durak (8. Yurt Önü).'
 		},
 		{index: '2', cord: '35.226102,33.3256871', name: 'Near East Bank Durağı.'
