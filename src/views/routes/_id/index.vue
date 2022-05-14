@@ -53,7 +53,7 @@
 			<iframe src="https://www.google.com/maps/d/u/1/embed?mid=11rq2kW3xdyGS9HtsZsgtwsw-oD8z4WMY&z=11" width="100%" height="100%"></iframe>
 		</div>
 
-
+		<RotueModal :route="selectedService"/>
 	</home-page>
 
 </template>
@@ -64,6 +64,7 @@
 import {ref} from 'vue'
 import homePage from '@/layouts/homePage.vue'
 import { useRoute } from 'vue-router'
+import RotueModal from '@/components/RouteModal.vue'
 
 const selectedService = ref('Nicosia 1')
 
