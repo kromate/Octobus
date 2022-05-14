@@ -53,8 +53,9 @@
 		<div class="w-full py-6" v-if="!startDistance">
 			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
 		</div>
-		<div class="w-full py-6" v-else>
-			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
+		<div class="w-full py-6 gap-4 flex items-center" v-else>
+			<button  class="btn w-full " @click="openMaps(item)" >Directions</button>
+			<button  class="btn w-full " @click="offDetails()" > Close</button>
 		</div>
 		
 
@@ -74,6 +75,12 @@ import {getClosestBusStop, endDistance, startDistance} from '../composables/useD
 export default {
 	Name: 'BottomModal',
 	setup(){
+		const openMaps = (data) =>{
+
+			const URL = `http://maps.google.com/maps?saddr=${startDistance.value.cord}&daddr=${currLocation.value.results[0].geometry.location.lat()},${currLocation.value.results[0].geometry.location.lng()}`
+			window.open(URL,'_blank')
+			console.log(data)
+		}
 		const exactLoc = computed(()=>{
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
@@ -101,7 +108,7 @@ export default {
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
+		return {open,openMaps, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
 	}
 }
 </script>
