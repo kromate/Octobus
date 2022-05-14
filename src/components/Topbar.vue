@@ -6,31 +6,7 @@
 		</h3>
 
 		<i class="fas fa-plus text-xl"></i>
-		<!-- <div class="flex items-center">
-			<i class="fas fa-bars mr-5 text-2xl md:hidden" @click="openSideMenu"></i>
-			<router-link to="/landing" class="logo text-secondary text-2xl font-extrabold border-0 outline-none" >
-				Octobus
-			</router-link> 
-		</div>
 	
-
-		<div class="md:flex items-center gap-4 hidden text-xs">
-			<button class="btn py-1 px-3" @click="openAboutModal">
-				About us
-			</button>
-			<button class="btn py-1 px-3" @click="$router.push('/admin')">
-				admin
-			</button>
-			<button class="btn py-1 px-3" @click="openFAQsModal">
-				FAQ
-			</button>
-			<button class="btn py-1 px-3" @click="openContactModal">
-				Contact
-			</button>
-			<button class="btn py-1 px-3"  @click="user ? signOutUser() : $router.push('/login')">
-				{{ user ? "Log Out" : "Login" }}
-			</button>
-		</div> -->
 	</div>
 </template>
 

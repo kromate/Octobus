@@ -1,21 +1,47 @@
 <template>
+	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-between flex shadow px-4 py-2 md:px-8">
+		<h3 class="text-base font-medium">
+			Profile
+		</h3>
+		<i class="fas fa-plus text-xl"></i>
+	
+	</div>
 	<home-page>
-		<div class="bg-lightPurplebg min-h-screen px-5 py-8 flex flex-col pb-24" v-if="useUser().user.value">
-			<div class="flex justify-center items-center">
-				<span class=" text-xl font-extrabold text-center">Profile</span>
-				<i class="lar la-bell text-primary bg-white p-3 rounded-full ml-auto absolute right-6  "></i>
+		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24" v-if="useUser().user.value">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 mt-10 gap-4">
+				<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-8 h-8  rounded-full">
+				<avatar v-else :name="useUser().user.value.email.split('@')[0]" class="w-8 h-8   rounded-full" :size="112"/>
+				<span>{{useUser().user.value.email}}</span>
 			</div>
-			<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-28 h-28 mx-auto mt-8 rounded-full">
-			<avatar v-else :name="useUser().user.value.email.split('@')[0]" class="w-28 h-28 mx-auto mt-8 rounded-full" :size="112"/>
 
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+				<i class="fas fa-edit  text-2xl"></i>
+				<span class="text-base font-normal">Edit profile</span>
+			</div>
 
-			<span class="text-xl font-extrabold text-center mt-6" v-if="useUser().user.value.displayName">{{useUser().user.value.displayName}}</span>
-			<span class="text-xl font-extrabold text-center mt-6" v-else> {{useUser().user.value.email.split('@')[0]}}</span>
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+				<i class="fas fa-edit  text-2xl"></i>
+				<span class="text-base font-normal">About</span>
+			</div>
 
-			<div class="bg-secondary p-5 flex flex-col justify-center items-center rounded-md mt-4 max-w-[80%] w-[400px] mx-auto">
-				<button class="font-medium bg-white text-purple text-xs py-2 px-4 rounded-full mt-2 w-fit cursor-pointer" @click="resetPassword">Change Password</button>
-			</div>	
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+				<i class="fas fa-edit  text-2xl"></i>
+				<span class="text-base font-normal">FAQs</span>
+			</div>
+
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+				<i class="fas fa-edit  text-2xl"></i>
+				<span class="text-base font-normal">Contact us</span>
+			</div>
+
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+				<i class="fas fa-edit  text-2xl"></i>
+				<span class="text-base font-normal">Log out</span>
+			</div>
+	
 		</div>
+
+
 
 		<div v-else class="mt-36">
 			<p class="text-center">
