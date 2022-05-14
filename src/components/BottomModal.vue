@@ -26,42 +26,20 @@
 
 	</transition>
 
-	<transition name="slide" appear>
-		<div class='bg-[#ffffffbe] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
-			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
-			<div class=" px-3 flex  items-center ">
-				<div class='flex flex-col'>
-					<div class="flex flex-col">
-						<span class="mt-2">	Route: <b class=" text-green-900 font-extrabold">{{startDistance.route}}</b> </span>
-						<span class="mt-2">	bus stop: <b class=" text-green-900 font-extrabold">{{startDistance.end_address}}</b> </span>
-						<span class="mt-2">	Time taken: <b class=" text-green-900 font-extrabold">{{startDistance.duration.text}}</b> </span>
-						<span class="mt-2">	Distance: <b class=" text-green-900 font-extrabold">{{startDistance.distance.text}} </b> </span>
-					</div>
-					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
-						set Alert
-					</button>
-				</div>
-			</div>
-		</div>
-	</transition>
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', ' px-4 pt-4 z-30 fixed bottom-16  inset-x-0 bg-white justify-between w-full transition-all duration-500 ' ]" >
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', ' px-4 pt-4 z-30 fixed bottom-[60px]  inset-x-0 bg-white justify-between w-full transition-all duration-500 ' ]" >
 		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
 		
 		<transition name="slideUp" appear>
-			<div class='bg-blue border text-primary font-extrabold py-4 rounded-lg mt-4' v-if="true">
+			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="startDistance">
 				<!-- <i class="fas fa-times text-secondary text-right text-xl cursor-pointer" @click="offDetails"></i> -->
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
-							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
-							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
-							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
-							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">Route: Iju ishaga</b> </span>
-							<!-- <span class="mt-2">	Route: <b class=" text-green-900 font-normal">{{startDistance.route}}</b> </span>
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">{{startDistance.route}}</b> </span>
 							<span class="mt-2">	bus stop: <b class=" text-green-900 font-normal">{{startDistance.end_address}}</b> </span>
 							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
-							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span> -->
+							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
 						</div>
 						<!-- <button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
 							set Alert
@@ -72,8 +50,11 @@
 		</transition>
 
 
-		<div class="w-full py-6">
-			<button  class="btn w-full " @click="getClosestBusStop()">Find closest Bus stop</button>
+		<div class="w-full py-6" v-if="!startDistance">
+			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
+		</div>
+		<div class="w-full py-6" v-else>
+			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
 		</div>
 		
 
@@ -140,7 +121,7 @@ export default {
 
   .slideUp-enter-from,
 .slideUp-leave-to{
-	transform: translateX(-30rem);
+	transform: translateY(7rem);
 	opacity: 0;
 }
 
