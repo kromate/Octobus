@@ -7,11 +7,18 @@
 	
 	</div>
 	<home-page>
-		<div class="shadow-[0px 2px 8px red] mt-16 p-4 font-medium flex items-center">
+		<div class="shadow-sm mt-16 p-4 font-medium flex items-center">
 			<i class="fas fa-road  text-2xl mr-3 "></i>
 			{{selectedService}}
 		</div>
 
+		<div 
+			class="flex items-center py-3.5 border-b border-lightGray px-4 gap-4" 
+			v-for="n in AllBusRoute[selectedService]" :key="n">
+			<span class="bg-secondary p-2 h-5 w-5 rounded-full"> {{n.index}}</span>
+			<span class="text-base font-normal">{{n.name}}</span>
+
+		</div>
 
 	</home-page>
 
@@ -24,6 +31,8 @@ import {ref} from 'vue'
 import homePage from '@/layouts/homePage.vue'
 import { useRoute } from 'vue-router'
 import RotueModal from '@/components/RouteModal.vue'
+import { AllBusRoute } from '@/helpers/busRoutes'
+
 
 const selectedService = ref('Nicosia 1')
 
