@@ -1,10 +1,7 @@
 module.exports = {
-	corePlugins: {
-		preflight: false,
-	},
 	content: [
-		'./src/components/**/*.{vue,js,ts}',
-		'./src/views/**/*.{vue,js,ts}',
+		'./index.html',
+		'./src/**/*.{vue,js,ts,jsx,tsx}',
 	],
 	mode: 'jit',
 	theme: {
