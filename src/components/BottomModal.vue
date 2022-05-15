@@ -48,11 +48,11 @@
 		<div class="w-full py-6" v-if="!startDistance">
 			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
 		</div>
-		<div class="w-full py-6 gap-4 flex items-center" v-else>
+		<div class="w-full py-6 gap-4 flex items-stretch" v-else>
 			<button  class="btn-outline w-full " @click="openMaps(item)" >Directions</button>
-			<button  class="btn w-full " @click="offDetails()" > Close</button>
-			<button  class="btn  h-auto w-auto px-4"  @click="toggleCard">
-				<i :class="`fas fa-${showCard ? 'eye-slash': 'eye'} `" ></i>
+			<button  class="btn w-full " @click="onAddAlert(startDistance)" > save</button>
+			<button  class="btn  h-auto w-auto px-4"  @click="offDetails()">
+				<i :class="`fas fa-${startDistance ? 'eye-slash': 'eye'} `" ></i>
 			</button>
 		</div>
 		
@@ -101,7 +101,7 @@ export default {
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open,openMaps, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
+		return {open,openMaps, toggleModal, exactLoc,onAddAlert, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
 	}
 }
 </script>
