@@ -1,5 +1,10 @@
 <template>
-	<topbar name="Profile"/>
+	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-center flex shadow px-4 py-2 md:px-8">
+		<i class="fas fa-arrow-left text-xl absolute left-4" @click="$router.go(-1)"></i>
+		<h3 class="text-base font-medium">
+			Edit Profile
+		</h3>
+	</div>
 	<home-page>
 		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24" v-if="useUser().user.value">
 			<div class="flex items-center py-4 border-b border-lightGray px-4 mt-10 gap-4">
@@ -8,43 +13,15 @@
 				<span>{{useUser().user.value.email}}</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="resetPassword">
 				<i class="fas fa-edit  text-2xl"></i>
-				<span class="text-base font-normal">Edit profile</span>
+				<span class="text-base font-normal">Rest Password</span>
 			</div>
+		</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/about')">
-				<i class="fas fa-info-circle  text-2xl"></i>
-				<span class="text-base font-normal">About</span>
-			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
-				<i class="fas fa-comments  text-2xl"></i>
-				<span class="text-base font-normal">FAQs</span>
-			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
-				<i class="fas fa-envelope  text-2xl"></i>
-				<span class="text-base font-normal">Contact us</span>
-			</div>
-
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4 cursor-pointer" @click="logout">
-				<i class="fas fa-sign-out-alt  text-2xl"></i>
-				<span class="text-base font-normal">Log out</span>
-			</div>
 	
-		</div>
-
-
-
-		<div v-else class="mt-36">
-			<p class="text-center">
-				You need to sign in to view profile
-			</p>
-			<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/login')">
-				Login
-			</button>
-		</div>
 	</home-page>
 	
 </template>
@@ -53,19 +30,12 @@
 import { useUser } from '@/composables/useGlobal'
 import homePage from '@/layouts/homePage.vue'
 import Avatar from '@/components/Avatar.vue'
-import Topbar from '@/components/Topbar.vue'
-import { useRouter } from 'vue-router'
+import { useAlert } from '@/composables/useNotification'
 
 
-const Router = useRouter()
-const logout = ()=>{
-	useUser().clearUser()
-	Router.push('/login')
+const resetPassword = ()=>{
+	useAlert().openAlert(`Password reset link sent to ${useUser().user.value.email}`)
 }
-
-// const resetPassword = ()=>{
-// 	useAlert().openAlert(`Password reset link sent to ${useUser().user.value.email}`)
-// }
 
 
 </script>
