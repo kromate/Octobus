@@ -1,52 +1,41 @@
 <template>
-	<Topbar name="forum"/>
-	<home-page>
-		<div class="mt-20 px-4 overflow-hidden min-h-screen">
-			<div class="flex items-center justify-between">
-				<p>Get real-time updates on various routes from your peers</p>
-				<button class="btn py-1 px-3 text-sm" @click="openPostModal" v-if="user">
-					post update
-				</button>
-			</div>
-	
-			<select-menu placeholder='Pick a route' @onChange="chatRouteRef = $event"  :options="routeNamesOnly"  class="mb-1">
-				<template #icon>
-					<i class="fas fa-directions text-primary text-xl"></i>
-				</template>
-			</select-menu>
-			<div v-if="chatRouteRef">
-				<div class="overflow-y-auto h-[70vh] pb-6 pt-15" v-if="routeMessage.length">
-					<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in routeMessage" :key="n">
-						<div class="flex items-center">
-							<img :src="n.user.photo" alt="person" class="rounded-full mr-4 w-16" v-if="n.user.photo">
-							<avatar v-else :name="n.user.name.split('@')[0]"  :size="64" class="mr-4"/>
-							<div>
-								<p class="bg-secondary text-white w-auto px-4 py-0.5 rounded" v-if="n.user">{{n.user.name}}</p>
-								<div class="">
-									{{n.post}}
+	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-center flex shadow px-4 py-2 md:px-8">
+		<i class="fas fa-arrow-left text-xl absolute left-4" @click="$router.go(-1)"></i>
+		<h3 class="text-base font-medium">
+			{{chatRouteRef}}
+		</h3>
+	</div>
 
-								</div>
-								<span class="text-xs italic trim ">Date: {{formatTime(n.date) }}</span>
-							</div>
-			
-						</div>
+	<home-page :bottom="false">
+
+		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24 mt-10">
+			<div @click="openPostModal">fdgfrdf</div>
+			<div v-if="routeMessage.length">
+				<div 
+					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
+					v-for="n in routeNamesOnly" :key="n">
+					<div class="flex flex-col">
+						<span class="text-lg font-normal">{{n}}</span>
+						<span class="text-sm font-medium">View discussion for the {{n}} route</span>
 					</div>
 				</div>
-
-				<div class="flex justify-center items-center h-96" v-else>
-					<p class="text-xl text-center md:text-3xl">This Route has no update yet</p>
-				</div>
 			</div>
 		
 
-			<div class="flex justify-center items-center h-96" v-else>
-				<p class="text-2xl text-center md:text-4xl">Select a Route to view updates</p>
-			</div>
-		
+	
+	
 		</div>
+
+
+		<div class="fixed inset-x-0 border-t border-[#F3F4F7] flex items-center gap-4 p-4 bottom-0 bg-white">
+			<input type="text" class="input bg-[#F3F4F7]" placeholder="Type Message">
+			<button class="btn px-3 w-11 h-11">
+				<i class="fas fa-send  text-2xl mx-auto "></i>
+			</button>
+		</div>
+	
 	</home-page>
 	
-
 </template>
 
 <script setup>
@@ -58,7 +47,8 @@ import HomePage from '@/layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
 import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore' 
 import { onMounted } from 'vue'
-import Topbar from '@/components/Topbar.vue'
+import { useRoute } from 'vue-router'
+chatRouteRef.value = useRoute().params.id
 
 onMounted(getRouteMessage(routeNamesOnly[0]))
 const formatTime = (time)=>{
@@ -71,6 +61,4 @@ const { openPostModal} = modalController()
 
 </script>
 
-<style>
 
-</style>
