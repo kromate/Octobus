@@ -10,14 +10,7 @@
 				<span class="text-base font-normal">{{n}}</span>
 				<i class="fas fa-arrow-right  text-2xl"></i>
 			</div>
-
-	
-	
 		</div>
-
-
-
-	
 	</home-page>
 	
 </template>
@@ -27,11 +20,6 @@
 import homePage from '@/layouts/homePage.vue'
 import Topbar from '@/components/Topbar.vue'
 import { routeNamesOnly } from '@/helpers/busRoutes'
-
-
-
-
-
 
 
 
