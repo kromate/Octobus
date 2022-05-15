@@ -13,12 +13,12 @@
 					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
 					v-for="n in routeMessage" :key="n">
 					<div class="flex flex-col">
-						<div class="text-lg font-normal flex items-center gap-2">
-							{{n.user.name}} 
+						<div class=" flex items-center gap-2">
+							<span class="text-base font-normal capitalize">{{n.user.name.split('@')[0]}}</span>
 							<div class="w-1.5 h-1.5 rounded-full bg-primary"/>
-							<span class="bg text-sm">{{formatTime(n.date) }}</span>	
+							<span class="text-[#5E6871] text-sm">{{formatTime(n.date) }}</span>	
 						</div>
-						<span class="text-sm font-medium">View discussion for the {{n}} route</span>
+						<span class="text-lg font-medium">{{n.post}}</span>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 		</div>
 
 
-		<div class="fixed inset-x-0 border-t border-[#F3F4F7] flex items-center gap-4 p-4 bottom-0 bg-white">
+		<div class="fixed inset-x-0 border-t border-[#F3F4F7] flex items-center gap-4 p-4 bottom-0 bg-white" v-if="user">
 			<input type="text" class="input bg-[#F3F4F7]" placeholder="Type Message">
 			<button class="btn px-3 w-11 h-11">
 				<i class="fas fa-paper-plane  text-2xl mx-auto "></i>
@@ -44,15 +44,14 @@
 </template>
 
 <script setup>
-import {modalController} from '@/composables/useModal'
-import SelectMenu from '@/components/SelectMenu.vue'
-import avatar from '@/components/Avatar.vue'
+
 import {routeNamesOnly} from '@/helpers/busRoutes'
 import HomePage from '@/layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
 import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore' 
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import {usePost} from '@/composables/usePost'
 chatRouteRef.value = useRoute().params.id
 
 onMounted(getRouteMessage(routeNamesOnly[0]))
@@ -61,7 +60,7 @@ const formatTime = (time)=>{
 	return time.split(' ').slice(4, 5).join(' ')
 }
 const { user } = useUser()
-const { openPostModal} = modalController()
+
 
 
 
