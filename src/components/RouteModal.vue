@@ -22,10 +22,10 @@
 
 
 		<div class="w-full py-6 gap-2 flex items-stretch">
-			<button  class="btn-outline w-full "  >Bus stops</button>
+			<button  class="btn-outline w-full "  @click="$router.push('/routes/bus-stops')">Bus stops</button>
 			<button  class="btn w-full "  > schedules</button>
-			<button  class="btn  h-auto w-auto px-4"  >
-				<i :class="`fas fa-${showCard ? 'times': 'phone'} `" @click="toggleCard"></i>
+			<button  class="btn  h-auto w-auto px-4"  @click="toggleCard">
+				<i :class="`fas fa-${showCard ? 'eye-slash': 'eye'} `" ></i>
 			</button>
 		</div>
 		
