@@ -51,6 +51,9 @@
 		<div class="w-full py-6 gap-4 flex items-center" v-else>
 			<button  class="btn-outline w-full " @click="openMaps(item)" >Directions</button>
 			<button  class="btn w-full " @click="offDetails()" > Close</button>
+			<button  class="btn  h-auto w-auto px-4"  @click="toggleCard">
+				<i :class="`fas fa-${showCard ? 'eye-slash': 'eye'} `" ></i>
+			</button>
 		</div>
 		
 
