@@ -6,7 +6,7 @@ import { router as setupRouter } from '@/router'
 import './assets/style/main.css'
 
 const init = async () => {
-    document.cookie = "promo_shown=1; Max-Age=2600000; Secure"
+    document.cookie = " SameSite=None; Secure"
     const router = await setupRouter
     const app = createApp(App)
     app.use(router).mount('#app')
