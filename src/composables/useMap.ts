@@ -7,13 +7,14 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 
 const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY, libraries: ['places'] })
-export const map = ref(null)
+export const map = ref()
 // const autocomplete = ref('')
 
   
 
+
 export const currLocation = ref('')
-export const currPosition = ref({})
+export const currPosition = ref()
 export const endLocation = ref({})
 
      
@@ -38,7 +39,7 @@ export const initMap = async (mapDiv) => {
 		lng: coords.value.longitude
 	}))
     	await loader.load()
-		    map.value = new google.maps.Map(mapDiv.value, {
+	map.value = new (window as any).google.maps.Map(mapDiv.value, {
 		    // center: { lat: 35.2297654, lng: 33.3246926 },
 		center:currPos.value,
 		      zoom: 16,
@@ -56,7 +57,7 @@ export const initMap = async (mapDiv) => {
 	
 }      
 export const setMarker = async (currPos) => {
-	const infowindow = new google.maps.InfoWindow()
+	const infowindow = new (window as any).google.maps.InfoWindow()
 	currPosition.value = currPos.value
 	await geocoder(currPos, infowindow)
 	// await AutoComplete()
@@ -64,22 +65,22 @@ export const setMarker = async (currPos) => {
 }
 
 export const geocoder = async (currPos, infowindow) => {
-	const geocoder = new google.maps.Geocoder()
+	const geocoder = new (window as any).google.maps.Geocoder()
 	const data = await geocoder.geocode({ location: currPos.value })
 	 currLocation.value = data
 
 	try {
 		if (data.results[0]) { 
 			map.value.setZoom(11)
-			const marker = new google.maps.Marker({
+			const marker = new (window as any).google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
 			})
-			const initialLocation = new google.maps.LatLng(currPos.value.lat, currPos.value.lng)
+			const initialLocation = new (window as any).google.maps.LatLng(currPos.value.lat, currPos.value.lng)
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
-			map.value.setCenter(initialLocation)
-			map.value.setZoom(16)
+			map.value!.setCenter(initialLocation)
+			map.value!.setZoom(16)
 
 
 		} else {

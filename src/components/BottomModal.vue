@@ -25,7 +25,7 @@
 	</transition>
 
 
-	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
+	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-t-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
 		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
 		
 		<transition name="slideUp" appear>

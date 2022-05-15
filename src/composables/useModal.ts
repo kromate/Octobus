@@ -13,21 +13,21 @@ const GlobalModalState = {}
 
 
 export const globalModal = () => {
-	const globalModalArray = []
+	const globalModalArray = [] as any
 
 	for (const modal of allModals) {
 		globalModalArray.push(
 			{
 				elem: modal,
 				state: GlobalModalState[modal.name],
-				open: GlobalModalState['open'+modal.name],
-				close: GlobalModalState['close'+modal.name]
+				open: GlobalModalState['open' + modal.name],
+				close: GlobalModalState['close' + modal.name]
 			}
 		)
 	}
 
 	return globalModalArray
-	
+
 }
 
 async function registerModal(ModalArray) {
@@ -40,7 +40,7 @@ registerModal(allModals)
 
 
 export const modalController = () => {
-	for (const key in GlobalModalState) { 
+	for (const key in GlobalModalState) {
 		GlobalModalState['open' + key] = () => {
 			GlobalModalState[key].value = true
 		}

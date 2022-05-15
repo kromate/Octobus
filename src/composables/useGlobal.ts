@@ -8,7 +8,7 @@ export const GlobalState = useStorage('GlobalState', {
 })
 
 export const currentUser = {
-	user:GlobalState.value.UserRef ? ref(JSON.parse(GlobalState.value.UserRef)) : ref(null)
+	user: GlobalState.value.UserRef ? ref(JSON.parse(GlobalState.value.UserRef)) : ref(null)
 }
 
 
@@ -21,10 +21,10 @@ export const useUser = () => {
 
 	const clearUser = () => {
 		currentUser.user.value = null
-		GlobalState.value.UserRef = null
+		GlobalState.value.UserRef = ''
 		GlobalState.value.isLoggedIn = false
 	}
- 
-	return {...GlobalState.value, ...currentUser, saveUser, clearUser}
+
+	return { ...GlobalState.value, ...currentUser, saveUser, clearUser }
 }
 

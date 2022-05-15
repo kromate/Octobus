@@ -8,15 +8,15 @@ export const startDistance = ref('')
 export const endDistance = ref('')
 
 
-
+var google
 
 
 export const getClosestBusStop = () => {
 	useLoading().openLoading()
-	const gm = google.maps
+	const gm = (window as any).google.maps
 
 	const lineSymbol = {
-		path: google.maps.SymbolPath.CIRCLE,
+		path: (window as any).google.maps.SymbolPath.CIRCLE,
 		fillOpacity: 1,
 		scale: 3
 	}
@@ -38,8 +38,8 @@ export const getClosestBusStop = () => {
 	}
 
 
-	const directionsService = new google.maps.DirectionsService()
-	const directionsRenderer = new google.maps.DirectionsRenderer(rendererOptions)
+	const directionsService = new (window as any).google.maps.DirectionsService()
+	const directionsRenderer = new (window as any).google.maps.DirectionsRenderer(rendererOptions)
 	directionsRenderer.setMap(map.value)
 
 	const route = {
@@ -75,18 +75,18 @@ export const getClosestBusStop = () => {
 
 export const getShortPoint = (location) => {
 	let closestPoint = Infinity
-	let closestPlace = {}
+	let closestPlace;
 
 	Object.keys(AllBusRoute).map((x) => {
-		closestPlace,
-			AllBusRoute[x].map((placeObj) => {
-				const cordsObj = placeObj.cord.split(',')
-				const distance = haversine_distance(parseFloat(location.value.lat), parseFloat(location.value.lng), parseFloat(cordsObj[0]), parseFloat(cordsObj[1]))
-				if (distance < closestPoint) {
-					closestPoint = distance
-					closestPlace = { route: x, ...placeObj, distance }
-				}
-			})
+		closestPlace
+		AllBusRoute[x].map((placeObj) => {
+			const cordsObj = placeObj.cord.split(',')
+			const distance = haversine_distance(parseFloat(location.value.lat), parseFloat(location.value.lng), parseFloat(cordsObj[0]), parseFloat(cordsObj[1]))
+			if (distance < closestPoint) {
+				closestPoint = distance
+				closestPlace = { route: x, ...placeObj, distance }
+			}
+		})
 	})
 
 	return closestPlace
