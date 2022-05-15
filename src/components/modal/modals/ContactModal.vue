@@ -24,16 +24,6 @@
 						<span>	20166299@std.neu.edu.tr</span>	
 					</div>
 				</div>
-			
-		
-
-
-
-			
-
-		
-	
-		
 			</div>
 		</div>
 	</Modal>
