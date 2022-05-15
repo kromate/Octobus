@@ -3,7 +3,7 @@
 		<h3 class="text-base font-medium">
 			{{name}}
 		</h3>
-		<i class="fas fa-plus text-xl"></i>
+		<!-- <i class="fas fa-plus text-xl"></i> -->
 	</div>
 </template>
 

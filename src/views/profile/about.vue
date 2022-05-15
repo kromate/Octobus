@@ -35,25 +35,15 @@
 	
 		</div>
 
-
-
-		<div v-else class="mt-36">
-			<p class="text-center">
-				You need to sign in to view profile
-			</p>
-			<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/login')">
-				Login
-			</button>
-		</div>
 	</home-page>
 	
 </template>
 
 <script setup>
-import { useUser } from '../composables/useGlobal'
-import { useAlert } from '../composables/useNotification'
-import homePage from '../layouts/homePage.vue'
-import Avatar from '../components/Avatar.vue'
+import { useUser } from '@/composables/useGlobal'
+import { useAlert } from '@/composables/useNotification'
+import homePage from '@/layouts/homePage.vue'
+import Avatar from '@/components/Avatar.vue'
 import Topbar from '@/components/Topbar.vue'
 import { useRouter } from 'vue-router'
 
