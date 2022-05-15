@@ -7,9 +7,7 @@
 	</div>
 
 	<home-page :bottom="false">
-
 		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24 mt-10">
-			<div @click="openPostModal">fdgfrdf</div>
 			<div v-if="routeMessage.length">
 				<div 
 					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
@@ -30,7 +28,7 @@
 		<div class="fixed inset-x-0 border-t border-[#F3F4F7] flex items-center gap-4 p-4 bottom-0 bg-white">
 			<input type="text" class="input bg-[#F3F4F7]" placeholder="Type Message">
 			<button class="btn px-3 w-11 h-11">
-				<i class="fas fa-send  text-2xl mx-auto "></i>
+				<i class="fas fa-paper-plane  text-2xl mx-auto "></i>
 			</button>
 		</div>
 	
