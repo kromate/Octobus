@@ -15,7 +15,7 @@
 		<div 
 			class="flex items-center py-3.5 border-b border-lightGray px-4 gap-4" 
 			v-for="n in AllBusRoute[selectedService]" :key="n">
-			<span class="bg-secondary p-2 h-5 w-5 rounded-full"> {{n.index}}</span>
+			<span class="bg-secondary h-6 w-6 flex items-center justify-center text-white rounded-full text-xs"> {{n.index}}</span>
 			<span class="text-base font-normal">{{n.name}}</span>
 
 		</div>
