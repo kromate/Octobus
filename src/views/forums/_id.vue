@@ -13,7 +13,11 @@
 					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
 					v-for="n in routeMessage" :key="n">
 					<div class="flex flex-col">
-						<span class="text-lg font-normal">{{n}}</span>
+						<div class="text-lg font-normal flex items-center gap-2">
+							{{n.user.name}} 
+							<div class="w-1.5 h-1.5 rounded-full bg-primary"/>
+							<span class="bg text-sm">{{formatTime(n.date) }}</span>	
+						</div>
 						<span class="text-sm font-medium">View discussion for the {{n}} route</span>
 					</div>
 				</div>
@@ -53,7 +57,8 @@ chatRouteRef.value = useRoute().params.id
 
 onMounted(getRouteMessage(routeNamesOnly[0]))
 const formatTime = (time)=>{
-	return time.split(' ').slice(0, 5).join(' ')
+	console.log(time)
+	return time.split(' ').slice(4, 5).join(' ')
 }
 const { user } = useUser()
 const { openPostModal} = modalController()
