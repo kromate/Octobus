@@ -2,11 +2,15 @@
 	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-center flex shadow px-4 py-2 md:px-8">
 		<i class="fas fa-arrow-left text-xl absolute left-4" @click="$router.go(-1)"></i>
 		<h3 class="text-base font-medium">
-			{{selectedService}}
+			Bus stops
 		</h3>
 	
 	</div>
 	<home-page>
+		<div class="shadow-[0px 2px 8px red] mt-16 p-4 font-medium flex items-center">
+			<i class="fas fa-road  text-2xl mr-3 "></i>
+			{{selectedService}}
+		</div>
 
 		<RotueModal :route="selectedService"/>
 	</home-page>
