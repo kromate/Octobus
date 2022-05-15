@@ -6,7 +6,7 @@
 		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
 		
 		<transition name="slideUp" appear>
-			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4'>
+			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="showCard">
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
@@ -21,11 +21,11 @@
 		</transition>
 
 
-		<div class="w-full py-6 gap-4 flex items-center">
+		<div class="w-full py-6 gap-2 flex items-stretch">
 			<button  class="btn-outline w-full "  >Bus stops</button>
 			<button  class="btn w-full "  > schedules</button>
-			<button  class="btn  h-10 w-10 !p-0"  >
-				<i class="fas fa-times " @click="openSideMenu"></i>
+			<button  class="btn  h-auto w-auto px-4"  >
+				<i class="fas fa-times " @click="toggleCard"></i>
 			</button>
 		</div>
 		
@@ -37,7 +37,7 @@
 
 <script>
 import { AllBusRoute } from '@/helpers/busRoutes'
-import { computed } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 
 export default {
 	Name: 'RouteModal',
@@ -49,6 +49,8 @@ export default {
 		}
 	},
 	setup(props){
+		const showCard = ref(true)
+		const toggleCard =()=> showCard.value = !showCard.value
 		const len =  AllBusRoute[props.route].length
 		const stops = len
 		console.log(len)
@@ -64,7 +66,7 @@ export default {
 		})
 
 
-		return {start, end, stops}
+		return {start, end, stops, toggleCard, showCard}
 	}
 }
 </script>
