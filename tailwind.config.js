@@ -1,4 +1,7 @@
 module.exports = {
+	corePlugins: {
+		preflight: false,
+	},
 	content: [
 		'./src/components/**/*.{vue,js,ts}',
 		'./src/views/**/*.{vue,js,ts}',
