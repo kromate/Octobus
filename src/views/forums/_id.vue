@@ -11,12 +11,15 @@
 			<div v-if="routeMessage.length">
 				<div 
 					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
-					v-for="n in routeNamesOnly" :key="n">
+					v-for="n in routeMessage" :key="n">
 					<div class="flex flex-col">
 						<span class="text-lg font-normal">{{n}}</span>
 						<span class="text-sm font-medium">View discussion for the {{n}} route</span>
 					</div>
 				</div>
+			</div>
+			<div class="flex justify-center items-center h-96" v-else>
+				<p class="text-xl text-center md:text-3xl">This Route has no update yet</p>
 			</div>
 		
 
