@@ -25,7 +25,7 @@
 			<button  class="btn-outline w-full "  >Bus stops</button>
 			<button  class="btn w-full "  > schedules</button>
 			<button  class="btn  h-auto w-auto px-4"  >
-				<i class="fas fa-times " @click="toggleCard"></i>
+				<i :class="`fas fa-${showCard ? 'times': 'phone'} `" @click="toggleCard"></i>
 			</button>
 		</div>
 		
