@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Mon Apr 18 2022 14:00:29 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/BottomModal.vue
+* src/layouts/homePage.vue
+
+
+Created files:
+* src/components/loader.vue
+
+
+Deleted files:
+
+
+Renamed files:

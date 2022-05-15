@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Thu May 12 2022 21:28:36 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/composables/useGoogle.js
+* src/main.js
+* src/router/routes.ts
+
+
+Created files:
+* .autogit/logs/log-12-4-2022-21-18-40.txt
+
+
+Deleted files:
+
+
+Renamed files:

@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Mon Apr 18 2022 13:29:59 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/BottomModal.vue
+* src/composables/useMap.js
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

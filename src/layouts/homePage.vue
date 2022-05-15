@@ -3,22 +3,27 @@
 	<loader/>
 
 
-
 	<slot/>
-	<bottom-nav/>
+	<bottom-nav v-if="bottom"/>
 	<base-modal/>
 	<alert-box/>
 </template>
 
 <script>
 import BottomNav from '../components/BottomNav.vue'
-import Topbar from '../components/Topbar.vue'
 import {useRouter} from 'vue-router'
 import Loader from '../components/loader.vue'
 import BaseModal from '../components/modal/BaseModal.vue'
 import AlertBox from '../components/AlertBox.vue'
 export default {
-	components: { Topbar, BottomNav, Loader, BaseModal, AlertBox },
+	components: { BottomNav, Loader, BaseModal, AlertBox },
+	props:{
+		bottom:{
+			type:Boolean,
+			default:true,
+			required:false
+		}
+	},
 	setup(){
 		const router = useRouter()
 		return{

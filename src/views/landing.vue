@@ -1,5 +1,5 @@
 <template>
-	<home-page>
+	<div class="w-full max-w-[100vw] overflow-hidden">
 
 
 		<div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
@@ -108,7 +108,7 @@
 
 
 				<template #addons>
-					<navigation />
+					<!-- <navigation /> -->
 					<pagination />
 				</template>
 			</carousel>
@@ -204,16 +204,16 @@
 				</div>
 			</div>
 		</footer>
-	</home-page>
+	</div>
 </template>
 
 <script>
 import HomePage from '../layouts/homePage.vue'
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Pagination,  } from 'vue3-carousel'
 
 export default {
-	components: { HomePage, Carousel, Slide, Pagination, Navigation },
+	components: { HomePage, Carousel, Slide, Pagination,  },
 	name:'LandingPage',
 	setup(){
 		const getImageUrl = (name) => {

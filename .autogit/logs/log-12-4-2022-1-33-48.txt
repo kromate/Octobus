@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu May 12 2022 01:33:48 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* package.json
+* yarn.lock
+
+
+Created files:
+* .autogit/logs/log-12-4-2022-1-14-10.txt
+* src/router/index.ts
+* src/router/routes.ts
+
+
+Deleted files:
+* src/router/index.js
+
+
+Renamed files:

@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Mon Apr 18 2022 12:59:47 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/composables/useMap.js
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

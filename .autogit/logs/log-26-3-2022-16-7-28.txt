@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Tue Apr 26 2022 16:07:28 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/App.vue
+* src/firebase/auth.js
+* src/router/index.js
+* src/views/home.vue
+* src/views/login.vue
+
+
+Created files:
+* .autogit/logs/log-26-3-2022-15-2-8.txt
+
+
+Deleted files:
+* src/layouts/AppLayout.vue
+
+
+Renamed files:

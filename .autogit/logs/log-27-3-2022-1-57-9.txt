@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Apr 27 2022 01:57:09 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/BottomModal.vue
+* src/firebase/firestore.js
+* src/views/chat.vue
+
+
+Created files:
+* .autogit/logs/log-27-3-2022-1-47-3.txt
+
+
+Deleted files:
+
+
+Renamed files:

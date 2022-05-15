@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 11 2022 03:27:31 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/firebase/firestore.js
+* src/views/admin.vue
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

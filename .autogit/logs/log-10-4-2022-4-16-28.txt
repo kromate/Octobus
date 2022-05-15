@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 10 2022 04:16:28 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/BottomNav.vue
+* src/router/index.js
+* src/views/routes.vue
+
+
+Created files:
+* .autogit/logs/log-10-4-2022-4-5-51.txt
+
+
+Deleted files:
+
+
+Renamed files:

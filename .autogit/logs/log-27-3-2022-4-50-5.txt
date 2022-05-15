@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Apr 27 2022 04:50:05 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/views/landing.vue
+
+
+Created files:
+* .autogit/logs/log-27-3-2022-4-39-59.txt
+* src/assets/buses3.png
+* src/assets/buses4.png
+
+
+Deleted files:
+
+
+Renamed files:

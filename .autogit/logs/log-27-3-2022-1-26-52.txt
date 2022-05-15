@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Apr 27 2022 01:26:52 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/firebase/firestore.js
+* src/helpers/busRoutes.js
+
+
+Created files:
+* .autogit/logs/log-27-3-2022-1-16-47.txt
+
+
+Deleted files:
+
+
+Renamed files:

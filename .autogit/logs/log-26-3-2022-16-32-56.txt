@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Tue Apr 26 2022 16:32:56 GMT+0100 (West Africa Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/SelectMenu.vue
+* src/views/chat.vue
+
+
+Created files:
+* .autogit/logs/log-26-3-2022-16-17-13.txt
+
+
+Deleted files:
+
+
+Renamed files:

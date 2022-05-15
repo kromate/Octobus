@@ -1,5 +1,6 @@
 <template>
 	<homePage>
+		<Topbar name="Find a Bus"/>
 		<div ref="mapDiv" class="map fixed top-12 bottom-12 86vh" />
 		<bottom-modal/>
 	</homePage>
@@ -16,6 +17,7 @@ import { initMap } from '../composables/useMap'
 import homePage from '../layouts/homePage.vue'
 
 import BottomModal from '../components/BottomModal.vue'
+import Topbar from '@/components/Topbar.vue'
 
 		
 		  const mapDiv = ref(null)

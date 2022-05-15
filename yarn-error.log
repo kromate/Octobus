@@ -1,0 +1,80 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kromate/Library/Android/Sdk/emulator:/Users/kromate/Library/Android/Sdk/tools:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.14.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/firebase: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141510:19)
+      at Object.onceWrapper (node:events:639:28)
+      at ClientRequest.emit (node:events:520:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:758:9)
+      at Object.onceWrapper (node:events:639:28)
+      at TLSSocket.emit (node:events:532:35)
+      at TLSSocket.Socket._onTimeout (node:net:501:8)
+      at listOnTimeout (node:internal/timers:559:17)
+      at processTimers (node:internal/timers:502:7)
+
+npm manifest: 
+  {
+    "name": "octobus",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vue-tsc --noEmit && vite build",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "@googlemaps/js-api-loader": "^1.11.1",
+      "@headlessui/vue": "^1.4.2",
+      "@vueuse/core": "5.2.0",
+      "axios": "^0.27.2",
+      "bad-words": "^3.0.4",
+      "firebase": "^9.6.8",
+      "gsap": "^3.10.4",
+      "mdi-vue": "1.4.5",
+      "tailwind": "^4.0.0",
+      "uuid": "^8.3.2",
+      "vue": "^3.2.25",
+      "vue-router": "^4.0.11",
+      "vue3-carousel": "^0.1.38",
+      "vue3-google-map": "^0.8.3",
+       "vue3-lottie": "^2.1.0"
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.13",
+      "@types/node": "^17.0.23",
+      "@vitejs/plugin-vue": "^2.3.3",
+      "autoprefixer": "^10.4.4",
+      "eslint": "^6.8.0",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-plugin-vue": "^7.20.0",
+      "postcss": "^8.4.12",
+      "prettier": "2.6.1",
+      "tailwindcss": "^3.0.23",
+      "ts-node": "^10.7.0",
+      "ts-node-dev": "^1.1.8",
+      "typescript": "^4.6.3",
+      "vite": "^2.9.9",
+      "vite-plugin-eslint": "^1.3.0",
+      "vite-plugin-pwa": "^0.11.13",
+      "vue-tsc": "^0.34.7"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

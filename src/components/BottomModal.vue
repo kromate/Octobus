@@ -19,42 +19,41 @@
 						<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput" required>
 					</div>
 				</div>
-
-				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
-	
-		
-	
 		</div>
 
 	</transition>
 
-	<transition name="slide" appear>
-		<div class='bg-[#ffffffbe] border text-secondary py-4 rounded absolute top-[75px] left-5 w-[90%] max-w-[25rem] pt-9' v-if="startDistance">
-			<i class="fas fa-times text-secondary text-right text-xl cursor-pointer absolute right-4 top-2" @click="offDetails"></i>
-			<div class=" px-3 flex  items-center ">
-				<div class='flex flex-col'>
-					<div class="flex flex-col">
-						<span class="mt-2">	Route: <b class=" text-green-900 font-extrabold">{{startDistance.route}}</b> </span>
-						<span class="mt-2">	bus stop: <b class=" text-green-900 font-extrabold">{{startDistance.end_address}}</b> </span>
-						<span class="mt-2">	Time taken: <b class=" text-green-900 font-extrabold">{{startDistance.duration.text}}</b> </span>
-						<span class="mt-2">	Distance: <b class=" text-green-900 font-extrabold">{{startDistance.distance.text}} </b> </span>
+
+	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
+		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
+		
+		<transition name="slideUp" appear>
+			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="startDistance">
+				<div class=" px-3 flex  items-center ">
+					<div class='flex flex-col'>
+						<div class="flex flex-col">
+							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">{{startDistance.route}}</b> </span>
+							<span class="mt-2">	bus stop: <b class=" text-green-900 font-normal">{{startDistance.end_address}}</b> </span>
+							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
+							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
+						</div>
+				
 					</div>
-					<button class="text-white  rounded px-4 bg-secondary  mt-3 py-1.5 w-full" @click="onAddAlert(startDistance)"  > 
-						set Alert
-					</button>
 				</div>
 			</div>
-		</div>
-	</transition>
+		</transition>
 
-	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-[16px]', 'px-4 py-6 z-30 fixed bottom-12  inset-x-0 bg-white justify-between w-full animated ' ]" >
-		<div :class="[ open?'hidden':'',  'w-14 h-1.5 rounded bg-lightGray mx-auto']"/>
-	
-		<div class="relative" @click="toggleModal">
-			<i class="fas fa-map-marker text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc4c] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
-			<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" >Where are you going?</div>
+
+		<div class="w-full py-6" v-if="!startDistance">
+			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
 		</div>
+		<div class="w-full py-6 gap-4 flex items-center" v-else>
+			<button  class="btn-outline w-full " @click="openMaps(item)" >Directions</button>
+			<button  class="btn w-full " @click="offDetails()" > Close</button>
+		</div>
+		
+
 
 	
 	</div>
@@ -71,6 +70,12 @@ import {getClosestBusStop, endDistance, startDistance} from '../composables/useD
 export default {
 	Name: 'BottomModal',
 	setup(){
+		const openMaps = (data) =>{
+
+			const URL = `http://maps.google.com/maps?saddr=${startDistance.value.cord}&daddr=${currLocation.value.results[0].geometry.location.lat()},${currLocation.value.results[0].geometry.location.lng()}`
+			window.open(URL,'_blank')
+			console.log(data)
+		}
 		const exactLoc = computed(()=>{
 			if(currLocation.value){
 				return currLocation.value.results[0].formatted_address
@@ -89,24 +94,17 @@ export default {
 			})
 			offDetails()
 		}
-
-		const onGetClosestBusStop = ()=>{
-			getClosestBusStop()
-			toggleModal()
-		}
 		
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open, toggleModal, exactLoc, onGetClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
+		return {open,openMaps, toggleModal, exactLoc, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
 	}
 }
 </script>
 
 <style scoped>
-/* .animated{
-transition: all 0.35s ease;
-} */
+
 
   .slideDown-enter-from,
   .slideDown-leave-to {
@@ -115,16 +113,18 @@ transition: all 0.35s ease;
 
   .slideDown-enter-active,
   .slideDown-leave-active {
-    transition: all 0.5s ease;
+    transition: all 0.35s ease;
   }
 
-  .slide-enter-from,
-.slide-leave-to{
-	transform: translateX(-30rem);
+  .slideUp-enter-from,
+.slideUp-leave-to{
+	transform: translateY(7rem);
 	opacity: 0;
 }
 
-.slide-enter-active, .slide-leave-active{
-	transition: all 0.5s ease;
+.slideUp-enter-active, .slideUp-leave-active{
+	transition: all 0.35s ease;
 }
+
+
 </style>
