@@ -1,8 +1,7 @@
 import { ref } from '@vue/reactivity'
-import { modalController } from './useModal'
 
 import { savePost } from '../firebase/firestore'
-import { useAlert } from './useNotification'
+import { useAlert, useLoading } from './useNotification'
 
 
 export const usePost = () => {
@@ -11,12 +10,13 @@ export const usePost = () => {
 	const message = ref('')
 
 	const send = async () => {
-		console.log(postModalRoute.value, message.value)
 		if (postModalRoute.value !== '' && message.value !== '') {
+			useLoading().openLoading('loading')
 			await savePost(message.value, postModalRoute.value)
 			postModalRoute.value = ''
 			message.value = ''
-			useAlert().openAlert('Mesasage Posted')
+			useLoading().closeLoading()
+			// useAlert().openAlert('Mesasage Posted')
 		}
 
 	}
