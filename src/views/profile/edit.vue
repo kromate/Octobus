@@ -8,7 +8,7 @@
 				<span>{{useUser().user.value.email}}</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/edit')">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
 				<i class="fas fa-edit  text-2xl"></i>
 				<span class="text-base font-normal">Edit profile</span>
 			</div>
@@ -18,12 +18,12 @@
 				<span class="text-base font-normal">About</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/faq')">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
 				<i class="fas fa-comments  text-2xl"></i>
 				<span class="text-base font-normal">FAQs</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/contact')">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
 				<i class="fas fa-envelope  text-2xl"></i>
 				<span class="text-base font-normal">Contact us</span>
 			</div>
