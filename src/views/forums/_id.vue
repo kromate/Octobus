@@ -33,8 +33,8 @@
 
 
 		<div class="fixed inset-x-0 border-t border-[#F3F4F7] flex items-center gap-4 p-4 bottom-0 bg-white" v-if="user">
-			<input type="text" class="input bg-[#F3F4F7]" placeholder="Type Message">
-			<button class="btn px-3 w-11 h-11">
+			<input type="text" class="input bg-[#F3F4F7]" placeholder="Type Message" v-model="message">
+			<button class="btn px-3 w-11 h-11" @click="send">
 				<i class="fas fa-paper-plane  text-2xl mx-auto "></i>
 			</button>
 		</div>
@@ -52,11 +52,13 @@ import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore'
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import {usePost} from '@/composables/usePost'
-chatRouteRef.value = useRoute().params.id
 
-onMounted(getRouteMessage(routeNamesOnly[0]))
+const {postModalRoute, message, send} = usePost()
+
+chatRouteRef.value = useRoute().params.id
+postModalRoute.value = useRoute().params.id
+onMounted(getRouteMessage(chatRouteRef.value))
 const formatTime = (time)=>{
-	console.log(time)
 	return time.split(' ').slice(4, 5).join(' ')
 }
 const { user } = useUser()
