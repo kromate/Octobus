@@ -2,7 +2,6 @@ import { ref } from '@vue/reactivity'
 
 const loadingState = {
 	active: ref(false),
-	message: ref('')
 }
 const alertState = {
 	active: ref(false),
@@ -21,17 +20,15 @@ export const useAlert = () => {
 		alertState.active.value = false
 	}
 
-	return {...alertState, openAlert, closeAlert}
+	return { ...alertState, openAlert, closeAlert }
 }
 
 export const useLoading = () => {
-	const openLoading = (msg) => {
-		loadingState.message.value = msg
+	const openLoading = () => {
 		loadingState.active.value = true
 	}
 	const closeLoading = () => {
-		loadingState.message.value = ''
 		loadingState.active.value = false
 	}
-	return {...loadingState, openLoading, closeLoading}
+	return { ...loadingState, openLoading, closeLoading }
 }

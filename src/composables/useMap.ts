@@ -11,9 +11,10 @@ export const map = ref(null)
 // const autocomplete = ref('')
 
   
+var google 
 
 export const currLocation = ref('')
-export const currPosition = ref({})
+export const currPosition = ref()
 export const endLocation = ref({})
 
      
@@ -70,7 +71,7 @@ export const geocoder = async (currPos, infowindow) => {
 
 	try {
 		if (data.results[0]) { 
-			map.value.setZoom(11)
+			map.value!.setZoom(11)
 			const marker = new google.maps.Marker({
 				position: currPos.value,
 				map: map.value,
@@ -78,8 +79,8 @@ export const geocoder = async (currPos, infowindow) => {
 			const initialLocation = new google.maps.LatLng(currPos.value.lat, currPos.value.lng)
 			infowindow.setContent(data.results[0].formatted_address)
 			infowindow.open(map, marker)
-			map.value.setCenter(initialLocation)
-			map.value.setZoom(16)
+			map.value!.setCenter(initialLocation)
+			map.value!.setZoom(16)
 
 
 		} else {

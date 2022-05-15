@@ -8,7 +8,7 @@ export const startDistance = ref('')
 export const endDistance = ref('')
 
 
-
+var google
 
 
 export const getClosestBusStop = () => {
@@ -75,18 +75,18 @@ export const getClosestBusStop = () => {
 
 export const getShortPoint = (location) => {
 	let closestPoint = Infinity
-	let closestPlace = {}
+	let closestPlace;
 
 	Object.keys(AllBusRoute).map((x) => {
-		closestPlace,
-			AllBusRoute[x].map((placeObj) => {
-				const cordsObj = placeObj.cord.split(',')
-				const distance = haversine_distance(parseFloat(location.value.lat), parseFloat(location.value.lng), parseFloat(cordsObj[0]), parseFloat(cordsObj[1]))
-				if (distance < closestPoint) {
-					closestPoint = distance
-					closestPlace = { route: x, ...placeObj, distance }
-				}
-			})
+		closestPlace
+		AllBusRoute[x].map((placeObj) => {
+			const cordsObj = placeObj.cord.split(',')
+			const distance = haversine_distance(parseFloat(location.value.lat), parseFloat(location.value.lng), parseFloat(cordsObj[0]), parseFloat(cordsObj[1]))
+			if (distance < closestPoint) {
+				closestPoint = distance
+				closestPlace = { route: x, ...placeObj, distance }
+			}
+		})
 	})
 
 	return closestPlace

@@ -11,7 +11,7 @@ export const usePost = () => {
 
 	const send = async () => {
 		if (postModalRoute.value !== '' && message.value !== '') {
-			useLoading().openLoading('loading')
+			useLoading().openLoading()
 			await savePost(message.value, postModalRoute.value)
 			postModalRoute.value = ''
 			message.value = ''
