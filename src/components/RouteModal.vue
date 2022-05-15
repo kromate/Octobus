@@ -24,6 +24,9 @@
 		<div class="w-full py-6 gap-4 flex items-center">
 			<button  class="btn-outline w-full "  >Bus stops</button>
 			<button  class="btn w-full "  > schedules</button>
+			<button  class="btn  h-10 w-10 !p-0"  >
+				<i class="fas fa-times " @click="openSideMenu"></i>
+			</button>
 		</div>
 		
 
