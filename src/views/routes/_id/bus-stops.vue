@@ -12,7 +12,7 @@
 			{{selectedService}}
 		</div>
 
-		<RotueModal :route="selectedService"/>
+
 	</home-page>
 
 </template>
