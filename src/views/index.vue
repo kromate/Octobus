@@ -21,7 +21,7 @@ import Topbar from '@/components/Topbar.vue'
 
 		
 		  const mapDiv = ref(null)
-		  onMounted(initMap(mapDiv))
+onMounted(initMap(mapDiv))
 	
 
 

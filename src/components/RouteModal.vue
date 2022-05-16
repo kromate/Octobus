@@ -2,11 +2,11 @@
 
 
 
-	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
+	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-2xl inset-x-0 bg-white justify-between w-full h-auto transition-all duration-500" >
 		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
 		
 		<transition name="slideUp" appear>
-			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' >
+			<div class='bg-blue border text-primary font-bold py-4 rounded-lg mt-4' v-if="showCard">
 				<div class=" px-3 flex  items-center ">
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
@@ -21,9 +21,12 @@
 		</transition>
 
 
-		<div class="w-full py-6 gap-4 flex items-center">
-			<button  class="btn-outline w-full "  >Bus stops</button>
-			<button  class="btn w-full "  > schedules</button>
+		<div class="w-full py-6 gap-2 flex items-stretch">
+			<button  class="btn-outline w-full "  @click="$router.push(`/routes/${route}/bus-stops`)">Bus stops</button>
+			<button  class="btn w-full "  @click="$router.push(`/routes/${route}/schedule`)"> schedules</button>
+			<button  class="btn  h-auto w-auto px-4"  @click="toggleCard">
+				<i :class="`fas fa-${showCard ? 'eye-slash': 'eye'} `" ></i>
+			</button>
 		</div>
 		
 
@@ -34,7 +37,7 @@
 
 <script>
 import { AllBusRoute } from '@/helpers/busRoutes'
-import { computed } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 
 export default {
 	Name: 'RouteModal',
@@ -46,6 +49,8 @@ export default {
 		}
 	},
 	setup(props){
+		const showCard = ref(true)
+		const toggleCard =()=> showCard.value = !showCard.value
 		const len =  AllBusRoute[props.route].length
 		const stops = len
 		console.log(len)
@@ -61,7 +66,7 @@ export default {
 		})
 
 
-		return {start, end, stops}
+		return {start, end, stops, toggleCard, showCard}
 	}
 }
 </script>

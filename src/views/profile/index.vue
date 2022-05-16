@@ -8,22 +8,22 @@
 				<span>{{useUser().user.value.email}}</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/edit')">
 				<i class="fas fa-edit  text-2xl"></i>
 				<span class="text-base font-normal">Edit profile</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/about')">
 				<i class="fas fa-info-circle  text-2xl"></i>
 				<span class="text-base font-normal">About</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/faq')">
 				<i class="fas fa-comments  text-2xl"></i>
 				<span class="text-base font-normal">FAQs</span>
 			</div>
 
-			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4">
+			<div class="flex items-center py-4 border-b border-lightGray px-4 gap-4" @click="$router.push('/profile/contact')">
 				<i class="fas fa-envelope  text-2xl"></i>
 				<span class="text-base font-normal">Contact us</span>
 			</div>
@@ -50,10 +50,9 @@
 </template>
 
 <script setup>
-import { useUser } from '../composables/useGlobal'
-import { useAlert } from '../composables/useNotification'
-import homePage from '../layouts/homePage.vue'
-import Avatar from '../components/Avatar.vue'
+import { useUser } from '@/composables/useGlobal'
+import homePage from '@/layouts/homePage.vue'
+import Avatar from '@/components/Avatar.vue'
 import Topbar from '@/components/Topbar.vue'
 import { useRouter } from 'vue-router'
 
@@ -64,9 +63,9 @@ const logout = ()=>{
 	Router.push('/login')
 }
 
-const resetPassword = ()=>{
-	useAlert().openAlert(`Password reset link sent to ${useUser().user.value.email}`)
-}
+// const resetPassword = ()=>{
+// 	useAlert().openAlert(`Password reset link sent to ${useUser().user.value.email}`)
+// }
 
 
 </script>

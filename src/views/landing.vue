@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full max-w-[100vw] overflow-hidden">
-
+		<nav-top-bar/>
 
 		<div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
 			<p class="md:text-2xl text-4xl">Near East University’s</p>
@@ -205,15 +205,18 @@
 			</div>
 		</footer>
 	</div>
+	<base-modal/>
 </template>
 
 <script>
 import HomePage from '../layouts/homePage.vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination,  } from 'vue3-carousel'
+import NavTopBar from '@/components/NavTopBar.vue'
+import BaseModal from '@/components/modal/BaseModal.vue'
 
 export default {
-	components: { HomePage, Carousel, Slide, Pagination,  },
+	components: { HomePage, Carousel, Slide, Pagination, NavTopBar, BaseModal },
 	name:'LandingPage',
 	setup(){
 		const getImageUrl = (name) => {
