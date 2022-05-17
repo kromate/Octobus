@@ -4,7 +4,7 @@
 		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24" v-if="useUser().user.value">
 			<div class="flex items-center py-4 border-b border-lightGray px-4 mt-10 gap-4">
 				<img :src="useUser().user.value.photoURL" v-if="useUser().user.value.photoURL" alt="profile picture" class="w-8 h-8  rounded-full">
-				<avatar v-else :name="useUser().user.value.email.split('@')[0]" class="w-8 h-8   rounded-full" :size="112"/>
+				<avatar v-else :name="useUser().user.value.email.split('@')[0]" class="w-8 h-8   rounded-full" :size="32"/>
 				<span>{{useUser().user.value.email}}</span>
 			</div>
 
@@ -38,6 +38,7 @@
 
 
 		<div v-else class="mt-36">
+			<Vue3Lottie :animation-data="animation" :height="200" :width="200" />
 			<p class="text-center">
 				You need to sign in to view profile
 			</p>
@@ -50,6 +51,9 @@
 </template>
 
 <script setup>
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import animation from '@/assets/animation/auth.json'
 import { useUser } from '@/composables/useGlobal'
 import homePage from '@/layouts/homePage.vue'
 import Avatar from '@/components/Avatar.vue'

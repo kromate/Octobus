@@ -12,13 +12,17 @@
 			{{selectedService}}
 		</div>
 
-		<div 
-			class="flex items-center py-3.5 border-b border-lightGray px-4 gap-4" 
-			v-for="n in AllBusRoute[selectedService]" :key="n">
-			<span class="bg-secondary h-6 w-6 flex items-center justify-center text-white rounded-full text-xs"> {{n.index}}</span>
-			<span class="text-base font-normal">{{n.name}}</span>
+		<div class="mb-24">
+			<div 
+				class="flex items-center py-3.5 border-b border-lightGray px-4 gap-4" 
+				v-for="n in timeArray" :key="n">
+				<i class="fas fa-clock text-3xl" @click="$router.go(-1)"></i>
 
+				<span class="text-base font-normal">{{n}}</span>
+
+			</div>
 		</div>
+
 
 	</home-page>
 
@@ -30,15 +34,15 @@
 import {ref} from 'vue'
 import homePage from '@/layouts/homePage.vue'
 import { useRoute } from 'vue-router'
-import { AllBusRoute } from '@/helpers/busRoutes'
-import { busRouteTime } from '@/composables/useSchedule'
+// import { AllBusRoute } from '@/helpers/busRoutes'
+import { busRouteTime, returnTimeArray } from '@/composables/useSchedule'
 
 const selectedService = ref('Nicosia 1')
-
+const timeArray = ref([])
 selectedService.value = useRoute().params.id
 
-busRouteTime(selectedService.value)
-
+busRouteTime(selectedService.value, 7)
+timeArray.value = returnTimeArray()
 </script>
 
 
