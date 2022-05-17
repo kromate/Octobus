@@ -2,13 +2,13 @@
 	<div class="w-full max-w-[100vw] overflow-hidden">
 		<nav-top-bar/>
 
-		<div class="bg w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
-			<p class="md:text-2xl text-4xl">Near East University’s</p>
+		<div class="bg w-screen h-[40rem] grid place-content-center place-items-center text-white text-center"> 
+			<p class="md:text-2xl text-4xl mt-12">Near East University’s</p>
 			<h2 class="md:text-6xl text-2xl px-2 mt-4">Bus Navigation System</h2>
 			<button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
 		</div>
 
-		<div class="gray flex flex-col justify-center items-center bg-secondary text-white md:h-[15rem] h-[10rem] text-center px-4">
+		<div class="gray flex flex-col justify-center items-center bg-secondary text-white md:h-[15rem] h-[6rem] text-center px-4">
 			<h2 class="md:text-5xl text-2xl">Never miss a class with Octobus.</h2>
 		</div>
 
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 
-		<div class="bg2 w-screen md:h-[40rem] h-[30rem] grid place-content-center place-items-center text-white text-center"> 
+		<div class="bg2 w-screen  h-[40rem] grid place-content-center place-items-center text-white text-center"> 
 			<h2 class="md:text-6xl text-3xl px-3">Navigating campus has never been easier</h2>
 			<p class="md:text-2xl text-lg px-3 mt-5">You can always find a bus to take you to your destination from anywhere you are.</p>
 			<button class="btn h-12 !bg-white !text-black mt-8">Get started</button>
@@ -237,10 +237,14 @@ export default {
 .bg{
 background:  rgba(0, 0, 0, 0.3) url('../assets/buses.png');
 background-blend-mode: darken;
+background-size: cover;
+background-repeat: no-repeat;
 }
 .bg2{
 background:  rgba(0, 0, 0, 0.3) url('../assets/buses2.png');
 background-blend-mode: darken;
+background-size: cover;
+background-repeat: no-repeat;
 }
 
 

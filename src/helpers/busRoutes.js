@@ -226,7 +226,7 @@ export const routeNamesOnly = ['Nicosia 1', 'Ortaköy - Yenikent', 'Gönyeli 1',
 
 
 export const AllBusTime = {
-	'Nicosia 1': {},
+	'Nicosia 1': { start: ''},
     
 	'Ortaköy - Yenikent': {},
     

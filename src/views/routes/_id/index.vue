@@ -1,13 +1,13 @@
 <template>
-	<div class="bg-secondary text-white fixed z-10 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-center flex shadow px-4 py-2 md:px-8">
-		<i class="fas fa-arrow-left text-xl absolute left-4" @click="$router.go(-1)"></i>
+	<div class="bg-secondary text-white fixed z-30 top-0 inset-x-0 w-full h-12 min-h-[7vh] items-center justify-center flex shadow px-4 py-2 md:px-8">
+		<i class="fas fa-arrow-left text-xl absolute left-4 cursor-pointer" @click="$router.go(-1)"></i>
 		<h3 class="text-base font-medium">
 			{{selectedService}}
 		</h3>
 	
 	</div>
 	<home-page>
-  
+		<div class="fixed inset-0 w-screen h-screen z-20"/>
 		<div v-if="selectedService == 'Nicosia 1'" class='w-full h-screen bottom-0 absolute -top-20'>
 			<iframe  src="https://www.google.com/maps/d/embed?mid=11aQf6gpnCk1N1r_fmFLITInhgOR3J9on&hl=tr&ehbc=2E312F&z=13" width="100%" height="100%" class="100vh"></iframe>
 		</div>
