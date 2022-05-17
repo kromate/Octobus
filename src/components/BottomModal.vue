@@ -46,7 +46,10 @@
 
 
 		<div class="w-full py-6" v-if="!startDistance">
-			<button  class="btn w-full " @click="getClosestBusStop()" :disabled="!exactLoc">Find closest Bus stop</button>
+			<div class="relative" @click="toggleModal">
+				<i class="fas fa-map-marker text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc4c] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
+				<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" >Where are you going?</div>
+			</div>
 		</div>
 		<div class="w-full py-6 gap-4 flex items-stretch" v-else>
 			<button  class="btn-outline w-full " @click="openMaps(item)" >Directions</button>
