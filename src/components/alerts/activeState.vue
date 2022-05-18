@@ -4,7 +4,8 @@
 			<div class="alert-card px-6 flex justify-between ">
 				<div>
 					<!-- <li class='list-none flex my-2'>  <img src="../../assets/icons/date.svg" class='mr-2'/>  {{item.timeTaken}} </li> -->
-					<li class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/>  {{item.timeTaken}} </li>
+					<li class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2'/>  {{dataTime}} </li>
+					<li class='list-none flex my-2'>  <img src="../../assets/icons/clock.svg" class='mr-2 hidden'/>  {{realTimeUpdate(item.Route, item.index)}} </li>
 					<li class='list-none flex my-2'> <img src="../../assets/icons/route.svg" class='mr-2'/>  {{item.Route}} </li>
 					<li class='list-none flex my-2'> <img src="../../assets/icons/place.svg" class='mr-2'/>  {{item.busStop}} </li>
 
@@ -24,22 +25,21 @@
 	</div>
 </template>
 
-<script>
+<script setup>
 
 import { Alert, delAlert } from '@/composables/useAlert'
-import { currPosition} from '@/composables/useMap'
+import { realTimeUpdate,dataTime } from '@/composables/useSchedule'
 
-export default {
 
-	setup(){
-		const openMaps = (data) =>{
 
-			const URL = `http://maps.google.com/maps?saddr=${data.Scord}&daddr=${data.Ecord}`
-			window.open(URL,'_blank')
-			console.log(data)
-		}
-		return{Alert, delAlert, openMaps}
-	}
-    
+const openMaps = (data) =>{
+	const URL = `http://maps.google.com/maps?saddr=${data.Scord}&daddr=${data.Ecord}`
+	window.open(URL,'_blank')
+	console.log(data)
 }
+
+
+	
+    
+
 </script>

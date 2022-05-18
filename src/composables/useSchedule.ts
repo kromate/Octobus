@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const startTime = '8:15'
 const endTime = '20:15'
 const suffix = '15'
-
+export const dataTime = ref('')
 export const busRouteTime = (route, index) => {
 
     let len = AllBusRoute[route].length
@@ -23,7 +23,10 @@ export const busRouteTime = (route, index) => {
     let globalMinute = new Date().getMinutes()
 
     console.log(BusArrivalrealTime, globalMinute);
-    return `${BusArrivalrealTime - globalMinute} mins`
+    if (BusArrivalrealTime > globalMinute)
+        return `${BusArrivalrealTime - globalMinute} mins`
+    else
+        return `${60 - (globalMinute - BusArrivalrealTime)} mins`
 }
 
 // const compareTime = (val1, val2) => {
@@ -43,7 +46,7 @@ export const returnTimeArray = () => {
 
 export const realTimeUpdate = (route, index) => {
     let len = AllBusRoute[route].length
-    const dataTime = ref('')
+
     if (new Date().getHours() < 8 || new Date().getHours() > 20) {
         return 'No buses are functioning now'
     }
@@ -58,5 +61,22 @@ export const realTimeUpdate = (route, index) => {
     let globalMinute = new Date().getMinutes()
 
     console.log(BusArrivalrealTime, globalMinute);
-    return `${BusArrivalrealTime - globalMinute} mins`
+    if (BusArrivalrealTime > globalMinute) {
+        dataTime.value = `${BusArrivalrealTime - globalMinute} mins`
+    } else {
+        dataTime.value = `${60 - (globalMinute - BusArrivalrealTime)} mins`
+    }
+    // dataTime.value = `${BusArrivalrealTime - globalMinute} mins`
+    const timer = setInterval(() => {
+        if (BusArrivalrealTime === globalMinute) {
+            navigator.vibrate([100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100]);
+        }
+        if (BusArrivalrealTime > globalMinute) {
+            dataTime.value = `${BusArrivalrealTime - globalMinute} mins`
+        } else {
+            dataTime.value = `${60 - (globalMinute - BusArrivalrealTime)} mins`
+        }
+
+    }, 6000);
+    // return dataTime.value
 }

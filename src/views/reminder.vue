@@ -15,6 +15,7 @@ import activeState from '../components/alerts/activeState.vue'
 import HomePage from '../layouts/homePage.vue'
 import { Alert } from '../composables/useAlert'
 import Topbar from '@/components/Topbar.vue'
+
 export default {
 	name:'AlertPage',
 	components:{
@@ -24,6 +25,7 @@ export default {
 		Topbar
 	},
 	setup(){
+		
 		return{Alert}
 	}
 
