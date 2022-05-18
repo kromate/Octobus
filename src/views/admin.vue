@@ -1,30 +1,34 @@
 <template>
 	<home-page>
-		<div class="mt-24 flex flex-col" v-if="useUser().user.value">
-			<p class="text-3xl font-semibold text-center">Admin Panel</p>
-			<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
-			<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in UserResult" :key="n">
-				<div class="flex items-center">
-					<avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/>
-					<div>
-						<p class="bg-secondary text-white w-auto px-4 py-0.5 rounded mt-1" >{{n.email}}</p>
+		<div v-if="allowedUsers.includes(useUser().user.value.email)">
+			<div class="mt-24 flex flex-col" v-if="useUser().user.value">
+				<p class="text-3xl font-semibold text-center">Admin Panel</p>
+				<p class="bg-primary text-white p-2 mx-auto px-24 mt-2">List of Users</p>
+				<div class="p-3.5 bg-red-100 mt-3.5 rounded-md" v-for="n in UserResult" :key="n">
+					<div class="flex items-center">
+						<avatar  :name="n.email.split('@')[0]"  :size="64" class="mr-4"/>
+						<div>
+							<p class="bg-secondary text-white w-auto px-4 py-0.5 rounded mt-1" >{{n.email}}</p>
 					
-						<button class="btn-outline py-0.5 mt-2" @click="deleteUser(n.email)">Delete</button>
-
-					</div>
+							<button class="btn-outline py-0.5 mt-2" @click="deleteUser(n.email)">Delete</button>
+						
+						</div>
 			
+					</div>
 				</div>
+			</div>
+
+			<div v-else class="mt-36">
+				<p class="text-center">
+					You need to sign in to view profile
+				</p>
+				<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/login')">
+					Login
+				</button>
 			</div>
 		</div>
 
-		<div v-else class="mt-36">
-			<p class="text-center">
-				You need to sign in to view profile
-			</p>
-			<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/login')">
-				Login
-			</button>
-		</div>
+
 	</home-page>
 	
 </template>
@@ -35,10 +39,13 @@ import homePage from '../layouts/homePage.vue'
 import {UserResult, getUsers} from '@/firebase/firestore' 
 import { onMounted } from 'vue-demi'
 import { useLoading } from '../composables/useNotification'
+import Avatar from '@/components/Avatar.vue'
+
 
 onMounted(getUsers)
 
-console.log(UserResult)
+console.log()
+const allowedUsers = ['godwinjerry44@gmail.com', 'akpananthony33@gmail.com']
 
 const deleteUser = (email)=>{
 	useLoading().openLoading()
