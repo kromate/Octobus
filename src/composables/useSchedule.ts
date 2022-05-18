@@ -9,6 +9,10 @@ export const busRouteTime = (route, index) => {
     console.log(route, index);
     let len = AllBusRoute[route].length
 
+    if (new Date().getHours() < 8 || new Date().getHours() > 20) {
+        return 'No buses are functioning now'
+    }
+
     let timePerStop: number = parseFloat((1 / len).toFixed(2))
     let minPerStop = timePerStop * 60
 
@@ -19,7 +23,7 @@ export const busRouteTime = (route, index) => {
     let globalMinute = new Date().getMinutes()
 
     console.log(BusArrivalrealTime, globalMinute);
-    return BusArrivalrealTime - globalMinute
+    return `${BusArrivalrealTime - globalMinute} mins`
 }
 
 // const compareTime = (val1, val2) => {
