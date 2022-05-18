@@ -10,8 +10,16 @@
 	</div>
 
 	<transition name="slideDown" appear>
-		<div class="bg-white shadow z-40 text-secondary fixed p-4 top-16 right-0" v-if="showRule">
-			All messages sent in this forum would be monitored and by no means should this forum be used for anything other than updates on the given bus route. Failure to follow the rules and guidelines would lead to suspension of account
+		<div class="bg-white shadow z-40 text-secondary fixed p-4 top-16 right-0 whitespace-pre-wrap tracking-wide flex flex-col" v-if="showRule">
+			<h4 class="text-xl font-bold mb-3">Rules and Regulations ⚠️ </h4>
+
+			1. Messages sent must only be for the purpose of updating or informing other students about the buses and it’s routes. <br>
+
+			<span class="my-3">
+				2. Abusive or Vulagar words will not be tolorated and be followed by an account deletion. <br>
+			</span>	
+
+			3. Messages disappear after 24hours to prevent too much noise on the platform. <br>
 		</div>
 	</transition>
 
