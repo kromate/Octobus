@@ -48,7 +48,8 @@ export const realTimeUpdate = (route, index) => {
     let len = AllBusRoute[route].length
 
     if (new Date().getHours() < 8 || new Date().getHours() > 20) {
-        return 'No buses are functioning now'
+        dataTime.value = 'No Active buses now'
+        return
     }
 
     let timePerStop: number = parseFloat((1 / len).toFixed(2))
