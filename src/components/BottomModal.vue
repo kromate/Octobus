@@ -96,6 +96,7 @@ export default {
 			addAlert({
 				'busStop' : data.end_address,
 				'Route' : data.route,
+				'index' : data.index,
 				'timeTaken' : data.duration.text,
 				'distance' : data.distance.text,
 				'Ecord': data.cord,

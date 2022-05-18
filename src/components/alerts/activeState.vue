@@ -11,10 +11,10 @@
 				</div>
 				<div class='my-2 flex flex-col'>
 					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white "   @click="delAlert(index)"> 
-						Cancel Alert
+						Cancel
 					</button>
 					<button class="text-primary border border-primary rounded px-4 bg-white hover:bg-primary hover:text-white mt-2"   @click="openMaps(item)"> 
-						get Directions
+						Directions
 					</button>
 					<!-- <Modal v-show="isModalVisible" @close="closeModal" /> -->
 				</div>
