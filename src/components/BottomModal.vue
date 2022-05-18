@@ -39,7 +39,7 @@
 							<span class="mt-2 flex">	bus stop: <b class=" text-green-900 font-normal truncate w-64 ml-2">{{startDistance.end_address}}</b> </span>
 							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
 							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
-							<span class="mt-2">Next arrival: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
+							<span class="mt-2">Next arrival: <b class=" text-green-900 font-normal">{{startDistance.estimatedTime}} mins </b> </span>
 						</div>
 				
 					</div>

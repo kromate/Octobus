@@ -6,6 +6,7 @@ const endTime = '20:15'
 const suffix = '15'
 
 export const busRouteTime = (route, index) => {
+    console.log(route, index);
     let len = AllBusRoute[route].length
 
     let timePerStop: number = parseFloat((1 / len).toFixed(2))
@@ -13,12 +14,12 @@ export const busRouteTime = (route, index) => {
 
     let RawCurrTime = minPerStop * index
     let currTime = RawCurrTime > 60 ? RawCurrTime - 60 : RawCurrTime
-    let realTime = parseFloat(currTime.toFixed(3));
+    let BusArrivalrealTime = parseFloat(currTime.toFixed(3));
 
     let globalMinute = new Date().getMinutes()
 
-    console.log(realTime, globalMinute);
-    return { minPerStop }
+    console.log(BusArrivalrealTime, globalMinute);
+    return BusArrivalrealTime - globalMinute
 }
 
 // const compareTime = (val1, val2) => {
