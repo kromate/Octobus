@@ -36,9 +36,10 @@
 					<div class='flex flex-col'>
 						<div class="flex flex-col">
 							<span class="mt-2">	Route: <b class=" text-green-900 font-normal">{{startDistance.route}}</b> </span>
-							<span class="mt-2">	bus stop: <b class=" text-green-900 font-normal">{{startDistance.end_address}}</b> </span>
+							<span class="mt-2 flex">	bus stop: <b class=" text-green-900 font-normal truncate w-64 ml-2">{{startDistance.end_address}}</b> </span>
 							<span class="mt-2">	Time taken: <b class=" text-green-900 font-normal">{{startDistance.duration.text}}</b> </span>
 							<span class="mt-2">	Distance: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
+							<span class="mt-2">Next arrival: <b class=" text-green-900 font-normal">{{startDistance.distance.text}} </b> </span>
 						</div>
 				
 					</div>
@@ -116,7 +117,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 
   .slideDown-enter-from,
@@ -139,5 +140,16 @@ export default {
 	transition: all 0.35s ease;
 }
 
+.pac-container{
+position: fixed !important;
+top: 15.5rem !important;
+left: 0 !important;
+right: 0 !important;
+width: 100vw !important;
+}
 
+.pac-item, .pac-item-query{
+	padding: 16px 6px !important;
+	font-size: 16px !important;
+}
 </style>

@@ -35,13 +35,13 @@ import {ref} from 'vue'
 import homePage from '@/layouts/homePage.vue'
 import { useRoute } from 'vue-router'
 // import { AllBusRoute } from '@/helpers/busRoutes'
-import { busRouteTime, returnTimeArray } from '@/composables/useSchedule'
+import { returnTimeArray } from '@/composables/useSchedule'
 
 const selectedService = ref('Nicosia 1')
 const timeArray = ref([])
 selectedService.value = useRoute().params.id
 
-busRouteTime(selectedService.value, 7)
+
 timeArray.value = returnTimeArray()
 </script>
 

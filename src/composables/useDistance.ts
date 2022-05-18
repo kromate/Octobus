@@ -3,7 +3,7 @@ import { ref } from '@vue/reactivity'
 import { AllBusRoute } from '../helpers/busRoutes'
 import { currPosition, map } from './useMap'
 import { useLoading } from './useNotification'
-
+import { busRouteTime } from '@/composables/useSchedule'
 export const startDistance = ref('')
 export const endDistance = ref('')
 
@@ -63,8 +63,10 @@ export const getClosestBusStop = () => {
 					return
 				}
 				else {
+					console.log(startPoint);
+					busRouteTime(startPoint.route, startPoint.index)
 					startDistance.value = { ...startPoint, ...directionsData }
-					console.log(startDistance.value)
+					// console.log(startDistance.value)
 					useLoading().closeLoading()
 				}
 			}
