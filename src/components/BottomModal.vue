@@ -7,7 +7,7 @@
 				</p>
 				<i class="fas fa-times text-2xl cursor-pointer absolute right-2" @click="toggleModal"></i>
 			</div>
-			<form @submit.prevent="onGetClosestBusStop" class="mb-12">
+			<form @submit.prevent="onGetClosestBusStop" >
 				<div class="flex items-center mt-3 w-full" >
 					<div class="flex flex-col h-full items-center mr-3">
 						<div class="border-[7px] border-green-800 rounded-full w-6 h-6"/>
@@ -19,13 +19,15 @@
 						<input type="text" placeholder="Search Location" class="mt-2 input" id="autocomplete" ref="autocompleteInput" required>
 					</div>
 				</div>
+
+				<button  class="btn w-full mt-5" type="submit">Find closest Bus stop</button>
 			</form>
 		</div>
 
 	</transition>
 
 
-	<div class="px-4 pt-4 z-30 fixed bottom-[60px] rounded-t-2xl inset-x-0 bg-white justify-between w-full transition-all duration-500" >
+	<div :class="[ open ?'h-screen rounded-none top-0':'rounded-t-2xl', 'px-4 pt-3 z-30 fixed bottom-[60px] inset-x-0 bg-white justify-between w-full transition-all duration-500 ' ]" >
 		<div class="w-14 h-1.5 rounded bg-lightGray mx-auto"/>
 		
 		<transition name="slideUp" appear>
@@ -48,7 +50,7 @@
 		<div class="w-full py-6" v-if="!startDistance">
 			<div class="relative" @click="toggleModal">
 				<i class="fas fa-map-marker text-primary text-left text-lg w-8 h-8 bg-[#b3b3bc4c] rounded-full flex justify-center items-center absolute top-2.5 left-3"></i>
-				<div  class="w-full rounded-md p-3 bg-lightGray pl-14  mt-4 mb-2 font-bold" >Where are you going?</div>
+				<div  class="w-full rounded-md p-4 bg-lightGray pl-14 font-bold" >Where are you going?</div>
 			</div>
 		</div>
 		<div class="w-full py-6 gap-4 flex items-stretch" v-else>
@@ -100,11 +102,16 @@ export default {
 			})
 			offDetails()
 		}
+
+		const onGetClosestBusStop = ()=>{
+			getClosestBusStop()
+			toggleModal()
+		}
 		
 		const open = ref(false)
 		const toggleModal = ()=> open.value = !open.value
 		const offDetails = ()=> startDistance.value = ''
-		return {open,openMaps, toggleModal, exactLoc,onAddAlert, getClosestBusStop, endDistance, startDistance, offDetails, onAddAlert	}
+		return {open,openMaps, toggleModal, exactLoc,onAddAlert, onGetClosestBusStop, endDistance, startDistance, offDetails,}
 	}
 }
 </script>

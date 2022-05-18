@@ -4,10 +4,20 @@
 		<h3 class="text-base font-medium">
 			{{chatRouteRef}}
 		</h3>
+	
+		<i class="fas fa-info-circle text-xl absolute right-4" focusable="false" aria-hidden="true" @mouseenter="enableRule" @mouseleave="disableRule"></i>
+
 	</div>
 
+	<transition name="slideDown" appear>
+		<div class="bg-white shadow z-40 text-secondary fixed p-4 top-16 right-0" v-if="showRule">
+			All messages sent in this forum would be monitored and by no means should this forum be used for anything other than updates on the given bus route. Failure to follow the rules and guidelines would lead to suspension of account
+		</div>
+	</transition>
+
+
 	<home-page :bottom="false">
-		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24 mt-10">
+		<div class="bg-lightPurplebg min-h-screen  py-8 flex flex-col pb-24 mt-10 overflow-y-auto">
 			<div v-if="routeMessage.length">
 				<div 
 					class="flex items-center  py-3.5 border-b border-lightGray px-4 gap-4" 
@@ -49,7 +59,7 @@ import {routeNamesOnly} from '@/helpers/busRoutes'
 import HomePage from '@/layouts/homePage.vue'
 import { useUser } from '@/composables/useGlobal'
 import {chatRouteRef, routeMessage, getRouteMessage} from '@/firebase/firestore' 
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import {usePost} from '@/composables/usePost'
 
@@ -63,9 +73,22 @@ const formatTime = (time)=>{
 }
 const { user } = useUser()
 
+const showRule = ref(false)
 
+const enableRule = ()=> showRule.value = true
+const disableRule = ()=> showRule.value = false
 
 
 </script>
 
+<style scoped>
+  .slideDown-enter-from,
+  .slideDown-leave-to {
+	transform: translateY(-300px)
+  }
 
+  .slideDown-enter-active,
+  .slideDown-leave-active {
+    transition: all 0.35s ease;
+  }
+</style>

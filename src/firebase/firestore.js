@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { app } from './init'
 import { watch, onUnmounted } from '@vue/runtime-dom'
-import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot } from 'firebase/firestore'
+import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot, orderBy } from 'firebase/firestore'
 import { useUser } from '@/composables/useGlobal'
 import { useLoading } from '@/composables/useNotification'
 import { ref } from '@vue/reactivity'
@@ -59,7 +59,7 @@ export const delTimeline = async (id) => {
 
 export const getRouteMessage = async (route) => {
 	useLoading().openLoading()
-	const q = query(collection(db, route))
+	const q = query(collection(db, route), orderBy('date'))
 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		result = []
 		querySnapshot.forEach((doc) => {
