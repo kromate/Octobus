@@ -15,7 +15,7 @@
 					<input class="w-full rounded-lg p-3 bg-lightGray text-gray my-3 py-4" placeholder="Password" type="password" name="password" v-model="password" required>
 				</div>
 		
-				<button class="w-full mt-4 p-3 text-center rounded-lg bg-secondary h-12 text-white"> Login </button>
+				<button class="w-full mt-4 p-3 text-center rounded-lg bg-secondary h-12 text-white"> Register </button>
 
 				<div class='text-base text-red-700 my-4' v-if="error">{{ error }}</div>
 			</form>

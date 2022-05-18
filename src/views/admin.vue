@@ -19,6 +19,7 @@
 			</div>
 
 			<div v-else class="mt-36">
+				<Vue3Lottie :animation-data="animation" :height="200" :width="200" />
 				<p class="text-center">
 					You need to sign in to view profile
 				</p>
@@ -28,12 +29,26 @@
 			</div>
 		</div>
 
+		<div class="mt-36" v-else>
+			<Vue3Lottie :animation-data="admin" :height="200" :width="200" :loop="false"/>
+			<p class="text-center">
+				Only admins have access to this page
+			</p>
+			<button class="btn  py-1 px-12 mx-auto mt-6"  @click="$router.push('/profile/contact')">
+				contact an admin
+			</button>
+		</div>
+
 
 	</home-page>
 	
 </template>
 
 <script setup>
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import animation from '@/assets/animation/auth.json'
+import admin from '@/assets/animation/admin.json'
 import { useUser } from '../composables/useGlobal'
 import homePage from '../layouts/homePage.vue'
 import {UserResult, getUsers} from '@/firebase/firestore' 
