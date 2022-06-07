@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+details {
+  user-select: none;
+}
+
+details[open] summary svg {
+  transform: rotate(-90deg);
+}
+
+summary {
+  cursor: pointer;
+}
+
+svg {
+  transition: all 0.3s;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+:focus {
+  outline: none;
+}
+
+input{
+  color: black !important;
+}
+
+@layer components{
+.input{
+@apply bg-lightGray p-2.5 rounded-md w-full  text-black
+}
+.btn{
+    @apply   rounded-md px-6 py-3 text-lg text-white bg-secondary flex justify-center items-center
+}
+.btn-outline{
+    @apply border  rounded-md px-6 py-3 text-lg text-secondary border-secondary flex justify-center items-center
+}
+.tab{
+    @apply border border-primary rounded-md px-10 py-3 text-lg text-white bg-primary 
+}
+
+}

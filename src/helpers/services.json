@@ -1,0 +1,367 @@
+[
+    {
+        "name": "Nicosia 1",
+        "routes":[
+        {
+            "name":"YDÜ Kampüs Ana Durak"
+        },
+        {
+            "name":"Near East Bank Durağı"
+        },
+        {
+            "name":"Honda Duraği"
+        },
+        {
+            "name":"Çangar Durağı"
+        },
+        {
+            "name":"Reis Supermarket Karşısı"
+        },
+        {
+            "name":"Kaymaklı Eski Mezarlık Durağı"
+        },
+        {
+            "name":"City Royal Hotel Terminal Durağı"
+        },
+        {
+            "name":"YDÜ Hukuk Fakültesi Durağı"
+        },
+        {
+            "name":"YDÜ Kampüs Ana Durak"
+        },
+        {
+            "name":"Yurt Önü"
+        }
+    ],
+        "times": {
+                "weekday": ["6:45","7:30","8:15","9:15","10:15","11:15","12:15","13:15","14:15","15:15","16:15","17:15","18:15","19:15","20:15"],
+                "weekend": ["6:45","8:15","9:15","10:15","11:15","12:15","13:15","14:15","15:15","17:15"]
+            }
+    },
+    {
+        "name": "Ortaköy / Yenikent",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Demir Market Durağı"
+            },
+            {
+                "name":"Yeni Yüzyıl Okul Durağı"
+            },
+            {
+                "name":"Ortaköy Işıkları Durağı"
+            },
+            {
+                "name":"Lemar Durağı"
+            },
+            {
+                "name":"Sivil Savunma Durağı"
+            },
+            {
+                "name":"Levent Apt. Durağı"
+            },
+            {
+                "name":"Arçelik Duraği"
+            },
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name":"Gönyeli 1",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"İR-MAR Market Karşı Durağı"
+            },
+            {
+                "name":"Talihsiz Mobilya Duraği"
+            },
+            {
+                "name":"Ersoy Hoca Apt. Durağı"
+            },
+            {
+                "name":"Asker Durağı"
+            },
+            {
+                "name":"Büyük Kiler Durağı"
+            },
+            {
+                "name":"Deniz Kırtasiye Durağı"
+            },
+            {
+                "name":"Küçük Kiler Durağı"
+            },
+            {
+                "name":"Fuar Durağı"
+            },
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name":"Gönyeli 2",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Zorba Petrol Durağı"
+            },
+            {
+                "name":"Büyük Kiler Durağı"
+            },
+            {
+                "name":"Yalçın Park Durağı"
+            },
+            {
+                "name":"Livera Öğrenci Yurdu Durağı"
+            },
+            {
+                "name":"Gönyeli İlkokulu Durağı"
+            },
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name":"Nicosia 2",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Girne Kapısı(Mücahitler Parkı Önü )"
+            },
+            {
+                "name":"Kumsal Park Durağı"
+            },
+            {
+                "name":"Merit Durağı"
+            },
+            {
+                "name":"Sağlık Bakanlığı Durağı"
+            },
+            {
+                "name":"Tepe Home Durağı"
+            },
+            {
+                "name":"Dr. Burhan Nalbantoğlu Devlet Hastanesi Durağı"
+            },  
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name": "Kyrenia",
+        "routes":[
+            {
+                "name":"YDÜ"
+            },
+            {
+                "name":"Girne Üniversitesi"
+            }
+        ]
+    },
+    {
+        "name": "Güzelyurt Service Information",
+        "routes":[
+            {
+                "name":"YDÜ"
+            },
+            {
+                "name":"Eğitim Sarayı Durağı"
+            }
+        ]
+    },  
+    {
+        "name":"Famagusta",
+        "routes":[
+            {
+                "name":"Mağusa Anıt Çemberi İtimat Yazıhanesi"
+            },
+            {
+                "name":"YDU"
+            }
+        ]
+    },
+    {
+        "name":"Kızılbas",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Devpa Durağı"
+            },
+            {
+                "name":"Domuzcular Burnu Durağı"
+            },
+            {
+                "name":"Ebu Bekir Cami Durağı"
+            },
+            {
+                "name":"Kampanya Market Durağı"
+            },
+            {
+                "name":"Belediye Pazarı Durağı"
+            },
+            {
+                "name":"Atatürk Öğretmen Akademisi Duraği"
+            },  
+            {
+                "name":"Dumlupınar Muhtarlığı Duraği"
+            },
+            {
+                "name":"Cadde Mutfak Durağı"
+            }, 
+            {
+                "name":"Kıbrıs Gazetesi Durağı"
+            },
+            {
+                "name":"Genç Tv Durağı"
+            }, 
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name":"Gönyeli / Metehan",
+        "routes": [
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Sismar Durağı"
+            },
+            {
+                "name":"Üst Geçit Durağı"
+            },
+            {
+                "name":"Arda Market Durağı"
+            },
+            {
+                "name":"Sarıtaş Evler Durağı"
+            },
+            {
+                "name":"Polis Akademisi Durağı"
+            },
+            {
+                "name":"Zephyr Durağı"
+            },  
+            {
+                "name":"Kiler Durağı"
+            },
+            {
+                "name":"Damdelen Durağı"
+            }, 
+            {
+                "name":"Gönyeli Belediyesi Durağı"
+            },
+            {
+                "name":"Skylap Apt. Durağı"
+            }, 
+            {
+                "name":"Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }
+        ]
+    },
+    {
+        "name":"Hamitköy",
+        "routes":[
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Near East Bank Durağı"
+            },
+            {
+                "name":"Sanayi Durağı."
+            },
+            {
+                "name":"Din Sitesi Durağı"
+            },
+            {
+                "name":"Okmar 2 Durağı"
+            },
+            {
+                "name":"YDÜ Hukuk Fakültesi Durağı"
+            },
+            {
+                "name":"Din Sitesi Durağı"
+            },
+            {
+                "name":"YDÜ Kampüs Ana Durak"
+            },
+            {
+                "name":"Yurt Önü"
+            }          
+        ]
+    }
+]

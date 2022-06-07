@@ -1,12 +1,14 @@
 
 <template>
+	<loader/>
 
-    	<slot />
+	<slot />
 
 
 </template>
 
-<script>
+<script setup>
+import loader from '../components/loader.vue' 
 
 </script>
 
