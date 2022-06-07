@@ -43,7 +43,6 @@ export const useLogin = () => {
 				Router.push('/')
 			}).catch((err) => {
 				closeLoading()
-				console.log(err)
 				error.value = err.message
 				openAlert(`Oops seems something went wrong 😕 : ${err.message}`)
 
@@ -61,7 +60,6 @@ export const useLogin = () => {
 				Router.push('/')
 			}).catch((err) => {
 				closeLoading()
-				console.log(err)
 				error.value = err.message
 				openAlert(`Oops seems something went wrong 😕 : ${err.message}`)
 
@@ -78,7 +76,6 @@ export const useLogin = () => {
 				Router.push('/')
 			}).catch((error) => {
 				closeLoading()
-				console.log(error)
 				openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
 
 			})

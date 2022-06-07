@@ -83,7 +83,6 @@ export default {
 
 			const URL = `http://maps.google.com/maps?saddr=${startDistance.value.cord}&daddr=${currLocation.value.results[0].geometry.location.lat()},${currLocation.value.results[0].geometry.location.lng()}`
 			window.open(URL,'_blank')
-			console.log(data)
 		}
 		const exactLoc = computed(()=>{
 			if(currLocation.value){

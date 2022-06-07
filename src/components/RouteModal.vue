@@ -53,7 +53,6 @@ export default {
 		const toggleCard =()=> showCard.value = !showCard.value
 		const len =  AllBusRoute[props.route].length
 		const stops = len
-		console.log(len)
 		const start = computed({
 			get:()=>{
 				return AllBusRoute[props.route][0].name

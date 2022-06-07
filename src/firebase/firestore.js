@@ -21,7 +21,6 @@ const {openLoading, closeLoading} = useLoading()
 export const db = getFirestore(app)
 
 watch(chatRouteRef, (newValue) => {
-	console.log(newValue)
 	getRouteMessage(newValue)
 })
 
@@ -81,10 +80,8 @@ export const getUsers = async () => {
 	const unsubscribe = onSnapshot(q, (querySnapshot) => {
 		userResult = []
 		querySnapshot.forEach((doc) => {
-			console.log(doc)
 			userResult.push(doc.data())
 		})
-		console.log(userResult)
 		UserResult.value = userResult
 		useLoading().closeLoading()
 

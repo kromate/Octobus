@@ -59,7 +59,6 @@ import Avatar from '@/components/Avatar.vue'
 
 onMounted(getUsers)
 
-console.log()
 const allowedUsers = ['godwinjerry44@gmail.com', 'akpananthony33@gmail.com']
 
 const deleteUser = (email)=>{
@@ -68,7 +67,6 @@ const deleteUser = (email)=>{
 		.then((response) => response.json())
 		.then((data) =>{
       	useLoading().closeLoading()
-			console.log(data)
 		} )
 
 }

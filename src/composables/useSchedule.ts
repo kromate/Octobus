@@ -22,7 +22,6 @@ export const busRouteTime = (route, index) => {
 
     let globalMinute = new Date().getMinutes()
 
-    console.log(BusArrivalrealTime, globalMinute);
     if (BusArrivalrealTime > globalMinute)
         return `${BusArrivalrealTime - globalMinute} mins`
     else
@@ -61,7 +60,6 @@ export const realTimeUpdate = (route, index) => {
 
     let globalMinute = new Date().getMinutes()
 
-    console.log(BusArrivalrealTime, globalMinute);
     if (BusArrivalrealTime > globalMinute) {
         dataTime.value = `${BusArrivalrealTime - globalMinute} mins`
     } else {

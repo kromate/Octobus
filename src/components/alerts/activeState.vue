@@ -35,7 +35,6 @@ import { realTimeUpdate,dataTime } from '@/composables/useSchedule'
 const openMaps = (data) =>{
 	const URL = `http://maps.google.com/maps?saddr=${data.Scord}&daddr=${data.Ecord}`
 	window.open(URL,'_blank')
-	console.log(data)
 }
 
 

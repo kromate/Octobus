@@ -63,10 +63,8 @@ export const getClosestBusStop = () => {
 					return
 				}
 				else {
-					console.log(startPoint);
 					let estimatedTime = busRouteTime(startPoint.route, startPoint.index)
 					startDistance.value = { ...startPoint, ...directionsData, estimatedTime }
-					// console.log(startDistance.value)
 					useLoading().closeLoading()
 				}
 			}

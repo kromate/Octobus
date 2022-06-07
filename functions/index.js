@@ -33,9 +33,8 @@ exports.userDeleted = functions.auth.user().onDelete((user) => {
 
 exports.deleteUser = functions.https.onRequest((data, res) => {
 	//get user and add custom claim
-	console.log(data.query.email)
+
 	return admin.auth().getUserByEmail(data.query.email).then((user) => {
-		console.log(user)
 		const uid = user.uid
 		return admin.auth().deleteUser(uid)
 	}).then(() => {

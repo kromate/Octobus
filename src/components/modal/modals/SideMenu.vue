@@ -56,7 +56,7 @@ export default {
 		close:{
 			type: Function,
 			required: true,
-			default: ()=>{console.log('defaulter')}
+			default: ()=>{}
 		}
 	},
 	setup(){
