@@ -50,11 +50,8 @@ export default {
 			default: ()=>{}
 		}
 	},
-	setup() {
+	setup(props) {
 
-
-
-	
 		return {
 
 
